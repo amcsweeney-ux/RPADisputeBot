@@ -1,0 +1,409 @@
+
+
+Sub DeleteREF_Column()
+
+
+    Columns("A:A").Select
+    Selection.Delete Shift:=xlToLeft
+
+  Columns("B:B").Select
+    Selection.ClearContents
+    Range("B1").Select
+    ActiveCell.FormulaR1C1 = "Offer"
+    Range("D11").Select
+End Sub
+
+Sub Mapping(CustomerRef, CusRefStart, CusRefEnd, OfferCode, ClaimReason, ClaimType As String)
+
+  lastRow = Cells(Rows.Count, 1).End(xlUp).row
+
+'check for filter, turn on if none exists
+  If Not ActiveSheet.AutoFilterMode Then
+    ActiveSheet.Range("A1").AutoFilter
+  End If
+Dim ws As Worksheet
+
+  'Set reference to the sheet in the workbook.
+  Set ws = ThisWorkbook.Worksheets("Uploader")
+  ws.Activate 'not required but allows user to view sheet if warning message appears
+  
+  'Clear any existing filters
+  On Error Resume Next
+    ws.ShowAllData
+  On Error GoTo 0
+  
+  lastRow = Cells(Rows.Count, 1).End(xlUp).row
+
+If CustomerRef <> "" Then
+
+ If OfferCode <> "" Then
+     '1. Apply Filter
+ws.Range("A1:J" & lastRow).AutoFilter Field:=1, Criteria1:=">=" & CusRefStart & "", Operator:=xlAnd, Criteria2:="<=" & CusRefEnd & ""
+     ws.Range("A1:J" & lastRow).AutoFilter Field:=3, Criteria1:="*" & OfferCode & ""
+     Else
+
+ '1. Apply Filter
+ws.Range("A1:J" & lastRow).AutoFilter Field:=1, Criteria1:=">=" & CusRefStart & "", Operator:=xlAnd, Criteria2:="<=" & CusRefEnd & ""
+    End If
+   Else
+   
+   If OfferCode <> "" Then
+     '1. Apply Filter
+     ws.Range("A1:J" & lastRow).AutoFilter Field:=3, Criteria1:="*" & OfferCode & ""
+Else
+
+ ws.Range("A1:J" & lastRow).AutoFilter Field:=1, Criteria1:="*" & CusRefStart & "", Operator:=xlAnd, Criteria1:="*" & CusRefEnd & ""
+
+End If
+       End If
+        
+        '2. Write Convert to
+  Application.DisplayAlerts = False
+  Dim myRange As Range
+
+On Error Resume Next
+  Set myRange = ws.Range("A2:BR" & lastRow).SpecialCells(xlCellTypeVisible)
+  On Error GoTo 0
+  If myRange Is Nothing Then
+  
+  Else
+Range("G2:G" & lastRow).SpecialCells(xlCellTypeVisible).FormulaR1C1 = ClaimType
+Range("H2:H" & lastRow).SpecialCells(xlCellTypeVisible).FormulaR1C1 = ClaimReason
+
+
+    End If
+  Application.DisplayAlerts = True
+  
+  '3. Clear Filter
+  On Error Resume Next
+    ws.ShowAllData
+  On Error GoTo 0
+
+End Sub
+
+
+
+
+Sub SKUMapping()
+ On Error GoTo ExitPoint
+
+    Sheets("Promo Lines").Select
+  lrow = Cells(Rows.Count, 1).End(xlUp).row
+  
+    Range("N1").Select
+    ActiveCell.FormulaR1C1 = "SKU"
+    Range("O1").Select
+    ActiveCell.FormulaR1C1 = "Product Group"
+    
+  
+    Range("N2").Select
+    ActiveCell.Formula = "=IF(I2="""","""",VLOOKUP(K2,'SKU Mapping'!A:D,2,0))"
+    Range("N2").Select
+    Range("N2").AutoFill Destination:=Range("J2:J" & lrow)
+    
+    Range("O2").Select
+    ActiveCell.Formula = "=IF(I2="""","""",VLOOKUP(K2,'SKU Mapping'!A:D,4,0))"
+    Range("O2").Select
+    Range("O2").AutoFill Destination:=Range("K2:K" & lrow)
+    
+ExitPoint:
+    Exit Sub
+    
+End Sub
+
+
+Sub TemplateCheck()
+
+ On Error GoTo ExitPoint
+ 
+Sheets("OfferCodes").Select
+lrow = Cells(Rows.Count, 1).End(xlUp).row
+
+Range("F:I").Select
+With Selection
+    .NumberFormat = "General"
+    .Value = .Value
+End With
+
+       
+        Range("K1").Value = "Offer Check"
+        Range("K2").Select
+    ActiveCell.Formula = _
+        "=IF(D2<>""No Offer Code"",""True"")"
+         If lrow > 2 Then
+       Range("K2").AutoFill Destination:=Range("K2:K" & lrow)
+       End If
+       
+        Range("L1").Value = "Checks"
+        Range("L2").Select
+    ActiveCell.Formula = _
+        "=IF(AND(F2<>"""",G2<>""NOT Found"",J2<>""""),""True"")"
+         If lrow > 2 Then
+       Range("L2").AutoFill Destination:=Range("L2:L" & lrow)
+       End If
+       
+        Range("M1").Value = "Result"
+        Range("M2").Select
+    ActiveCell.Formula = _
+        "=IF(AND(K2=""True"",L2=""True""),""True"")"
+         If lrow > 2 Then
+       Range("M2").AutoFill Destination:=Range("M2:M" & lrow)
+       End If
+       
+ExitPoint:
+    Exit Sub
+       
+End Sub
+
+
+
+
+Sub ResetFilter(SheetName As String)
+    On Error GoTo ExitPoint
+ 
+Dim ws As Worksheet
+
+  'Set reference to the sheet in the workbook.
+  Set ws = ThisWorkbook.Worksheets(SheetName)
+  ws.Activate 'not required but allows user to view sheet if warning message appears
+  
+  'Clear any existing filters
+  On Error Resume Next
+    ws.ShowAllData
+  On Error GoTo 0
+  
+ExitPoint:
+    Exit Sub
+    
+End Sub
+
+
+
+
+Function GetExcelTotal()
+
+    On Error GoTo ExitPoint
+GetExcelTotal = Application.WorksheetFunction.Sum(Range("Q:Q"))
+ExitPoint:
+    Exit Sub
+
+End Function
+
+
+
+
+
+
+Sub Promo_Validation_Template()
+
+        
+    On Error GoTo ExitPoint
+   Dim wb As Workbook
+    Set wb = ThisWorkbook
+    
+    ' Disable compatibility checker
+    wb.CheckCompatibility = False
+    
+    ' Optional: Save the workbook to apply the change
+    wb.Save
+
+
+Sheets("Accrual For Current Period").Select
+    Dim ws As Worksheet
+    Dim rng As Range
+    Dim cell As Range
+    
+lastRow = Cells(Rows.Count, 2).End(xlUp).row
+    ' Set the worksheet you want to format
+    Set ws = ThisWorkbook.Sheets("Accrual For Current Period") ' Change "Sheet1" to your sheet name
+    
+    ' Set the range you want to format
+    ' Here we assume dates are in columns A to R, adjust as needed
+    Set rng = ws.Range("A1:A" & lastRow)
+    
+    ' Loop through each cell in the range
+    For Each cell In rng
+        If IsDate(cell.Value) Then
+            cell.Value = Format(cell.Value, "m/d/yyyy")
+        End If
+    Next cell
+    
+    Columns("M:M").Select
+    Selection.ClearContents
+    Range("M1").Select
+    ActiveCell.FormulaR1C1 = "Per Product Price"
+    Range("M2").Select
+    Application.CutCopyMode = False
+    ActiveCell.FormulaR1C1 = "=Round(RC[-2]/RC[-7],2)"
+    Range("M2").Select
+    Selection.AutoFill Destination:=Range("M2:M" & lastRow)
+    
+    Columns("M:M").Select
+    Selection.Copy
+    Range("M1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+    Columns("P:P").Select
+    Application.CutCopyMode = False
+    Selection.Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
+    Range("P2").Select
+    ActiveCell.Formula = "=IFNA(VLOOKUP(Q2,SKUs!A:B,2,0),""MISSING"")"
+    Range("P2").Select
+    Selection.AutoFill Destination:=Range("P2:P" & lastRow)
+    Range("P1").Select
+    ActiveCell.FormulaR1C1 = "SKU"
+    
+    
+    '---------------------------------------
+
+'PURPOSE: Creates a brand new Pivot table on a new worksheet from data in the ActiveSheet
+'Source: www.TheSpreadsheetGuru.com
+
+lastRow = Cells(Rows.Count, 2).End(xlUp).row
+Dim sht As Worksheet
+Dim pvtCache As PivotCache
+Dim pvt As PivotTable
+Dim StartPvt As String
+Dim SrcData As String
+
+'Determine the data range you want to pivot
+  SrcData = ActiveSheet.Name & "!" & Range("A1:AA" & lastRow).Address(ReferenceStyle:=xlR1C1)
+
+
+  'Insert a New Blank Worksheet
+On Error Resume Next
+Application.DisplayAlerts = False
+Worksheets("PivotTable").Delete
+Sheets.Add Before:=ActiveSheet
+ActiveSheet.Name = "PivotTable"
+Application.DisplayAlerts = True
+Set PSheet = Worksheets("PivotTable")
+Set DSheet = Worksheets("Data")
+
+Sheets("Accrual For Current Period").Select
+'Where do you want Pivot Table to start?
+  StartPvt = PSheet.Name & "!" & PSheet.Range("A3").Address(ReferenceStyle:=xlR1C1)
+
+'Create Pivot Cache from Source Data
+  Set pvtCache = ActiveWorkbook.PivotCaches.Create( _
+    SourceType:=xlDatabase, _
+    SourceData:=SrcData)
+
+'Create Pivot table from Pivot Cache
+  Set pvt = pvtCache.CreatePivotTable( _
+    TableDestination:=StartPvt, _
+    TableName:="PivotTable1")
+    
+Sheets("PivotTable").Select
+    'Insert Row Fields
+With ActiveSheet.PivotTables("PivotTable1").PivotFields("Asin")
+.Orientation = xlRowField
+.Position = 1
+End With
+
+With ActiveSheet.PivotTables("PivotTable1").PivotFields("SKU")
+.Orientation = xlRowField
+.Position = 2
+End With
+
+With ActiveSheet.PivotTables("PivotTable1").PivotFields("Per Product Price")
+.Orientation = xlRowField
+.Position = 3
+End With
+
+    ActiveSheet.PivotTables("PivotTable1").AddDataField ActiveSheet.PivotTables( _
+        "PivotTable1").PivotFields("Quantity"), "Sum of Quantity", xlSum
+            ActiveSheet.PivotTables("PivotTable1").AddDataField ActiveSheet.PivotTables( _
+        "PivotTable1").PivotFields("Order Date"), "Count of Order Date", xlCount
+    With ActiveSheet.PivotTables("PivotTable1").PivotFields("Count of Order Date")
+        .Caption = "Min of Order Date"
+        .Function = xlMin
+    End With
+    ActiveSheet.PivotTables("PivotTable1").AddDataField ActiveSheet.PivotTables( _
+        "PivotTable1").PivotFields("Order Date"), "Count of Order Date", xlCount
+    With ActiveSheet.PivotTables("PivotTable1").PivotFields("Count of Order Date")
+        .Caption = "Max of Order Date"
+        .Function = xlMax
+    End With
+    Columns("E:F").Select
+    Application.CutCopyMode = False
+    Selection.NumberFormat = "m/d/yyyy"
+    
+    
+    
+    ActiveSheet.PivotTables("PivotTable1").RowAxisLayout xlTabularRow
+    ActiveSheet.PivotTables("PivotTable1").RepeatAllLabels xlRepeatLabels
+
+    ActiveSheet.PivotTables("PivotTable2").PivotFields("Asin").Orientation = _
+        xlHidden
+
+   Dim PvtTbl As PivotTable
+Dim pvtFld As PivotField
+
+Set PvtTbl = ActiveSheet.PivotTables(1)
+
+'hide Subtotals for all fields in the PivotTable .
+
+With PvtTbl
+ For Each pvtFld In .PivotFields
+ pvtFld.Subtotals(1) = True
+ pvtFld.Subtotals(1) = False
+Next pvtFld
+End With
+ExitPoint:
+    Exit Sub
+
+End Sub
+
+
+
+Sub DeletePivot()
+
+    On Error GoTo ExitPoint
+    Dim ws As Worksheet
+    
+    On Error Resume Next ' Ignore error if sheet doesn't exist
+    
+    ' Check if sheet named "Sheet2" exists
+    Set ws = ThisWorkbook.Sheets("PivotTable")
+    
+    ' Delete the sheet if it exists
+    If Not ws Is Nothing Then
+        Application.DisplayAlerts = False ' Turn off alerts to avoid delete confirmation prompt
+        ws.Delete
+        Application.DisplayAlerts = True ' Turn alerts back on
+    End If
+    
+ExitPoint:
+    Exit Sub
+
+End Sub
+
+
+
+
+
+
+Sub FormatDate()
+
+ On Error GoTo ExitPoint
+    Columns("H:H").Select
+    Selection.NumberFormat = "m/d/yyyy"
+    
+ExitPoint:
+    Exit Sub
+    
+
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+

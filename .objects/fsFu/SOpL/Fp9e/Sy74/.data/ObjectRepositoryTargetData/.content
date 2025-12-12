@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="xRKQbdGqb0u44X-ic4TjJA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="vendorcentral.amazon.com/hz/vendor/members/inv-mgmt/invoice-po-search" DesignTimeRectangle="1748, 527, 42, 15" ElementType="Button" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='INPUT' type='submit' /&gt;" Guid="405d24e3-6313-4561-ab89-2fa3f72fec15" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="9b5f2a879afd0761093c7b907f99fe31.png" xmlns="">04hucH9hOgE2IDAXpCMqbGw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

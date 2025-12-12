@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="atnPIjcdMUicDT2x1FW-CA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="vendorcentral.amazon.eu/hz/vendor/members/disputes" DesignTimeRectangle="704, 481, 257, 23" FuzzySelectorArgument="&lt;webctrl parentid='item-type' tag='SPAN' type='' class='a-button-inner' aaname='' matching:parentid='fuzzy' fuzzylevel:parentid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="e20cbc58-5bcf-4e51-844c-092e22eb7a2d" ImageBase64="" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon' /&gt;" SearchSteps="FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="7fa57a10ed2460cb44a1db52f920b1f9.png" xmlns="">0Z086E1107kyNN5FiWTrOuw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">SelectItem</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="TufiCxGSykqRULneh1Zbyg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="vendorcentral.amazon.eu/katalmonsapp/vendor/members/disputes/create" DesignTimeRectangle="1472, 783, 133, 21" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tag='KAT-INPUT' /&gt;&lt;webctrl class='ring' shadowhostid='*-dispute-amount' type='' tag='SPAN' aaname='' matching:class='fuzzy' fuzzylevel:class='0.0' matching:shadowhostid='fuzzy' fuzzylevel:shadowhostid='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="2e17d33c-432e-4953-9d58-d2d9ee079343" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon' /&gt;" SearchSteps="FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="a8f7aea2ea0787e8b3303e1d7527047a.png" xmlns="">0zGZH1xxJLE-I5r7m4_mmug</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">TypeInto</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

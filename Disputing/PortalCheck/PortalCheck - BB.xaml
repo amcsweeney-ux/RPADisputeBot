@@ -1,0 +1,335 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="PortalCheck" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="PortalCheck_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Core</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="PortalCheck" sap:VirtualizedContainerService.HintSize="1566,3043.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="LoginCheck" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:RetryScope LogRetriedExceptions="{x:Null}" RetriedExceptionsLogLevel="{x:Null}" DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="1092,3020.6666666666665" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:05">
+      <ui:RetryScope.ActivityBody>
+        <ActivityAction>
+          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Chrome Target Auth Services" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="1058,2734.6666666666665" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="97110fad-762b-4d58-b4a3-e2b7bfb35ff9" Version="V1" WindowResize="Maximize">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1024,2515.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="sd:DataTable" Name="dtMapping" />
+                    <Variable x:TypeArguments="sd:DataTable" Name="dtFilterMapping" />
+                    <Variable x:TypeArguments="x:Boolean" Name="AgreementPageFound" />
+                    <Variable x:TypeArguments="x:String" Name="getSecurityQuestion" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap:VirtualizedContainerService.HintSize="990,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Boolean">[LoginCheck]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="B29" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="990,148" sap2010:WorkflowViewState.IdRef="WriteCell_3" SheetName="Customer Mapping" WorkbookPath="Data\Mapping Table.xlsx">
+                    <ui:WriteCell.Text>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                    </ui:WriteCell.Text>
+                  </ui:WriteCell>
+                  <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dtMapping]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="990,120" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Customer Mapping" WorkbookPath="Data\Mapping Table.xlsx" />
+                  <ui:FilterDataTable DataTable="[dtMapping]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="990,196" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dtFilterMapping]" SelectColumnsMode="Keep">
+                    <ui:FilterDataTable.Filters>
+                      <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                        <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+                          <ui:FilterOperationArgument.Column>
+                            <InArgument x:TypeArguments="x:String">["Customer"]</InArgument>
+                          </ui:FilterOperationArgument.Column>
+                          <ui:FilterOperationArgument.Operand>
+                            <InArgument x:TypeArguments="x:String">["TARGET NORTHERN OPS CENTER"]</InArgument>
+                          </ui:FilterOperationArgument.Operand>
+                        </ui:FilterOperationArgument>
+                      </scg:List>
+                    </ui:FilterDataTable.Filters>
+                    <ui:FilterDataTable.SelectColumns>
+                      <scg:List x:TypeArguments="InArgument" Capacity="4">
+                        <x:Null />
+                      </scg:List>
+                    </ui:FilterDataTable.SelectColumns>
+                  </ui:FilterDataTable>
+                  <uix:NCheckState DisplayName="Check App State 'All Agreements'" Exists="[AgreementPageFound]" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="990,1124" sap2010:WorkflowViewState.IdRef="NCheckState_3" ScopeIdentifier="97110fad-762b-4d58-b4a3-e2b7bfb35ff9" Timeout="10" Version="V1">
+                    <uix:NCheckState.IfExists>
+                      <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,870.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:String" Name="getQuestionAnswer" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ContinueOnError="True" DisplayName="Type Into 'Email Address *'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="HardwareEvents" ScopeIdentifier="97110fad-762b-4d58-b4a3-e2b7bfb35ff9" Text="[dtFilterMapping(0)(&quot;Portal Username&quot;).toString]" Version="V1">
+                          <uix:NTypeInto.Target>
+                            <uix:TargetAnchorable BrowserURL="enabletrading.com/scripts/tg_prod.wsp/bby-apv-doc-search.htm" DesignTimeRectangle="566, 343, 188, 16" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='text' tag='INPUT' class='' aaname='' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="155285db-402b-4ef5-b70e-6f3c91a9e201" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMAAAAAUCAYAAADbczI+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAABeSURBVGhD7dOxDcAwDAQxT631k84wAmeCI4FvVOvWA2Hre4CSHcDMmGV2DQAKBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApP0GYFaZACy9awBQcP76CwmQDaPKKoSeAAAAAElFTkSuQmCC" InformativeScreenshot="551a414148f0e48ab5e1ffcb0ff06947.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='EasyLink Login' /&gt;" SearchSteps="FuzzySelector, Image" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                  <uix:Target DesignTimeRectangle="515, 345, 51, 12" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='STRONG' class='' aaname='User Id: ' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='User Id:' /&gt;" Guid="8de6ca9f-0963-4de1-93d7-25093f8680b0" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADcAAAAQCAYAAACycufIAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAADqSURBVEhL7ZTRDYQgDIbdqdPIILwQhzFMYuIkJszRC2K5WhpivPMB4p/0QSr9+xV0wA5lrd1jkIkeFMGiXrjW1B7c4hAA0MxBZgopcAH9CAjgcKWlzaMBQJjyygMi32+4Rb7TLFzSOkVvg36TmUPPw63o2IR5M2E2+vSpqclVB6XCHXt5ZLgK7C241IBybU5Goo5s8DLcMcjR496+hJHPTLfg8rM4OXlqPFdrgquAk94X60QpcKUBNa0VPOVqxrUck/TOcP85uajyz8U307XMQcbKNyevpdZEUulJ176s+RNcH3rhWlX3cDE+dnRsFFkhaQcAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NTypeInto.Target>
+                          <uix:NTypeInto.VerifyOptions>
+                            <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                              <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                <InArgument x:TypeArguments="x:Boolean" />
+                              </uix:VerifyExecutionTypeIntoOptions.Retry>
+                              <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                <InArgument x:TypeArguments="x:Double" />
+                              </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                            </uix:VerifyExecutionTypeIntoOptions>
+                          </uix:NTypeInto.VerifyOptions>
+                        </uix:NTypeInto>
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Password *'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_2" InteractionMode="HardwareEvents" ScopeIdentifier="97110fad-762b-4d58-b4a3-e2b7bfb35ff9" Text="[dtFilterMapping(0)(&quot;Portal Password&quot;).toString]" Version="V1">
+                          <uix:NTypeInto.Target>
+                            <uix:TargetAnchorable BrowserURL="enabletrading.com/scripts/tg_prod.wsp/bby-apv-doc-search.htm" DesignTimeRectangle="566, 359, 188, 16" ElementType="InputBoxPassword" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='password' tag='INPUT' class='' aaname='' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="7d57e22c-e3fc-44e7-9b9f-0f1055f4ced7" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMAAAAAUCAYAAADbczI+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAABhSURBVGhD7dNBCoAwEATBvHq/rxeFgPoBuwoGwp7T67jMzP2EX9v/+tqPZpUJwNJ7DQAKBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApH0GYFbZIwAoEgBpJ+1bDaNEwMYRAAAAAElFTkSuQmCC" InformativeScreenshot="01bd934e787f83c9638502dc5c39de80.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='EasyLink Login' /&gt;" SearchSteps="FuzzySelector, Image" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                  <uix:Target DesignTimeRectangle="502, 361, 64, 12" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='STRONG' class='' aaname='Password: ' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='Password:' /&gt;" Guid="6bca08e4-6fca-4a6a-907a-cb5ab1b55d6e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEQAAAAQCAYAAACvDNlTAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAE5SURBVFhH7ZfbrYQgEIbtiWqgAEvwhWwxGyoxsRIT65jNcBHmF/ScrA/nRP6E7ILMhY8ZEwcionEc+efRmqbJj4EnHUgAwupAojoQ0DOAzJaUUmTeGz456AhkdWSU8g72oR1du/rDugXIawk7orN9/h91K5A0j1WyvU27ehI8fFZd38hpnhtyK29ayBZxl1fYa+fgGuPuh9vztcG+FbO0OQF0DeTEWCYdD6QsyVpqrWff3p7/a0PG70uwog3kIOJii3sgMSbA+Q5IOcp2qZBv3eJ1VeWq4EPamUEYcrO8lGSPcfyB8AJZuHYCANUGUn1nSPKYaBa2Q3vd37a2ZBnEGuZGg9+fVEgNyK0VUgWSkymHbJk8QsDWelSquEPvyxbDKju+Q2S+uF/Y/ArIw9WBgDoQUAcCSp//H4E4JOxxBWqHAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NTypeInto.Target>
+                          <uix:NTypeInto.VerifyOptions>
+                            <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                              <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                <InArgument x:TypeArguments="x:Boolean" />
+                              </uix:VerifyExecutionTypeIntoOptions.Retry>
+                              <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                <InArgument x:TypeArguments="x:Double" />
+                              </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                            </uix:VerifyExecutionTypeIntoOptions>
+                          </uix:NTypeInto.VerifyOptions>
+                        </uix:NTypeInto>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Login'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,222.66666666666666" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="97110fad-762b-4d58-b4a3-e2b7bfb35ff9" Version="V1">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="enabletrading.com/scripts/tg_prod.wsp/bby-apv-doc-search.htm" DesignTimeRectangle="651, 447, 51, 14" ElementType="Button" FullSelectorArgument="&lt;webctrl tableRow='7' tag='TABLE' /&gt;&lt;webctrl id='buttLog' tableRow='1' tag='INPUT' /&gt;" Guid="5fe7b8fc-811c-4112-b760-b268fddf675d" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADcAAAASCAYAAAD/ukbDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAD7SURBVFhH5ZaxDYMwEEU9DwMwQwagylaU9CxAScUANBT0SIgJENQ/OmIDtnFQwAbFOelLyHfY9/yNBYPHwdQBn2KGi6LICwVBsA0XPp4/L8aWw/jvcCnKAcBQI9Zy34jPgw6ZlrOnm+COKWuBvkq1cZOswdHCc6zycTWuEhTkluycqOkHUTuiTNS1SQUaaR41L8sK3Ls50RBvoC0QJjV68TxvwAc4coW/s+fQejObXM+TrMAtTSs1eSctvgc31SkbYtJlcHvOCRfOw11xLNfBQU3fnDQ+xXE4xxfKGW277lLO4WTnTLegGzmHu1ObcPTDSQkfpMH5GF7DvQC3jD6nov7/pAAAAABJRU5ErkJggg==" InformativeScreenshot="1f201bc956f1e79e246138ecdb3e189c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='EasyLink Login' /&gt;" SearchSteps="Selector, Image" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
+                          </uix:NClick.Target>
+                          <uix:NClick.VerifyOptions>
+                            <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                              <uix:VerifyExecutionOptions.Retry>
+                                <InArgument x:TypeArguments="x:Boolean" />
+                              </uix:VerifyExecutionOptions.Retry>
+                              <uix:VerifyExecutionOptions.Timeout>
+                                <InArgument x:TypeArguments="x:Double" />
+                              </uix:VerifyExecutionOptions.Timeout>
+                            </uix:VerifyExecutionOptions>
+                          </uix:NClick.VerifyOptions>
+                        </uix:NClick>
+                      </Sequence>
+                    </uix:NCheckState.IfExists>
+                    <uix:NCheckState.IfNotExists>
+                      <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,93.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </uix:NCheckState.IfNotExists>
+                    <uix:NCheckState.Target>
+                      <uix:TargetAnchorable BrowserURL="enabletrading.com/scripts/tg_prod.wsp/bby-apv-doc-search.htm" DesignTimeRectangle="515, 345, 51, 12" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='STRONG' class='' aaname='User Id: ' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='User Id:' /&gt;" Guid="e6ff5548-4ae9-400e-9272-11517396f8b1" InformativeScreenshot="d221c275a6a4ef891a55570e6694fd51.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='EasyLink Login' /&gt;" SearchSteps="FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
+                    </uix:NCheckState.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NCheckState>
+                  <uix:NCheckState DisplayName="Check App State 'All Agreements'" Exists="[AgreementPageFound]" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="990,747.3333333333334" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="97110fad-762b-4d58-b4a3-e2b7bfb35ff9" Timeout="10" Version="V1">
+                    <uix:NCheckState.IfExists>
+                      <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="468,500.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="B29" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="434,148" sap2010:WorkflowViewState.IdRef="WriteCell_2" SheetName="Customer Mapping" Text="TRUE" WorkbookPath="Data\Mapping Table.xlsx" />
+                        <Assign sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_5">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[LoginCheck]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,172.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;BB Login Success&quot;]" />
+                      </Sequence>
+                    </uix:NCheckState.IfExists>
+                    <uix:NCheckState.IfNotExists>
+                      <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="468,321.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="B29" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="434,148" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="Customer Mapping" Text="Failed" WorkbookPath="Data\Mapping Table.xlsx" />
+                        <Assign sap:VirtualizedContainerService.HintSize="434,110.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_6">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[LoginCheck]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </uix:NCheckState.IfNotExists>
+                    <uix:NCheckState.Target>
+                      <uix:TargetAnchorable BrowserURL="enabletrading.com/scripts/tg_prod.wsp/logon.htm" DesignTimeRectangle="62, 345, 152, 11" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='A' class='homelink' aaname='AP Visibility: US Merchandise AP' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='AP Visibility: US Merchandise AP' /&gt;" Guid="a185881c-a8b1-48fb-abfc-96eb23cadb23" InformativeScreenshot="d59043f34631437536e5ff52fd951216.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='EasyLink Home Page' /&gt;" SearchSteps="FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
+                    </uix:NCheckState.Target>
+                  </uix:NCheckState>
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="82, 191, 1279, 751" BrowserType="Chrome" ContentHash="Zx4k9WDAjEOfH7BJp4EYeQ" IconBase64="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" InformativeScreenshot="1c4fd8721ff98bc72ceb5a7fe128fcbe.jpg" Selector="&lt;html app='chrome.exe' title='EasyLink Login' /&gt;" Url="https://www.enabletrading.com/scripts/tg_prod.wsp/bby-apv-doc-search.htm?sid=jcjaHcKDcTSpQSjy4821" />
+            </uix:NApplicationCard.TargetApp>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </uix:NApplicationCard>
+        </ActivityAction>
+      </ui:RetryScope.ActivityBody>
+      <ui:RetryScope.Condition>
+        <ActivityFunc x:TypeArguments="x:Boolean">
+          <ui:CheckTrue ErrorMessage="{x:Null}" DisplayName="Check True" Expression="[LoginCheck]" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="CheckTrue_1" />
+        </ActivityFunc>
+      </ui:RetryScope.Condition>
+    </ui:RetryScope>
+  </Sequence>
+</Activity>

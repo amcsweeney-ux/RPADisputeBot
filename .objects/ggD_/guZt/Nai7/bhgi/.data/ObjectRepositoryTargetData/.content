@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="QqWsdME5t0mAFU_LbD6RIA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="retaillink2.wal-mart.com/apdp/CreateDisputes" DesignTimeRectangle="165, 511, 11, 11" ElementType="CheckBox" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='5' tag='INPUT' /&gt;" Guid="18259974-dab9-4890-b56a-ab04590d1e41" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Disputes Management' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="5c3b2c0f9f9e8a6f2ee47bb966a3473f.png" xmlns="">0_XrQDYO9UUCdagqo-aBnQg</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

@@ -1,0 +1,2715 @@
+Sub BBWriteRemitNumber(RemitNumber As String)
+
+    On Error GoTo ExitPoint
+lastRow = Cells(Rows.Count, 1).End(xlUp).Row
+
+    Columns("A:A").Select
+    Selection.Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
+
+  
+    Range("A2").Select
+    ActiveCell.FormulaR1C1 = RemitNumber
+    Range("A2").Select
+
+If lastRow > 2 Then
+    Range("A2:A" & lastRow).FormulaR1C1 = RemitNumber
+End If
+
+ExitPoint:
+    Exit Sub
+End Sub
+
+
+
+Sub ShiftAndCalculate()
+    On Error GoTo ExitPoint
+    Dim ws As Worksheet
+    Dim lastRow As Long
+    Dim i As Long
+    Dim valH As Variant, valI As Variant
+
+    Set ws = ActiveSheet
+    lastRow = ws.Cells(ws.Rows.Count, "H").End(xlUp).Row
+
+    For i = 1 To lastRow ' Assuming headers in row 1
+        valH = ws.Cells(i, "H").Value
+        valI = ws.Cells(i, "I").Value
+        valJ = ws.Cells(i, "J").Value
+
+        If Not IsNumeric(valH) Then
+            ' Shift I and J left to H and I
+            ws.Cells(i, "H").Value = valI
+            ws.Cells(i, "I").Value = ws.Cells(i, "J").Value
+            ws.Cells(i, "J").ClearContents
+             ws.Cells(i, "J").Value = valJ * valI
+     
+        End If
+    Next i
+    
+ExitPoint:
+    Exit Sub
+End Sub
+
+
+Sub ConvertTextToDateFormat()
+
+    On Error GoTo ExitPoint
+    
+    
+    Dim ws As Worksheet
+    Set ws = ThisWorkbook.Sheets("Detail") ' Change "Sheet1" to your sheet name if different
+    
+    With ws.Columns("D") ' Column D
+        .TextToColumns _
+            Destination:=.Cells(1, 1), _
+            DataType:=xlDelimited, _
+            TextQualifier:=xlDoubleQuote, _
+            ConsecutiveDelimiter:=False, _
+            Tab:=False, _
+            Semicolon:=False, _
+            Comma:=False, _
+            Space:=False, _
+            Other:=False, _
+            FieldInfo:=Array(1, 3) ' 3 = MDY (Month-Day-Year format)
+    End With
+    
+
+ExitPoint:
+    Exit Sub
+    
+End Sub
+
+
+Sub StaplesConvertTextToDateFormat()
+
+
+    On Error GoTo ExitPoint
+
+    Dim ws As Worksheet
+    Set ws = ThisWorkbook.Sheets("Sheet1") ' Change "Sheet1" to your sheet name if different
+    
+    With ws.Columns("D") ' Column D
+        .TextToColumns _
+            Destination:=.Cells(1, 1), _
+            DataType:=xlDelimited, _
+            TextQualifier:=xlDoubleQuote, _
+            ConsecutiveDelimiter:=False, _
+            Tab:=False, _
+            Semicolon:=False, _
+            Comma:=False, _
+            Space:=False, _
+            Other:=False, _
+            FieldInfo:=Array(1, 3) ' 3 = MDY (Month-Day-Year format)
+    End With
+    
+    
+ExitPoint:
+    Exit Sub
+    
+End Sub
+
+
+Sub Merge_Sheets()
+
+    On Error GoTo ExitPoint
+
+Dim startRow, startCol, lastRow, lastCol As Long
+Dim headers As Range
+
+On Error Resume Next
+Application.DisplayAlerts = False
+Worksheets("Master").Delete
+Sheets.Add Before:=ActiveSheet
+ActiveSheet.Name = "Master"
+Application.DisplayAlerts = True
+'Set Master sheet for consolidation
+Set mtr = Worksheets("Master")
+
+Set wb = ThisWorkbook
+
+startRow = 1
+startCol = 1
+
+Debug.Print startRow, startCol
+'loop through all sheets
+For Each ws In wb.Worksheets
+     'except the master sheet from looping
+     If ws.Name <> "Master" Then
+        ws.Activate
+        lastRow = Cells(Rows.Count, startCol).End(xlUp).Row
+        lastCol = Cells(startRow, Columns.Count).End(xlToLeft).Column
+        'get data from each worksheet and copy it into Master sheet
+'        Range(Cells(startRow, startCol), Cells(lastRow, lastCol)).Copy _
+'        mtr.Range("A" & mtr.Cells(Rows.Count, 1).End(xlUp).Row + 1)
+ Range(Cells(startRow, startCol), Cells(lastRow, lastCol)).Select
+  Selection.Copy
+ Sheets("Master").Select
+    Range("A" & Cells(Rows.Count, 1).End(xlUp).Row + 1).Select
+     Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+           End If
+Next ws
+
+Worksheets("Master").Activate
+
+ Sheets("Master").Select
+lastRow = Cells(Rows.Count, 1).End(xlUp).Row
+ 
+
+  'Set reference to the sheet in the workbook.
+  Set ws = ThisWorkbook.Worksheets("Master")
+  ws.Activate 'not required but allows user to view sheet if warning message appears
+  
+  'Clear any existing filters
+  On Error Resume Next
+    ws.ShowAllData
+  On Error GoTo 0
+  
+    '1. Apply Filter
+       Dim rng As Range, c As Collection
+    Dim r As Range, v As String, n As Long
+    Dim i As Long, arr
+    
+    Set rng = Range("A1:A" & lastRow)
+    Set c = New Collection
+    
+    For Each r In rng
+        v = r.Value
+        If v <> "B & M" And v <> "Dotcom" Then
+            On Error Resume Next
+                c.Add v, CStr(v)
+            On Error GoTo 0
+        End If
+    Next r
+    
+    n = c.Count
+    
+    ReDim arr(1 To n)
+    For i = 1 To n
+        arr(i) = c.Item(i)
+    Next i
+    
+        ActiveSheet.Range("$A$1:$Z$" & lastRow).AutoFilter Field:=1, Criteria1:=(arr), Operator:=xlFilterValues
+
+        
+    
+
+       
+        '2. Delete Rows
+  Application.DisplayAlerts = False
+  Dim myRange As Range
+
+On Error Resume Next
+  Set myRange = ws.Range("A2:F" & lastRow).SpecialCells(xlCellTypeVisible)
+  On Error GoTo 0
+  If myRange Is Nothing Then
+  
+  Else
+
+    Range("B2:B" & lastRow).SpecialCells(xlCellTypeVisible).Delete
+
+End If
+
+  On Error Resume Next
+    ws.ShowAllData
+  On Error GoTo 0
+  
+  
+ExitPoint:
+    Exit Sub
+
+End Sub
+
+
+
+
+Sub DeleteAllExceptOpenClaims()
+
+
+    On Error GoTo ExitPoint
+    
+    Dim ws As Worksheet
+    Dim SheetName As String
+    
+    ' Define the name of the sheet to keep
+    SheetName = "OpenClaims"
+    
+    ' Loop through each worksheet in the workbook
+    Application.DisplayAlerts = False ' Disable the warning when deleting sheets
+    For Each ws In ThisWorkbook.Worksheets
+        ' Check if the sheet is not the one to keep
+        If ws.Name <> SheetName Then
+            ws.Delete
+        End If
+    Next ws
+    Application.DisplayAlerts = True ' Re-enable the alerts
+    
+    
+    
+ExitPoint:
+    Exit Sub
+    
+    
+End Sub
+
+
+Sub DeleteBackupTab()
+
+
+    Dim deletion As Worksheet
+    Application.DisplayAlerts = False
+    Err.Clear
+    On Error Resume Next
+    Set deletion = Sheets("Backup Data")
+    If Err <> 0 Then
+    Else
+    deletion.Delete
+    End If
+
+End Sub
+
+
+Sub DeleteRebate()
+
+    Dim deletion As Worksheet
+    Application.DisplayAlerts = False
+    Err.Clear
+    On Error Resume Next
+    Set deletion = Sheets("RebateFile")
+    If Err <> 0 Then
+    Else
+    deletion.Delete
+    End If
+
+End Sub
+
+Sub WriteTotal()
+ On Error GoTo ErrHandler
+        Sheets("Front Sheet").Select
+       
+
+ Range("H1") = Application.WorksheetFunction.Sum(Range("I:I"))
+GoTo endProc
+ErrHandler:
+    Range("H1").Value = "Error"
+        
+        
+endProc:
+
+End Sub
+
+
+
+
+
+Sub GetFormat(StartDate, EndDate As String)
+
+    On Error GoTo ExitPoint
+    
+
+lastRow = Cells(Rows.Count, 1).End(xlUp).Row
+    Columns("A:A").Select
+    Selection.Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
+    Range("A2").Select
+    ActiveCell.Formula = "=TEXTJOIN("";"",TRUE,B2:AZ2)"
+    Range("A2").Select
+    Selection.AutoFill Destination:=Range("A2:A" & lastRow)
+    
+    Columns("A:A").Select
+    Selection.Copy
+    Sheets("Master").Select
+    Columns("A:A").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Sheets("Sheet1").Select
+    Sheets("Master").Select
+    Columns("A:A").EntireColumn.AutoFit
+    Range("A2").Select
+    
+    Columns("A:A").Select
+    Selection.Copy
+    Sheets("Sheet1").Select
+    Range("A1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+        
+    Range("B2").Select
+    Application.CutCopyMode = False
+    ActiveCell.FormulaR1C1 = "=SUBSTITUTE(RC[-1],CHAR(10),"", "")"
+    Range("B2").Select
+    Selection.AutoFill Destination:=Range("B2:B" & lastRow)
+    Range("B2:B" & lastRow).Select
+    Selection.Copy
+    
+    Range("B2").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+    Columns("A:A").Select
+    Application.CutCopyMode = False
+    Selection.Delete Shift:=xlToLeft
+    Columns("A:A").Select
+    Selection.TextToColumns Destination:=Range("A1"), DataType:=xlDelimited, _
+        TextQualifier:=xlDoubleQuote, ConsecutiveDelimiter:=False, Tab:=False, _
+        Semicolon:=False, Comma:=False, Space:=False, Other:=True, OtherChar _
+        :=";", FieldInfo:=Array(Array(1, 1), Array(2, 1), Array(3, 1), Array(4, 1), Array(5, _
+        1), Array(6, 1), Array(7, 1), Array(8, 1), Array(9, 1), Array(10, 1)), _
+        TrailingMinusNumbers:=True
+    Columns("I:I").EntireColumn.AutoFit
+    Columns("I:I").Select
+
+
+      lastRow = Cells(Rows.Count, 1).End(xlUp).Row
+
+    Range("K1:K" & lastRow).Value = StartDate
+    Range("L1:L" & lastRow).Value = EndDate
+    
+    
+ExitPoint:
+    Exit Sub
+End Sub
+
+
+Sub AddLine()
+
+    On Error GoTo ExitPoint
+
+Rows(1).Insert
+
+
+ExitPoint:
+    Exit Sub
+
+End Sub
+
+Function SumBackupTotal() As String
+SumBackupTotal = Application.WorksheetFunction.Sum(Range("J:J"))
+End Function
+
+
+Sub BestBuyDeleteRowsWithZeroQty()
+
+
+    On Error GoTo ExitPoint
+    Dim ws As Worksheet
+    Dim lastRow As Long
+    Dim i As Long
+
+    ' Set the worksheet
+    Set ws = ThisWorkbook.Sheets("Sheet1") ' Change "Sheet1" to your actual sheet name
+
+    ' Find the last row in the sheet based on Column H
+    lastRow = ws.Cells(ws.Rows.Count, "H").End(xlUp).Row
+
+    ' Loop through each row starting from the bottom
+    For i = lastRow To 2 Step -1 ' Assuming row 1 has headers
+        If ws.Cells(i, "H").Value = 0 Then
+            ws.Rows(i).Delete
+        End If
+    Next i
+    
+ExitPoint:
+    Exit Sub
+
+
+End Sub
+
+
+
+Function DeleteAllExceptBackup(ExceptSheetName As String)
+
+    On Error GoTo ExitPoint
+    Dim ws As Worksheet
+    Dim SheetName As String
+    
+    ' Define the name of the sheet to keep
+    SheetName = ExceptSheetName
+    
+    ' Loop through each worksheet in the workbook
+    Application.DisplayAlerts = False ' Disable the warning when deleting sheets
+    For Each ws In ThisWorkbook.Worksheets
+        ' Check if the sheet is not the one to keep
+        If ws.Name <> SheetName Then
+            ws.Delete
+        End If
+    Next ws
+    Application.DisplayAlerts = True ' Re-enable the alerts
+    
+ExitPoint:
+    Exit Function
+End Function
+
+
+
+
+
+
+
+
+
+Sub ResetFilter(SheetName As String)
+
+    On Error GoTo ExitPoint
+ 
+Dim ws As Worksheet
+
+  'Set reference to the sheet in the workbook.
+  Set ws = ThisWorkbook.Worksheets(SheetName)
+  ws.Activate 'not required but allows user to view sheet if warning message appears
+  
+  'Clear any existing filters
+  On Error Resume Next
+    ws.ShowAllData
+  On Error GoTo 0
+  
+  
+ExitPoint:
+    Exit Sub
+  
+  
+End Sub
+
+
+
+
+
+Function GetExcelTotal()
+
+    On Error GoTo ExitPoint
+
+GetExcelTotal = Application.WorksheetFunction.Sum(Range("Q:Q"))
+
+ExitPoint:
+    Exit Function
+
+End Function
+
+
+
+
+
+
+
+Sub RemaingAccrual()
+
+    On Error GoTo ExitPoint
+
+Sheets("Offer Accrual").Select
+   lastRow = Cells(Rows.Count, 5).End(xlUp).Row
+   
+    ' Define the range you want to check (adjust as needed)
+    Set rng = Range("K2:L" & lastRow) ' Change to your actual range
+
+    For Each cell In rng
+        If LCase(Trim(cell.Value)) = "null" Or LCase(Trim(cell.Value)) = "(null)" Or LCase(Trim(cell.Value)) = "" Then
+            cell.Value = 0
+        End If
+    Next cell
+
+    Range("P1").Select
+    ActiveCell.FormulaR1C1 = "Remaining"
+    Range("P2").Select
+    Application.CutCopyMode = False
+    ActiveCell.Formula = "=K2-L2"
+    Range("P2").Select
+    
+If lastRow > 2 Then
+    Selection.AutoFill Destination:=Range("P2:P" & lastRow)
+End If
+
+
+    Range("Q1").Select
+    ActiveCell.FormulaR1C1 = "Remaing w/ Claim"
+    Range("Q2").Select
+    Application.CutCopyMode = False
+    ActiveCell.Formula = "=P2-SUMIF('Claim with Offer'!E:E,'Offer Accrual'!E2,'Claim with Offer'!C:C)"
+    Range("Q2").Select
+    
+If lastRow > 2 Then
+    Selection.AutoFill Destination:=Range("Q2:Q" & lastRow)
+End If
+
+    Columns("P:Q").Select
+    Selection.Copy
+    Range("P1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+        
+        
+ExitPoint:
+    Exit Sub
+
+End Sub
+
+
+
+Sub WriteRefNumbers(ByVal ClaimNum As String, ByVal RemitNumber As String, ByVal CusName As String)
+
+    On Error GoTo ExitPoint
+
+    Dim ws As Worksheet
+    Dim lastRow As Long
+
+    Set ws = ThisWorkbook.Sheets("Validation")
+
+    With ws
+        lastRow = .Cells(.Rows.Count, 4).End(xlUp).Row
+        
+        ' Headers
+        .Range("W7").Value = "Claim Number"
+        .Range("X7").Value = "Cus Ref Num"
+        
+        ' Write ClaimNum and RemitNumber to column W and X respectively
+        If lastRow > 7 Then
+            .Range("W8:W" & lastRow).Value = ClaimNum
+            .Range("X8:X" & lastRow).Value = RemitNumber
+        End If
+
+        ' Customer name
+        .Range("B1").Value = CusName
+    End With
+    
+    
+ExitPoint:
+    Exit Sub
+End Sub
+
+
+
+Sub WriteTargetClaimNumber(RemitNumber, ClaimsNum As String)
+
+    On Error GoTo ExitPoint
+
+  lastRow = Cells(Rows.Count, 2).End(xlUp).Row
+
+
+If lastRow > 2 Then
+    Range("H2:H" & lastRow).FormulaR1C1 = RemitNumber
+Else
+ Range("H2").Select
+    ActiveCell.FormulaR1C1 = RemitNumber
+End If
+
+ 
+If lastRow > 2 Then
+    Range("I2:I" & lastRow).FormulaR1C1 = ClaimsNum
+Else
+ Range("I2").Select
+    ActiveCell.FormulaR1C1 = ClaimsNum
+End If
+
+ExitPoint:
+    Exit Sub
+
+
+End Sub
+
+
+
+Sub WriteRemitClaimNumber(CusName, ClaimNum, RemitNumber As String)
+
+    On Error GoTo ExitPoint
+
+  lastRow = Cells(Rows.Count, 6).End(xlUp).Row
+
+
+ Range("B7").Select
+    ActiveCell.FormulaR1C1 = "Cus Ref Num"
+If lastRow > 8 Then
+    Range("B8:B" & lastRow).FormulaR1C1 = RemitNumber
+Else
+ Range("B8").Select
+    ActiveCell.FormulaR1C1 = RemitNumber
+End If
+
+ 
+ Range("C7").Select
+    ActiveCell.FormulaR1C1 = "Claim Num"
+If lastRow > 8 Then
+    Range("C8:C" & lastRow).FormulaR1C1 = ClaimNum
+Else
+ Range("C8").Select
+    ActiveCell.FormulaR1C1 = ClaimNum
+End If
+
+ Range("A7").Select
+    ActiveCell.FormulaR1C1 = "Cus Name"
+If lastRow > 8 Then
+    Range("A8:A" & lastRow).FormulaR1C1 = CusName
+Else
+ Range("A8").Select
+    ActiveCell.FormulaR1C1 = CusName
+End If
+
+ExitPoint:
+    Exit Sub
+
+End Sub
+
+
+
+Sub TargetWriteDates(strStartDate, strEndDate As String)
+
+    On Error GoTo ExitPoint
+
+Rows(1).Delete
+
+  lastRow = Cells(Rows.Count, 2).End(xlUp).Row
+
+
+If lastRow > 2 Then
+    Range("H2:H" & lastRow).FormulaR1C1 = strStartDate
+Else
+ Range("H2").Select
+    ActiveCell.FormulaR1C1 = strStartDate
+End If
+
+ 
+If lastRow > 2 Then
+    Range("I2:I" & lastRow).FormulaR1C1 = strEndDate
+Else
+ Range("I2").Select
+    ActiveCell.FormulaR1C1 = strEndDate
+End If
+
+
+Rows(lastRow).Delete
+  Columns("H:H").Select
+    Selection.NumberFormat = "m/d/yyyy"
+    
+ExitPoint:
+    Exit Sub
+
+End Sub
+
+Sub TargetVlookupSKU()
+
+    On Error GoTo ExitPoint
+
+ Columns(2).Select
+    Selection.Replace What:="-", Replacement:="", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False, FormulaVersion:=xlReplaceFormula2
+
+ Range("A1").Select
+    ActiveCell.FormulaR1C1 = "SKU"
+
+lastRow = Cells(Rows.Count, 2).End(xlUp).Row
+
+
+If lastRow > 2 Then
+    Range("A2:A" & lastRow).Formula = "=VLOOKUP(B2,SKUs!A:B,2,0)"
+Else
+ Range("A2").Select
+    ActiveCell.Formula = "=VLOOKUP(B2,SKUs!A:B,2,0)"
+End If
+
+
+ Dim ws As Worksheet
+    Dim i As Long
+
+    ' Set your worksheet
+    Set ws = ThisWorkbook.Sheets("Sheet1") ' Change as needed
+
+    ' Find the last used row in Column A
+    lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+
+    ' Loop through each row
+    For i = 1 To lastRow
+        ' Check if cell in Column A is #N/A
+        If IsError(ws.Cells(i, "A").Value) Then
+            If ws.Cells(i, "A").Value = CVErr(xlErrNA) Then
+                ' Remove all dashes in the corresponding Column B cell
+                With ws.Cells(i, "T")
+                    .Value = Replace(.Value, "-", "")
+                End With
+            End If
+        End If
+    Next i
+
+
+ Columns("A:A").Select
+    Selection.Copy
+    Range("A1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+ExitPoint:
+    Exit Sub
+
+End Sub
+
+
+Sub TargetVlookupSKU2()
+
+    On Error GoTo ExitPoint
+
+ Columns(2).Select
+    Selection.Replace What:="-", Replacement:="", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False, FormulaVersion:=xlReplaceFormula2
+
+ Range("A1").Select
+    ActiveCell.FormulaR1C1 = "SKU"
+
+lastRow = Cells(Rows.Count, 2).End(xlUp).Row
+
+
+If lastRow > 2 Then
+    Range("A2:A" & lastRow).Formula = "=VLOOKUP(T2,SKUs!A:B,2,0)"
+Else
+ Range("A2").Select
+    ActiveCell.Formula = "=VLOOKUP(T2,SKUs!A:B,2,0)"
+End If
+
+    Dim ws As Worksheet
+    Dim i As Long
+
+    ' Set your worksheet
+    Set ws = ThisWorkbook.Sheets("Sheet1") ' Change as needed
+
+    ' Find the last used row in Column A
+    lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+
+    ' Loop through each row
+    For i = 1 To lastRow
+        ' Check if cell in Column A is #N/A
+        If IsError(ws.Cells(i, "A").Value) Then
+            If ws.Cells(i, "A").Value = CVErr(xlErrNA) Then
+                ' Remove all dashes in the corresponding Column B cell
+                With ws.Cells(i, "T")
+                    .Value = Replace(.Value, "-", "")
+                End With
+            End If
+        End If
+    Next i
+
+
+ Columns("A:A").Select
+    Selection.Copy
+    Range("A1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+ExitPoint:
+    Exit Sub
+
+End Sub
+
+Sub DeleteSKUSheet()
+
+ Dim deletion As Worksheet
+    Application.DisplayAlerts = False
+    Err.Clear
+    On Error Resume Next
+    Set deletion = Sheets("SKUs")
+    If Err <> 0 Then
+    Else
+    deletion.Delete
+    End If
+
+End Sub
+
+
+
+Function BotImportPDF(ImportFileName As String) As String
+
+
+    On Error GoTo ExitPoint
+
+Dim q As WorkbookQuery
+    For Each q In ActiveWorkbook.Queries
+            q.Delete
+    Next
+
+   Dim deletion As Worksheet
+    Application.DisplayAlerts = False
+    Err.Clear
+    On Error Resume Next
+    Set deletion = Sheets("Page001")
+    If Err <> 0 Then
+    Else
+    deletion.Delete
+    End If
+
+'1. First, we declare two variables of type String, a Worksheet object and one variable of type Integer.
+
+Dim directory As String, FileName As String, Sheet As Worksheet, total As Integer
+'2. Turn off screen updating and displaying alerts.
+Dim openfilename1 As String
+openfilename1 = ActiveWorkbook.FullName
+
+Dim targetworkbook As String
+targetworkbook = Dir(openfilename1)
+
+
+Application.ScreenUpdating = False
+Application.DisplayAlerts = False
+
+FileName = directory & "*.xl??"
+
+'Note: The Dir function supports the use of multiple character (*) and single character (?) wildcards to search for all different type of Excel files.
+
+'4. The variable fileName now holds the name of the first Excel file found in the directory. Add a Do While Loop.
+
+'Add the following code lines (at 5, 6, 7 and 8) to the loop.
+
+'5. There is no simple way to copy worksheets from closed Excel files. Therefore we open the Excel file.
+
+Dim strFileToOpen As String
+strFileToOpen = ImportFileName
+
+Sheets.Add.Name = "Page001"
+
+    ActiveWorkbook.Queries.Add Name:="Page001", Formula:= _
+        "let" & Chr(13) & "" & Chr(10) & "    Source = Pdf.Tables(File.Contents(""" & strFileToOpen & """), [Implementation=""1.3""])," & Chr(13) & "" & Chr(10) & "    Page1 = Source{[Id=""Page001""]}[Data]" & Chr(13) & "" & Chr(10) & "in" & Chr(13) & "" & Chr(10) & "    Page1"
+    
+    With ActiveSheet.ListObjects.Add(SourceType:=0, Source:= _
+        "OLEDB;Provider=Microsoft.Mashup.OleDb.1;Data Source=$Workbook$;Location=Page001;Extended Properties=""""" _
+        , Destination:=Range("$A$1")).QueryTable
+        .CommandType = xlCmdSql
+        .CommandText = Array("SELECT * FROM [Page001]")
+        .RowNumbers = False
+        .FillAdjacentFormulas = False
+        .PreserveFormatting = True
+        .RefreshOnFileOpen = False
+        .BackgroundQuery = True
+        .RefreshStyle = xlInsertDeleteCells
+        .SavePassword = False
+        .SaveData = True
+        .AdjustColumnWidth = True
+        .RefreshPeriod = 0
+        .PreserveColumnInfo = True
+        .ListObject.DisplayName = "Page001"
+        .Refresh BackgroundQuery:=False
+    End With
+    
+    Sheets("Front Sheet").Select
+ExitPoint:
+    Exit Function
+    
+End Function
+
+
+Sub DistCreateUploader()
+
+    On Error GoTo ExitPoint
+    
+    Dim ws As Worksheet, PSheet As Worksheet, DSheet As Worksheet
+    Dim pvt As PivotTable, pvtFld As PivotField
+    Dim pvtCache As PivotCache
+    Dim SrcData As String, StartPvt As String
+    Dim lastRow As Long, Rowz As Long
+
+    '--- STEP 1: Prepare "Dist Validations" Sheet ---
+    Set ws = ThisWorkbook.Worksheets("Dist Validations")
+    lastRow = ws.Cells(ws.Rows.Count, "F").End(xlUp).Row
+    
+    With ws
+        .AutoFilterMode = False
+        .Range("A1:BR" & lastRow).AutoFilter Field:=6, Criteria1:=Array("Column5", "LOGI SKU", "Checked", "="), Operator:=xlFilterValues
+        On Error Resume Next
+        Rowz = .AutoFilter.Range.Columns(1).SpecialCells(xlCellTypeVisible).Cells.Count - 1
+        On Error GoTo 0
+        If Rowz > 0 Then .Range("H2:I" & lastRow).SpecialCells(xlCellTypeVisible).EntireRow.Delete
+        .AutoFilterMode = False
+    End With
+
+    '--- STEP 2: Create Pivot Table Sheet ---
+    On Error Resume Next
+    Application.DisplayAlerts = False
+    Worksheets("PivotTable").Delete
+    Application.DisplayAlerts = True
+    On Error GoTo 0
+
+    Set PSheet = ThisWorkbook.Sheets.Add(Before:=ws)
+    PSheet.Name = "PivotTable"
+
+    SrcData = "'" & ws.Name & "'!A1:X" & lastRow
+    Set pvtCache = ThisWorkbook.PivotCaches.Create(SourceType:=xlDatabase, SourceData:=SrcData)
+    
+    Set pvt = pvtCache.CreatePivotTable(TableDestination:=PSheet.Range("A3"), TableName:="PivotTable1")
+
+    With pvt
+        .PivotFields("Same Offer Check").Orientation = xlRowField
+        .PivotFields("Gap2").Orientation = xlRowField
+        .PivotFields("OFFER CODE").Orientation = xlRowField
+        .AddDataField .PivotFields("TOTAL"), "Sum of Total", xlSum
+        .RowAxisLayout xlTabularRow
+        .RepeatAllLabels xlRepeatLabels
+        For Each pvtFld In .PivotFields
+            pvtFld.Subtotals(1) = False
+        Next pvtFld
+    End With
+
+    '--- STEP 3: Add Accrual Check Formula ---
+    With PSheet
+        lastRow = .Cells(.Rows.Count, 1).End(xlUp).Row
+        .Range("E4").Formula = "=IFNA(IF(SUMIF(C:C,C4,D:D)<=VLOOKUP(C4,'Offer Accrual'!E:Z,13,0),""Sufficient Accrual"",""Insufficient Accrual""),""Not Found in SQL"")"
+        .Range("E4").AutoFill Destination:=.Range("E4:E" & lastRow)
+        
+        
+        .Range("G4").Formula = "=IFNA(XLOOKUP(C4,'Offer Accrual'!E:E,'Offer Accrual'!Q:Q),""No Offer Found in SQL"")"
+        .Range("G4").AutoFill Destination:=.Range("G4:G" & lastRow)
+    End With
+
+    '--- STEP 4: Create DistUploader Sheet ---
+    On Error Resume Next
+    Application.DisplayAlerts = False
+    Worksheets("DistUploader").Delete
+    Application.DisplayAlerts = True
+    On Error GoTo 0
+
+    Set ws = ThisWorkbook.Sheets.Add
+    ws.Name = "DistUploader"
+
+    ' Headers
+    Dim headers As Variant
+    headers = Array("Claim Number", "Split Number", "Split Amount", "Offer", "Amttoassociate", "SettleMethod", "AttachURL", "Claim Type", _
+                    "Claim Reason", "Claim Investigation", "Ship To Address", "Claim Description", "Claim Reference", "Status", "Temp", "Temp2", "Status2")
+
+    Dim i As Long
+    For i = 0 To UBound(headers)
+        ws.Cells(1, i + 1).Value = headers(i)
+    Next i
+
+    '--- STEP 5: Copy Pivot Data to DistUploader ---
+    Dim srcSheet As Worksheet: Set srcSheet = Sheets("PivotTable")
+    lastRow = srcSheet.Cells(srcSheet.Rows.Count, 1).End(xlUp).Row
+    lastRow2 = lastRow - 3
+
+    ws.Range("A2").Resize(lastRow2).Value = srcSheet.Range("A4:A" & lastRow).Value
+    ws.Range("D2").Resize(lastRow2).Value = srcSheet.Range("C4:C" & lastRow).Value
+    ws.Range("E2").Resize(lastRow2).Value = srcSheet.Range("D4:D" & lastRow).Value
+    ws.Range("O2").Resize(lastRow2).Value = srcSheet.Range("E4:E" & lastRow).Value
+
+    ' Autofill fixed values and formulas
+    With ws
+        .Range("F2:F" & lastRow2).Value = "Credit Memo - On Account"
+        .Range("J2:J" & lastRow2).Value = "Ready to Submit"
+        
+        .Range("G2").Formula = "=VLOOKUP(A2,Output!A:Z,13,0)"
+        .Range("G2").AutoFill Destination:=.Range("G2:G" & lastRow2)
+
+        .Range("Q2").Formula = "=VLOOKUP(A2,Output!A:Z,12,0)"
+        .Range("Q2").AutoFill Destination:=.Range("Q2:Q" & lastRow2)
+
+        .Range("N2").Formula = "=XLOOKUP(D2,'Offer Accrual'!E:E,'Offer Accrual'!F:F)"
+        .Range("N2").AutoFill Destination:=.Range("N2:N" & lastRow2)
+    End With
+
+    '--- STEP 6: Apply Filters and Delete as Needed ---
+    Dim criteriaList As Variant
+    criteriaList = Array( _
+        Array(15, "=Insufficient Accrual"), _
+        Array(17, "<>*success*"), _
+        Array(4, "<>AMR*"), _
+        Array(14, "<>ACTIVE") _
+    )
+
+    For i = LBound(criteriaList) To UBound(criteriaList)
+        With ws
+            .AutoFilterMode = False
+            .Range("A1:BR" & lastRow).AutoFilter Field:=criteriaList(i)(0), Criteria1:=criteriaList(i)(1)
+            On Error Resume Next
+            Rowz = .AutoFilter.Range.Columns(1).SpecialCells(xlCellTypeVisible).Cells.Count - 1
+            If Rowz > 0 Then
+                If criteriaList(i)(0) = 4 Then
+                    .Range("J2:J" & lastRow).SpecialCells(xlCellTypeVisible).EntireRow.Delete
+                Else
+                    .Range("J2:J" & lastRow).SpecialCells(xlCellTypeVisible).Value = ""
+                End If
+            End If
+            On Error GoTo 0
+            .AutoFilterMode = False
+        End With
+    Next i
+
+    '--- STEP 7: Final Cleanup ---
+    With ws
+        .Columns("N:Q").Delete Shift:=xlToLeft
+        .Range("M2:P" & lastRow).ClearContents
+    End With
+
+Cells.Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Range("A1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+
+ExitPoint:
+    Exit Sub
+
+End Sub
+
+
+Sub RebateCreateUploader()
+
+    On Error GoTo ExitPoint
+    
+    Dim ws As Worksheet, PSheet As Worksheet
+    Dim pvt As PivotTable, pvtFld As PivotField
+    Dim pvtCache As PivotCache
+    Dim SrcData As String
+    Dim lastRow As Long, Rowz As Long
+    Dim i As Long
+
+    '--- STEP 1: Prep "Rebate Validations" Sheet ---
+    Set ws = ThisWorkbook.Sheets("Rebate Validations")
+    lastRow = ws.Cells(ws.Rows.Count, "F").End(xlUp).Row
+
+    With ws
+        .AutoFilterMode = False
+        .Range("A1:BR" & lastRow).AutoFilter Field:=6, _
+            Criteria1:=Array("Column5", "LOGI SKU", "Checked", "Column6", "="), Operator:=xlFilterValues
+
+        On Error Resume Next
+        Rowz = .AutoFilter.Range.Columns(1).SpecialCells(xlCellTypeVisible).Cells.Count - 1
+        If Rowz > 0 Then .Range("H2:I" & lastRow).SpecialCells(xlCellTypeVisible).EntireRow.Delete
+        On Error GoTo 0
+
+        .AutoFilterMode = False
+    End With
+
+    '--- STEP 2: Create PivotTable Sheet ---
+    On Error Resume Next
+    Application.DisplayAlerts = False
+    Worksheets("PivotTable").Delete
+    Application.DisplayAlerts = True
+    On Error GoTo 0
+
+    Set PSheet = ThisWorkbook.Sheets.Add(Before:=ws)
+    PSheet.Name = "PivotTable"
+
+    lastRow = ws.Cells(ws.Rows.Count, 4).End(xlUp).Row
+    SrcData = "'" & ws.Name & "'!A1:T" & lastRow
+
+    Set pvtCache = ThisWorkbook.PivotCaches.Create(SourceType:=xlDatabase, SourceData:=SrcData)
+    Set pvt = pvtCache.CreatePivotTable(TableDestination:=PSheet.Range("A3"), TableName:="PivotTable1")
+
+    With pvt
+        .PivotFields("DATE FROM WEEKNUM").Orientation = xlRowField
+        .PivotFields("CLAIM DATE TO").Orientation = xlRowField
+        .PivotFields("OFFER CODE").Orientation = xlRowField
+        .AddDataField .PivotFields("TOTAL"), "Sum of Total", xlSum
+        .RowAxisLayout xlTabularRow
+        .RepeatAllLabels xlRepeatLabels
+        For Each pvtFld In .PivotFields
+            pvtFld.Subtotals(1) = False
+        Next pvtFld
+    End With
+
+    ' Add Accrual Check Formula
+    lastRow = PSheet.Cells(PSheet.Rows.Count, 1).End(xlUp).Row
+    With PSheet
+        .Range("E4").Formula = "=IFNA(IF(SUMIF(C:C,C4,D:D)<=VLOOKUP(C4,'Offer Accrual'!E:Z,13,0),""Sufficient Accrual"",""Insufficient Accrual""),""Calculation Error"")"
+        .Range("E4").AutoFill Destination:=.Range("E4:E" & lastRow)
+
+ 
+        .Range("G4").Formula = "=IFNA(XLOOKUP(C4,'Offer Accrual'!E:E,'Offer Accrual'!Q:Q),""No Offer Found in SQL"")"
+        .Range("G4").AutoFill Destination:=.Range("G4:G" & lastRow)
+
+    End With
+
+    '--- STEP 3: Create "RebateUploader" Sheet ---
+    On Error Resume Next
+    Application.DisplayAlerts = False
+    Worksheets("RebateUploader").Delete
+    Application.DisplayAlerts = True
+    On Error GoTo 0
+
+    Set ws = ThisWorkbook.Sheets.Add
+    ws.Name = "RebateUploader"
+
+    ' Add Headers
+    Dim headers As Variant
+    headers = Array("Claim Number", "Split Number", "Split Amount", "Offer", "Amttoassociate", "SettleMethod", _
+                    "AttachURL", "Claim Type", "Claim Reason", "Claim Investigation", "Ship To Address", _
+                    "Claim Description", "Claim Reference", "Status", "Temp", "Temp2", "Status2")
+
+    For i = 0 To UBound(headers)
+        ws.Cells(1, i + 1).Value = headers(i)
+    Next i
+
+    ' Copy data from PivotTable
+    With ThisWorkbook.Sheets("PivotTable")
+        lastRow = .Cells(.Rows.Count, 1).End(xlUp).Row
+        ws.Range("A2").Resize(lastRow - 3).Value = .Range("A4:A" & lastRow).Value
+        ws.Range("D2").Resize(lastRow - 3).Value = .Range("C4:C" & lastRow).Value
+        ws.Range("E2").Resize(lastRow - 3).Value = .Range("D4:D" & lastRow).Value
+        ws.Range("O2").Resize(lastRow - 3).Value = .Range("E4:E" & lastRow).Value
+    End With
+
+    lastRow = ws.Cells(ws.Rows.Count, 1).End(xlUp).Row
+    lastRow2 = lastRow - 3
+
+    ' Fill formulas and values
+    With ws
+        .Range("F2:F" & lastRow).Value = "Credit Memo - On Account"
+        .Range("J2:J" & lastRow).Value = "Ready to Submit"
+
+        .Range("G2").Formula = "=VLOOKUP(A2,Output!A:Z,13,0)"
+        .Range("G2").AutoFill Destination:=.Range("G2:G" & lastRow)
+
+        .Range("Q2").Formula = "=VLOOKUP(A2,Output!A:Z,12,0)"
+        .Range("Q2").AutoFill Destination:=.Range("Q2:Q" & lastRow)
+
+        .Range("N2").Formula = "=XLOOKUP(D2,'Offer Accrual'!E:E,'Offer Accrual'!F:F)"
+        .Range("N2").AutoFill Destination:=.Range("N2:N" & lastRow)
+    End With
+
+    '--- STEP 4: Apply Filters and Process ---
+    Dim criteriaList As Variant
+    criteriaList = Array( _
+        Array(15, "=Insufficient Accrual"), _
+        Array(17, "<>*success*"), _
+        Array(4, "<>AMR*"), _
+        Array(14, "<>ACTIVE") _
+    )
+
+    For i = LBound(criteriaList) To UBound(criteriaList)
+        With ws
+            .AutoFilterMode = False
+            .Range("A1:BR" & lastRow).AutoFilter Field:=criteriaList(i)(0), Criteria1:=criteriaList(i)(1)
+            On Error Resume Next
+            Rowz = .AutoFilter.Range.Columns(1).SpecialCells(xlCellTypeVisible).Cells.Count - 1
+            If Rowz > 0 Then
+                If criteriaList(i)(0) = 4 Then
+                    .Range("J2:J" & lastRow).SpecialCells(xlCellTypeVisible).EntireRow.Delete
+                Else
+                    .Range("J2:J" & lastRow).SpecialCells(xlCellTypeVisible).Value = ""
+                End If
+            End If
+            On Error GoTo 0
+            .AutoFilterMode = False
+        End With
+    Next i
+
+    '--- STEP 5: Final Cleanup ---
+    With ws
+        .Columns("N:T").Delete Shift:=xlToLeft
+    End With
+
+Cells.Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Range("A1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+        
+ExitPoint:
+    Exit Sub
+
+End Sub
+
+
+
+
+
+
+
+Sub CheckDistSufficiencyStatus()
+
+
+    On Error GoTo ExitPoint
+    
+    Dim wsOut As Worksheet, wsPivot As Worksheet
+    Dim lastRow As Long, i As Long, j As Long
+    Dim lookupValue As String
+    Dim result As String
+    Dim matchFound As Boolean
+    Dim allSufficient As Boolean
+    Dim accrualList As String, statusList As String
+
+    Set wsOut = ThisWorkbook.Sheets("Output")
+    Set wsPivot = ThisWorkbook.Sheets("PivotTable")
+    
+    lastRow = wsOut.Cells(wsOut.Rows.Count, "A").End(xlUp).Row
+    
+    For i = 2 To lastRow
+        If wsOut.Cells(i, 19).Value = "Dist" And wsOut.Cells(i, 10).Value = "Found" Then
+            lookupValue = wsOut.Cells(i, 1).Value
+            matchFound = False
+            allSufficient = True
+            accrualList = ""
+            statusList = ""
+            
+            ' Loop through PivotTable A:E
+            For j = 2 To wsPivot.Cells(wsPivot.Rows.Count, "A").End(xlUp).Row
+                If wsPivot.Cells(j, 1).Value = lookupValue Then
+                    matchFound = True
+                    accrualList = accrualList & wsPivot.Cells(j, 4).Value & ", "
+                    
+                    If LCase(wsPivot.Cells(j, 5).Value) = "sufficient accrual" Then
+                        statusList = statusList & "Sufficient, "
+                    Else
+                        statusList = statusList & "Insufficient, "
+                        allSufficient = False
+                    End If
+                End If
+            Next j
+            
+            ' Remove trailing comma and space
+            If Len(accrualList) > 0 Then accrualList = Left(accrualList, Len(accrualList) - 2)
+            If Len(statusList) > 0 Then statusList = Left(statusList, Len(statusList) - 2)
+            
+            If matchFound Then
+                wsOut.Cells(i, 14).Value = accrualList
+                wsOut.Cells(i, 15).Value = statusList
+            Else
+                wsOut.Cells(i, 14).Value = "No Offer Found in SQL"
+                wsOut.Cells(i, 15).Value = "No Offer Found in SQL"
+            End If
+        End If
+    Next i
+
+
+    
+    
+    
+Sheets("Output").Select
+    lastRow = ActiveSheet.Cells(Rows.Count, "A").End(xlUp).Row
+    
+      Range("V2").Select
+    ActiveCell.Formula = "=IF(AND(S2=""Dist"",J2=""Found""),VLOOKUP(K2,'Offer Accrual'!A:B,2,0),"""")"
+    Range("V2").Select
+    Selection.AutoFill Destination:=Range("V2:V" & lastRow)
+        
+    Range("V2:V" & lastRow).Select
+    Selection.Copy
+    Range("Q2").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+        
+        
+   Range("V2:V" & lastRow).Select
+    Selection.ClearContents
+    
+ExitPoint:
+    Exit Sub
+    
+End Sub
+
+
+
+Sub CheckSufficiencyStatus(PAF_Name As String)
+
+    On Error GoTo ExitPoint
+
+Sheets("PivotTable").Select
+    lastRow = ActiveSheet.Cells(Rows.Count, "A").End(xlUp).Row
+    
+      Range("F4").Select
+
+    ActiveCell.Formula = "=IFNA(XLOOKUP(C4,'Offer Accrual'!E:E,'Offer Accrual'!F:F),""No Offer Found in SQL"")"
+    Range("F4").Select
+    Selection.AutoFill Destination:=Range("F4:F" & lastRow)
+    
+    
+Sheets("Output").Select
+    lastRow = ActiveSheet.Cells(Rows.Count, "A").End(xlUp).Row
+       ' === SETUP ===
+    Set lookupRange = Range("A2:A" & lastRow)           ' The range with lookup values
+    Set DataRange = Sheets("PivotTable").Range("A2:C10000")            ' The data table to search in
+    resultCol = 3
+    'resultCol2 = 4
+    resultCol2 = 7
+    resultCol3 = 5
+    resultCol4 = 6
+
+    ' === LOOP THROUGH A2:A10 ===
+    For Each lookupCelL In lookupRange
+        matchResult = ""
+        matchResult2 = ""
+        matchResult3 = ""
+        matchResult4 = ""
+
+        ' Search through all rows in the dataRange
+        For i = 1 To DataRange.Rows.Count
+            If DataRange.Cells(i, 1).Value = lookupCelL.Value Then
+                matchResult = matchResult & DataRange.Cells(i, resultCol).Value & ", "
+                matchResult2 = matchResult2 & DataRange.Cells(i, resultCol2).Value & ", "
+                matchResult3 = matchResult3 & DataRange.Cells(i, resultCol3).Value & ", "
+                matchResult4 = matchResult4 & DataRange.Cells(i, resultCol4).Value & ", "
+            End If
+        Next i
+If lookupCelL.Offset(0, 18).Value = PAF_Name Then
+        ' Remove trailing comma + space if any matches found
+        If Len(matchResult) > 0 Then
+            matchResult = Left(matchResult, Len(matchResult) - 2)
+            matchResult2 = Left(matchResult2, Len(matchResult2) - 2)
+            matchResult3 = Left(matchResult3, Len(matchResult3) - 2)
+            matchResult4 = Left(matchResult4, Len(matchResult4) - 2)
+        Else
+            matchResult = "Not Found"
+            matchResult2 = "Not Found"
+            matchResult3 = "Not Found"
+            matchResult4 = "Not Found"
+        End If
+
+        ' Output result in column B, next to the lookup value
+        lookupCelL.Offset(0, 10).Value = matchResult
+        lookupCelL.Offset(0, 13).Value = matchResult2
+        lookupCelL.Offset(0, 14).Value = matchResult3
+        lookupCelL.Offset(0, 15).Value = matchResult4
+        
+        End If
+
+    Next lookupCelL
+    
+    On Error Resume Next
+    Application.DisplayAlerts = False
+    Worksheets("PivotTable").Delete
+    Application.DisplayAlerts = True
+    On Error GoTo 0
+    
+ExitPoint:
+    Exit Sub
+
+End Sub
+
+
+
+Sub OutputSplitCommas()
+
+On Error GoTo ExitPoint
+
+    Dim ws As Worksheet
+    Dim lastRow As Long
+    Dim r As Long
+    Dim splitCols As Variant
+    Dim colIndex As Variant
+    Dim rowData As Variant
+    Dim partsList As Collection
+    Dim i As Long, j As Long, maxParts As Long
+    Dim parts() As String
+    Dim newRow As Long
+    Dim totalCols As Long
+    Dim idx As Long
+
+    Set ws = ThisWorkbook.Sheets("Output") ' Change sheet name if needed
+    totalCols = ws.Cells(1, ws.Columns.Count).End(xlToLeft).Column ' Assumes headers in row 1
+
+    splitCols = Array(11, 14, 15, 17) ' K, N, O, Q
+
+    lastRow = ws.Cells(ws.Rows.Count, 1).End(xlUp).Row
+
+Sheets("Output").Select
+ Columns("V:V").Select
+    Selection.Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
+
+Columns("V:V").Select
+    Selection.Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
+
+
+    ' Loop from bottom to top to preserve row positions
+    For r = lastRow To 2 Step -1
+        rowData = ws.Range(ws.Cells(r, 1), ws.Cells(r, totalCols)).Value2
+        Set partsList = New Collection
+        maxParts = 1
+
+        ' Create a list of split arrays for each column of interest
+        For Each colIndex In splitCols
+            If InStr(1, rowData(1, colIndex), ",") > 0 Then
+                parts = Split(rowData(1, colIndex), ",")
+            Else
+                ReDim parts(0)
+                parts(0) = rowData(1, colIndex)
+            End If
+            partsList.Add parts
+            If UBound(parts) + 1 > maxParts Then maxParts = UBound(parts) + 1
+        Next colIndex
+
+        ' For j = 1 (first value), update current row
+        For j = 1 To maxParts
+            If j = 1 Then
+                For i = 1 To partsList.Count
+                    idx = splitCols(i - 1)
+                    If j - 1 <= UBound(partsList(i)) Then
+                        ws.Cells(r, idx).Value = Trim(partsList(i)(j - 1))
+                    Else
+                        ws.Cells(r, idx).Value = ""
+                    End If
+                Next i
+            Else
+                ' Add a new row below and copy full data
+                ws.Rows(r + 1).Insert Shift:=xlDown
+                ws.Range(ws.Cells(r, 1), ws.Cells(r, totalCols)).Copy ws.Cells(r + 1, 1)
+
+                ' Update the split columns in the new row
+                For i = 1 To partsList.Count
+                    idx = splitCols(i - 1)
+                    If j - 1 <= UBound(partsList(i)) Then
+                        ws.Cells(r + 1, idx).Value = Trim(partsList(i)(j - 1))
+                    Else
+                        ws.Cells(r + 1, idx).Value = ""
+                    End If
+                Next i
+            End If
+        Next j
+    Next r
+    
+        
+        
+      Range("V1").Select
+    ActiveCell.Formula = "Offer Amount associated on Claim"
+
+        
+    Set ws = ThisWorkbook.Worksheets("Rebate Validations")
+    lastRow = ws.Cells(ws.Rows.Count, "F").End(xlUp).Row
+    
+    
+    If lastRow > 1 Then
+         '--- STEP 2: Create PivotTable Sheet ---
+    On Error Resume Next
+    Application.DisplayAlerts = False
+    Worksheets("PivotTable").Delete
+    Application.DisplayAlerts = True
+    On Error GoTo 0
+
+    Set PSheet = ThisWorkbook.Sheets.Add(Before:=ws)
+    PSheet.Name = "PivotTable"
+
+    lastRow = ws.Cells(ws.Rows.Count, 4).End(xlUp).Row
+    SrcData = "'" & ws.Name & "'!A1:T" & lastRow
+
+    Set pvtCache = ThisWorkbook.PivotCaches.Create(SourceType:=xlDatabase, SourceData:=SrcData)
+    Set pvt = pvtCache.CreatePivotTable(TableDestination:=PSheet.Range("A3"), TableName:="PivotTable1")
+
+    With pvt
+        .PivotFields("DATE FROM WEEKNUM").Orientation = xlRowField
+        .PivotFields("CLAIM DATE TO").Orientation = xlRowField
+        .PivotFields("OFFER CODE").Orientation = xlRowField
+        .AddDataField .PivotFields("TOTAL"), "Sum of Total", xlSum
+        .RowAxisLayout xlTabularRow
+        .RepeatAllLabels xlRepeatLabels
+        For Each pvtFld In .PivotFields
+            pvtFld.Subtotals(1) = False
+        Next pvtFld
+    End With
+
+
+  '--- STEP 3: Add Accrual Check Formula ---
+    With PSheet
+        lastRow = .Cells(.Rows.Count, 1).End(xlUp).Row
+        .Range("E4").Formula = "=IFNA(IF(SUMIF(C:C,C4,D:D)<=VLOOKUP(C4,'Offer Accrual'!E:Z,13,0),""Sufficient Accrual"",""Insufficient Accrual""),""Not Found in SQL"")"
+        .Range("E4").AutoFill Destination:=.Range("E4:E" & lastRow)
+        
+        
+        .Range("F4").Formula = "=XLOOKUP(C4,'Offer Accrual'!E:E,'Offer Accrual'!F:F)"
+        .Range("F4").AutoFill Destination:=.Range("F4:F" & lastRow)
+    End With
+
+
+
+    Set wsSource = ThisWorkbook.Sheets("Output")      ' Change to your working sheet name
+    Set wsPivot = ThisWorkbook.Sheets("PivotTable")
+
+    lastRow = wsSource.Cells(wsSource.Rows.Count, "A").End(xlUp).Row
+    pivotLastRow = wsPivot.Cells(wsPivot.Rows.Count, "A").End(xlUp).Row
+
+    For i = 2 To lastRow
+        valA = wsSource.Cells(i, "A").Value
+        valK = wsSource.Cells(i, "K").Value
+        valS = wsSource.Cells(i, "S").Value
+        If IsError(valK) Then
+        valK = "#N/A"
+        End If
+
+        matchRow = 0
+
+        If valS = "Rebate" Then
+
+        For j = 4 To pivotLastRow
+            pivotA = wsPivot.Cells(j, "A").Value
+            pivotK = wsPivot.Cells(j, "C").Value
+
+            If IsError(valA) And IsError(pivotA) Then
+                ' Both A and G are errors (unlikely, but safe)
+                If IsError(valK) And IsError(pivotK) Then
+                    matchRow = j: Exit For
+                ElseIf valK = pivotK Then
+                    matchRow = j: Exit For
+                End If
+            ElseIf valA = pivotA Then
+                ' A/G match
+                If IsError(valK) And IsError(pivotK) Then
+                    matchRow = j: Exit For
+                ElseIf Not IsError(valK) And Not IsError(pivotK) Then
+                    If valK = pivotK Then
+                        matchRow = j: Exit For
+                    End If
+                End If
+            End If
+        Next j
+
+        If matchRow > 0 Then
+            wsSource.Cells(i, "V").Value = wsPivot.Cells(matchRow, "D").Value
+            wsSource.Cells(i, "Q").Value = wsPivot.Cells(matchRow, "F").Value
+        Else
+            wsSource.Cells(i, "V").Value = "Not Found"
+            wsSource.Cells(i, "Q").Value = "Not Found"
+        End If
+
+        End If
+    Next i
+
+  End If
+    
+    
+    'DIST-------------------------------
+ Set ws = ThisWorkbook.Worksheets("Dist Validations")
+    lastRow = ws.Cells(ws.Rows.Count, "F").End(xlUp).Row
+    
+    If lastRow > 1 Then
+         '--- STEP 2: Create PivotTable Sheet ---
+    On Error Resume Next
+    Application.DisplayAlerts = False
+    Worksheets("PivotTable").Delete
+    Application.DisplayAlerts = True
+    On Error GoTo 0
+
+    Set PSheet = ThisWorkbook.Sheets.Add(Before:=ws)
+    PSheet.Name = "PivotTable"
+
+    SrcData = "'" & ws.Name & "'!A1:X" & lastRow
+    Set pvtCache = ThisWorkbook.PivotCaches.Create(SourceType:=xlDatabase, SourceData:=SrcData)
+    
+    Set pvt = pvtCache.CreatePivotTable(TableDestination:=PSheet.Range("A3"), TableName:="PivotTable1")
+
+    With pvt
+        .PivotFields("Same Offer Check").Orientation = xlRowField
+        .PivotFields("Gap2").Orientation = xlRowField
+        .PivotFields("OFFER CODE").Orientation = xlRowField
+        .AddDataField .PivotFields("TOTAL"), "Sum of Total", xlSum
+        .RowAxisLayout xlTabularRow
+        .RepeatAllLabels xlRepeatLabels
+        For Each pvtFld In .PivotFields
+            pvtFld.Subtotals(1) = False
+        Next pvtFld
+    End With
+
+    '--- STEP 3: Add Accrual Check Formula ---
+    With PSheet
+           lastRow = .Cells(.Rows.Count, 1).End(xlUp).Row
+        .Range("E4").Formula = "=IFNA(IF(SUMIF(C:C,C4,D:D)<=VLOOKUP(C4,'Offer Accrual'!E:Z,13,0),""Sufficient Accrual"",""Insufficient Accrual""),""Not Found in SQL"")"
+        .Range("E4").AutoFill Destination:=.Range("E4:E" & lastRow)
+        
+        
+        .Range("F4").Formula = "=XLOOKUP(C4,'Offer Accrual'!E:E,'Offer Accrual'!F:F)"
+        .Range("F4").AutoFill Destination:=.Range("F4:F" & lastRow)
+    End With
+
+
+
+    Set wsSource = ThisWorkbook.Sheets("Output")      ' Change to your working sheet name
+    Set wsPivot = ThisWorkbook.Sheets("PivotTable")
+
+    lastRow = wsSource.Cells(wsSource.Rows.Count, "A").End(xlUp).Row
+    pivotLastRow = wsPivot.Cells(wsPivot.Rows.Count, "A").End(xlUp).Row
+
+    For i = 2 To lastRow
+        valA = wsSource.Cells(i, "A").Value
+        valK = wsSource.Cells(i, "K").Value
+        valS = wsSource.Cells(i, "S").Value
+        If IsError(valK) Then
+        valK = "#N/A"
+        End If
+
+        matchRow = 0
+
+        If valS = "Dist" Then
+
+        For j = 4 To pivotLastRow
+            pivotA = wsPivot.Cells(j, "A").Value
+            pivotK = wsPivot.Cells(j, "C").Value
+
+            If IsError(valA) And IsError(pivotA) Then
+                ' Both A and G are errors (unlikely, but safe)
+                If IsError(valK) And IsError(pivotK) Then
+                    matchRow = j: Exit For
+                ElseIf valK = pivotK Then
+                    matchRow = j: Exit For
+                End If
+            ElseIf valA = pivotA Then
+                ' A/G match
+                If IsError(valK) And IsError(pivotK) Then
+                    matchRow = j: Exit For
+                ElseIf Not IsError(valK) And Not IsError(pivotK) Then
+                    If valK = pivotK Then
+                        matchRow = j: Exit For
+                    End If
+                End If
+            End If
+        Next j
+
+        If matchRow > 0 Then
+            wsSource.Cells(i, "V").Value = wsPivot.Cells(matchRow, "D").Value
+            wsSource.Cells(i, "Q").Value = wsPivot.Cells(matchRow, "F").Value
+        Else
+            wsSource.Cells(i, "V").Value = "Not Found"
+            wsSource.Cells(i, "Q").Value = "Not Found"
+        End If
+
+        End If
+    Next i
+
+End If
+
+
+   On Error Resume Next
+    Application.DisplayAlerts = False
+    Worksheets("PivotTable").Delete
+    Application.DisplayAlerts = True
+    On Error GoTo 0
+    
+    
+    Sheets("Output").Select
+      Range("V1").Select
+    ActiveCell.Formula = "Offer Amount associated on Claim"
+    
+ExitPoint:
+    Exit Sub
+
+End Sub
+
+
+
+
+
+Sub DeleteNonMatchingRowsUploader()
+
+On Error GoTo ExitPoint
+
+   'Set reference to the sheet in the workbook.
+  Set ws = ThisWorkbook.Worksheets("Uploader")
+  ws.Activate 'not required but allows user to view sheet if warning message appears
+  
+  lastRow = Cells(Rows.Count, 1).End(xlUp).Row
+  
+    Range("B2").Select
+    Application.CutCopyMode = False
+    ActiveCell.Formula = "=VLOOKUP(A2,'Output'!A:A,1,0)"
+    Range("B2").Select
+    Selection.AutoFill Destination:=Range("B2:B" & lastRow)
+  
+
+ ActiveSheet.Range("$A$1:$M$" & lastRow).AutoFilter Field:=2, Criteria1:="#N/A"
+       
+        '2. Delete Rows
+  Application.DisplayAlerts = False
+
+  
+  Rowz = ws.AutoFilter.Range.Columns(1).SpecialCells(xlCellTypeVisible).Cells.Count - 1
+
+
+If Rowz > 0 Then
+
+
+    Range("B2:B" & lastRow).SpecialCells(xlCellTypeVisible).Delete
+    
+    End If
+
+  'Clear any existing filters
+  On Error Resume Next
+    ws.ShowAllData
+
+Range("B2:B" & lastRow).Clear
+
+ExitPoint:
+    Exit Sub
+    
+End Sub
+
+
+
+Sub DeleteNonMatchingRowsUploaderOutput()
+
+
+On Error GoTo ExitPoint
+
+
+    'Set reference to the sheet in the workbook.
+  Set ws = ThisWorkbook.Worksheets("Uploader Output")
+  ws.Activate 'not required but allows user to view sheet if warning message appears
+  
+  lastRow = Cells(Rows.Count, 1).End(xlUp).Row
+  
+    Range("B2").Select
+    Application.CutCopyMode = False
+    ActiveCell.Formula = "=VLOOKUP(A2,'Output'!A:A,1,0)"
+    Range("B2").Select
+    Selection.AutoFill Destination:=Range("B2:B" & lastRow)
+  
+
+ ActiveSheet.Range("$A$1:$M$" & lastRow).AutoFilter Field:=2, Criteria1:="#N/A"
+       
+        '2. Delete Rows
+  Application.DisplayAlerts = False
+
+  
+  Rowz = ws.AutoFilter.Range.Columns(1).SpecialCells(xlCellTypeVisible).Cells.Count - 1
+
+
+If Rowz > 0 Then
+
+
+    Range("B2:B" & lastRow).SpecialCells(xlCellTypeVisible).Delete
+    
+    End If
+
+  'Clear any existing filters
+  On Error Resume Next
+    ws.ShowAllData
+
+Range("B2:B" & lastRow).Clear
+ExitPoint:
+    Exit Sub
+    
+End Sub
+
+Function ConvertXLSBtoXLSX(FullFillName As String)
+
+
+On Error GoTo ExitPoint
+
+
+    Dim wb As Workbook
+    Dim xlsbPath As String
+    Dim xlsxPath As String
+
+    ' Set the path of the .xlsb file
+    xlsbPath = FullFillName
+    
+    ' Set the path where you want to save the .xlsx file
+    xlsxPath = Replace(xlsbPath, ".xlsb", ".xlsx")
+
+    ' Open the .xlsb file
+    Set wb = Workbooks.Open(xlsbPath)
+    
+    ' Save it as .xlsx
+    wb.SaveAs FileName:=xlsxPath, FileFormat:=xlOpenXMLWorkbook
+    
+    ' Close the workbook
+    wb.Close False
+    
+ExitPoint:
+    Exit Function
+End Function
+
+
+
+Sub ReorderOutput()
+
+On Error GoTo ExitPoint
+
+'Write Business Exceptions
+    Dim ws As Worksheet
+    Dim lastRow As Long
+    Dim i As Long
+
+    ' Set your worksheet here, e.g., the active sheet
+    Set ws = ThisWorkbook.Sheets("Output")
+
+    ' Find last row with data in column O or Q (assuming same length)
+    lastRow = ws.Cells(ws.Rows.Count, "O").End(xlUp).Row
+
+    For i = 2 To lastRow ' Assuming row 1 has headers
+        ' Check if column O is NOT "Sufficient Accrual" and column Q is NOT "ACTIVE"
+        If IsError(ws.Cells(i, "O").Value) Or IsError(ws.Cells(i, "Q").Value) Then
+            ws.Cells(i, "E").Value = "Business Exception"
+     
+           
+        Else
+        If ws.Cells(i, "O").Value <> "Sufficient Accrual" And _
+           ws.Cells(i, "Q").Value <> "ACTIVE" Then
+            ws.Cells(i, "E").Value = "Business Exception"
+        End If
+          End If
+    Next i
+
+'----------------------------------------
+
+    ' Move column V to column N (shift right)
+    Columns("V:V").Cut
+    Columns("N:N").Insert Shift:=xlToRight
+
+    ' AutoFit the columns O and P
+    Columns("O:O").EntireColumn.AutoFit
+    Columns("P:P").EntireColumn.AutoFit
+
+    ' Move column V (now at column O due to previous insert) to column R
+    Columns("O:O").Cut
+    Columns("R:R").Insert Shift:=xlToRight
+
+    ' Move column S to column L
+    Columns("S:S").Cut
+    Columns("L:L").Insert Shift:=xlToRight
+
+Dim sheetExists As Boolean
+sheetExists = False
+
+For Each ws In ThisWorkbook.Worksheets
+    If ws.Name = "Uploader Output" Then
+        sheetExists = True
+        Exit For
+    End If
+Next ws
+
+If sheetExists Then
+
+ Sheets("Uploader Output").Select
+    lastRow = Cells(Rows.Count, 1).End(xlUp).Row
+    Range("B2").Select
+    ActiveCell.Formula = "=CONCATENATE(A2,D2)"
+    Range("B2").Select
+    Selection.AutoFill Destination:=Range("B2:B" & lastRow)
+    
+    
+    Sheets("Output").Select
+    lastRow2 = Cells(Rows.Count, 1).End(xlUp).Row
+    Range("V2").Select
+    ActiveCell.Formula = _
+        "=IFNA(XLOOKUP(A2&K2,'Uploader Output'!B:B,'Uploader Output'!N:N,""""),"""")"
+    Range("V2").Select
+    If lastRow2 > 2 Then
+    Selection.AutoFill Destination:=Range("V2:V" & lastRow2)
+    End If
+    
+     Columns("V:V").Select
+    Selection.Copy
+    Range("V1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+
+
+    Sheets("Uploader Output").Select
+    Range("B2:B" & lastRow).Select
+    Selection.ClearContents
+    
+
+End If
+
+ Sheets("Output").Select
+    lastRow2 = Cells(Rows.Count, 1).End(xlUp).Row
+    Range("W1").Value = "Result"
+    Range("W2").Select
+    ActiveCell.Formula = _
+        "=IFS(OR(J2<>""Found"",J2=""Non Rebate File""), ""Backup Not Found"",M2<>""Success"", ""Validation Exception"",P2<>""Sufficient Accrual"", ""Issue with Accrual"",S2<>""ACTIVE"", ""Offer is Not Active"",Q2<>""Success"", ""Error in Uploader"",L2<>""Successfully Added"", ""Error Adding to Botty File"",TRUE, ""Sent to Botty"")"
+    Range("W2").Select
+    If lastRow2 > 2 Then
+    Selection.AutoFill Destination:=Range("W2:W" & lastRow2)
+    End If
+
+
+     Columns("W:W").Select
+    Selection.Copy
+    Range("W1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+
+
+
+'---------------------------------------------
+
+On Error GoTo ExitPoint
+    Dim desiredOrder As Variant
+    Dim currentHeaders As Range
+    Dim colIndex As Long
+    Dim headerCell As Range
+    
+        Dim deletion As Worksheet
+'    Application.DisplayAlerts = False
+'    Err.Clear
+'    On Error Resume Next
+'    Set deletion = Sheets("Reordered")
+'    If Err <> 0 Then
+'    Else
+'    deletion.Delete
+'    End If
+    
+    
+    For Each Sheet In ActiveWorkbook.Worksheets
+     If Sheet.Name = "Reordered" Then
+          Sheet.Delete
+     End If
+Next Sheet
+    
+    Sheets("Output").Select
+    Set ws = ActiveSheet ' Change if needed
+    
+
+    ' Define the desired column order
+    desiredOrder = Array( _
+        "Claim Number", "Customer Name", "Customer Ref Number", "PAF Type", "FileName", "Claim Amount", _
+  "Status", "Download Step Status", "Offer Step Status", "Validation Step Status", "Download Remark", "Validation Remark", _
+        "Offer Code", "Offer Status", "Offer Amount associated on Claim", "Offer Accrual Amount", "Offer Accrual Remark", _
+         "Units Written to Rebate File Status", _
+        "Uploader Remark", "Uploader Comment", "Backup Link", _
+        "Added to Submission Bot File", "Result", "PAF Name")
+
+    ' Set range of headers in row 1
+    Set currentHeaders = ws.Range("A1", ws.Cells(1, ws.Cells(1, ws.Columns.Count).End(xlToLeft).Column))
+    
+    ' Create a temporary sheet to hold reordered columns
+    Dim tempSheet As Worksheet
+    Set tempSheet = ThisWorkbook.Sheets.Add(After:=ws)
+    tempSheet.Name = "Reordered"
+    
+    ' Loop through desired headers and copy each matching column to temp sheet
+    For i = 0 To UBound(desiredOrder)
+        Set headerCell = Nothing
+        On Error Resume Next
+        Set headerCell = currentHeaders.Find(What:=desiredOrder(i), LookIn:=xlValues, LookAt:=xlWhole)
+        On Error GoTo 0
+        
+        If Not headerCell Is Nothing Then
+            colIndex = headerCell.Column
+            ws.Columns(colIndex).Copy Destination:=tempSheet.Columns(i + 1)
+        Else
+            ' If column not found, insert blank column with header name
+            tempSheet.Cells(1, i + 1).Value = desiredOrder(i)
+        End If
+    Next i
+    
+    
+        Application.DisplayAlerts = False
+    Err.Clear
+    On Error Resume Next
+    Set deletion = Sheets("Output")
+    If Err <> 0 Then
+    Else
+    deletion.Delete
+    End If
+    
+    Sheets("Reordered").Name = "Line Level Data"
+
+
+ExitPoint:
+
+    Exit Sub
+ 
+End Sub
+
+
+Sub DeleteNonMatchingRowsClaimList(FileName As String)
+
+
+On Error GoTo ExitPoint
+
+ 'Set reference to the sheet in the workbook.
+  Set ws = ThisWorkbook.Worksheets("Claim List")
+  ws.Activate 'not required but allows user to view sheet if warning message appears
+  
+  lastRow = Cells(Rows.Count, 1).End(xlUp).Row
+
+    ActiveSheet.Range("$A$1:$J$" & lastRow).AutoFilter Field:=9, Criteria1:= _
+        "<>" & FileName
+       
+        '2. Delete Rows
+  Application.DisplayAlerts = False
+
+  
+  Rowz = ws.AutoFilter.Range.Columns(1).SpecialCells(xlCellTypeVisible).Cells.Count - 1
+
+
+If Rowz > 0 Then
+
+
+    Range("B2:B" & lastRow).SpecialCells(xlCellTypeVisible).Delete
+    
+    End If
+
+  'Clear any existing filters
+  On Error Resume Next
+    ws.ShowAllData
+  On Error GoTo 0
+  
+ExitPoint:
+    Exit Sub
+
+End Sub
+
+
+Sub ClaimLevel()
+
+
+On Error GoTo ExitPoint
+
+ Dim ws As Worksheet, PSheet As Worksheet, DSheet As Worksheet
+    Dim pvt As PivotTable, pvtFld As PivotField
+    Dim pvtCache As PivotCache
+    Dim SrcData As String, StartPvt As String
+    Dim lastRow As Long, Rowz As Long
+    
+
+
+    '--- STEP 1: Prepare "Dist Validations" Sheet ---
+    Set ws = ThisWorkbook.Worksheets("Line Level Data")
+    lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+    
+    On Error Resume Next
+    Application.DisplayAlerts = False
+    Worksheets("PivotTable").Delete
+    Application.DisplayAlerts = True
+    On Error GoTo 0
+
+    Set PSheet = ThisWorkbook.Sheets.Add(Before:=ws)
+    PSheet.Name = "PivotTable"
+
+    SrcData = "'" & ws.Name & "'!A1:W" & lastRow
+    Set pvtCache = ThisWorkbook.PivotCaches.Create(SourceType:=xlDatabase, SourceData:=SrcData)
+    
+    Set pvt = pvtCache.CreatePivotTable(TableDestination:=PSheet.Range("A1"), TableName:="PivotTable1")
+
+    With pvt
+        .PivotFields("Claim Number").Orientation = xlRowField
+        .PivotFields("Customer Name").Orientation = xlRowField
+        .PivotFields("Customer Ref Number").Orientation = xlRowField
+        .PivotFields("Claim Amount").Orientation = xlRowField
+        .PivotFields("Result").Orientation = xlRowField
+        .RowAxisLayout xlTabularRow
+        .RepeatAllLabels xlRepeatLabels
+        For Each pvtFld In .PivotFields
+            pvtFld.Subtotals(1) = False
+        Next pvtFld
+    End With
+
+
+    Sheets("PivotTable").Name = "Output"
+
+
+
+    ' Copy values from columns A:F to H1 onwards
+    Range("A:F").Copy
+    Range("H1").PasteSpecial Paste:=xlPasteValues
+
+    ' Delete columns A to G (shifting left will keep only the pasted values in H1 and onward)
+    Columns("A:G").Delete Shift:=xlToLeft
+
+    ' Format header row (A1:E1)
+    With Range("A1:E1")
+        .Font.Bold = True
+        .Interior.Pattern = xlSolid
+        .Interior.ThemeColor = xlThemeColorLight2
+        .Interior.TintAndShade = 0.799981688894314
+    End With
+
+    ' Autofit columns A toE
+    Columns("A:E").AutoFit
+
+    ' Apply borders to the range A:E
+    With Range("A:E").Borders
+        .LineStyle = xlContinuous
+        .ColorIndex = 0
+        .TintAndShade = 0
+        .Weight = xlThin
+    End With
+    
+    lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+
+
+    ' Clear clipboard
+    Application.CutCopyMode = False
+
+Set ws = ThisWorkbook.Sheets("Output")
+    lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+
+    ' Loop from bottom up to avoid skipping rows after deletion
+    For i = lastRow To 1 Step -1
+        If Trim(ws.Cells(i, "A").Value) = "Grand Total" Then
+            ws.Rows(i).Delete
+        End If
+    Next i
+
+
+    Set ws = ThisWorkbook.Sheets("Line Level Data")
+ 
+    lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+
+    ' Clear any existing conditional formatting in column A
+    ws.Range("A2:A" & lastRow).FormatConditions.Delete
+
+    '  Rule 1: Backup Not Found - Red
+    With ws.Range("A2:A" & lastRow).FormatConditions.Add( _
+        Type:=xlExpression, _
+        Formula1:="=OR($W2=""Error in Uploader"", $W2=""Error Adding to Botty File"")")
+        .Interior.Color = RGB(255, 0, 0) ' Red
+    End With
+
+    '  Rule 2: Mid-Priority Issues - Yellow
+    With ws.Range("A2:A" & lastRow).FormatConditions.Add( _
+        Type:=xlExpression, _
+        Formula1:="=OR($W2=""Validation Exception"", $W2=""Offer is Not Active"", $W2=""Accrual Issue"", $W2=""Error in Uploader"", $W2=""Error Adding to Botty File"")")
+        .Interior.Color = RGB(255, 255, 0) ' Yellow
+    End With
+
+    '  Rule 3: Send to Botty - Green
+    With ws.Range("A2:A" & lastRow).FormatConditions.Add( _
+        Type:=xlExpression, _
+        Formula1:="=$W2=""Successful Send to Botty""")
+        .Interior.Color = RGB(0, 176, 80) ' Green
+    End With
+
+
+
+
+       Sheets("Output").Visible = False
+       
+ExitPoint:
+    Exit Sub
+
+End Sub
+
+
+
+Sub VeyerWriteDateSKU()
+
+
+On Error GoTo ExitPoint
+
+lastRow = Cells(Rows.Count, 1).End(xlUp).Row
+
+Range("D:D").Select
+With Selection
+    .NumberFormat = "General"
+    .Value = .Value
+End With
+
+    Range("M1:M" & lastRow).Formula = "=VLOOKUP(D1,SKUs!A:B,2,0)"
+
+  Columns("M:M").Select
+    Selection.Copy
+    Range("M1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+
+    Dim deletion As Worksheet
+    Application.DisplayAlerts = False
+    Err.Clear
+    On Error Resume Next
+    Set deletion = Sheets("SKUs")
+    If Err <> 0 Then
+    Else
+    deletion.Delete
+    End If
+
+   Dim ws As Worksheet
+    Set ws = ThisWorkbook.Sheets("Sheet1") ' Change to your sheet name
+    
+    ' Convert text in column H to date
+    With ws.Range("H:H")
+        .TextToColumns Destination:=.Cells(1, 1), DataType:=xlDelimited, FieldInfo:=Array(1, xlMDYFormat)
+    End With
+
+    ' Convert text in column I to date
+    With ws.Range("I:I")
+        .TextToColumns Destination:=.Cells(1, 1), DataType:=xlDelimited, FieldInfo:=Array(1, xlMDYFormat)
+    End With
+    
+ExitPoint:
+    Exit Sub
+
+End Sub
+
+
+
+
+Sub GenerateStatusPerClaim()
+
+On Error GoTo ExitPoint
+
+    Dim ws As Worksheet
+    Set ws = ActiveSheet
+
+    Dim lastRow As Long
+    lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+
+    Dim dict As Object
+    Set dict = CreateObject("Scripting.Dictionary")
+
+    Dim i As Long
+    Dim claimID As String
+    Dim issueCode As Long
+
+    ' Store the lowest priority issue per unique Claim Number
+    For i = 2 To lastRow
+        claimID = Trim(ws.Cells(i, "A").Value)
+        If claimID = "" Then GoTo NextRow
+
+        ' Evaluate priority issue on this row
+        issueCode = 7 ' Default to "Send to Botty"
+
+        If ws.Cells(i, "K").Value = "Claim is No Longer Open" Or ws.Cells(i, "K").Value = "Claim not found in Oracle" Or ws.Cells(i, "K").Value = "Exception when running SQL" Then
+            issueCode = 1
+        ElseIf ws.Cells(i, "K").Value <> "Found" Or ws.Cells(i, "J").Value = "Non Rebate File" Then
+            issueCode = 2
+        ElseIf ws.Cells(i, "L").Value <> "Success" Then
+            issueCode = 3
+        ElseIf ws.Cells(i, "Q").Value <> "Sufficient Accrual" Then
+            issueCode = 4
+        ElseIf ws.Cells(i, "N").Value <> "ACTIVE" Then
+            issueCode = 5
+        ElseIf ws.Cells(i, "S").Value <> "Success" Then
+            issueCode = 6
+        ElseIf ws.Cells(i, "V").Value <> "Successfully Added" Then
+            issueCode = 7
+            Else
+            issueCode = 8
+        End If
+
+        ' Track the worst issue for each claim
+        If Not dict.exists(claimID) Then
+            dict.Add claimID, issueCode
+        Else
+            If issueCode < dict(claimID) Then
+                dict(claimID) = issueCode
+            End If
+        End If
+NextRow:
+    Next i
+
+    ' Output result back to a single column (e.g., Column W = "Result")
+    Dim statusColumn As Long
+    Set ws = ThisWorkbook.Sheets("Line Level Data")
+    ' Search in the first row only
+    Set headerRange = ws.Rows(1)
+    
+    ' Look for "Result" (case-insensitive)
+    Set foundCell = headerRange.Find(What:="Result", LookIn:=xlValues, LookAt:=xlWhole, MatchCase:=False)
+    
+    If Not foundCell Is Nothing Then
+        statusColumn = foundCell.Column
+        
+        
+         Dim resultText As String
+
+    For i = 2 To lastRow
+        claimID = Trim(ws.Cells(i, "A").Value)
+        If claimID <> "" And dict.exists(claimID) Then
+            Select Case dict(claimID)
+                Case 1: resultText = "Claim Not Open/Claim Not Found"
+                Case 2: resultText = "Backup Not Found"
+                Case 3: resultText = "Validation Exception"
+                Case 4: resultText = "Accrual Issue"
+                Case 5: resultText = "Offer is Not Active"
+                Case 6: resultText = "Uploader Failed"
+                Case 7: resultText = "Issue Adding to Botty File"
+                Case Else: resultText = "Successful Send to Botty"
+            End Select
+            ws.Cells(i, statusColumn).Value = resultText
+        End If
+    Next i
+        
+        
+        
+    End If
+    
+    
+    
+    Set ws = ThisWorkbook.Sheets("Line Level Data")
+ 
+    lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+
+    ' Clear any existing conditional formatting in column A
+    ws.Range("A2:A" & lastRow).FormatConditions.Delete
+
+    '  Rule 1: Backup Not Found - Red
+    With ws.Range("A2:A" & lastRow).FormatConditions.Add( _
+        Type:=xlExpression, _
+        Formula1:="=OR($W2=""Uploader Failed"", $W2=""Issue Adding to Botty File"")")
+        .Interior.Color = RGB(255, 0, 0) ' Red
+    End With
+
+    '  Rule 2: Mid-Priority Issues - Yellow
+    With ws.Range("A2:A" & lastRow).FormatConditions.Add( _
+        Type:=xlExpression, _
+        Formula1:="=OR($W2=""Claim Not Open/Claim Not Found"", $W2=""Backup Not Found"", $W2=""Validation Exception"", $W2=""Accrual Issue"", $W2=""Offer is Not Active"")")
+        .Interior.Color = RGB(255, 255, 0) ' Yellow
+    End With
+
+    '  Rule 3: Send to Botty - Green
+    With ws.Range("A2:A" & lastRow).FormatConditions.Add( _
+        Type:=xlExpression, _
+        Formula1:="=$W2=""Successful Send to Botty""")
+        .Interior.Color = RGB(0, 176, 80) ' Green
+    End With
+
+  
+
+  ' Format header row (A1:W1)
+    With Range("A1:W1")
+        .Font.Bold = True
+        .Interior.Pattern = xlSolid
+        .Interior.ThemeColor = xlThemeColorLight2
+        .Interior.TintAndShade = 0.799981688894314
+    End With
+    
+ExitPoint:
+    Exit Sub
+
+
+End Sub
+
+Sub CreateSuccessSheet_Filtered()
+
+
+On Error GoTo ExitPoint
+
+    Dim wsSource As Worksheet, wsTarget As Worksheet
+    Dim headerList As Variant
+    Dim lastRow As Long
+    Dim i As Long, srcCol As Long
+    Dim resultCol As Long
+    Dim copyRow As Long, pasteRow As Long
+    
+    ' Define the headers you want in "Success"
+    headerList = Array("Claim Number", "Customer Name", "Customer Ref Number", _
+                       "Validation Remark", "Uploader Remark", "Added to Submission Bot File")
+    
+    ' Set the source sheet
+    On Error Resume Next
+    Set wsSource = ThisWorkbook.Sheets("Line Level Data")
+    On Error GoTo 0
+    
+    If wsSource Is Nothing Then
+        
+        Exit Sub
+    End If
+    
+    ' Create or clear the Success sheet
+    On Error Resume Next
+    Set wsTarget = ThisWorkbook.Sheets("Success")
+    On Error GoTo 0
+    
+    If wsTarget Is Nothing Then
+        Set wsTarget = ThisWorkbook.Sheets.Add(After:=ThisWorkbook.Sheets(ThisWorkbook.Sheets.Count))
+        wsTarget.Name = "Successful Send to Botty"
+    Else
+        wsTarget.Cells.Clear
+    End If
+    
+    ' Write the headers into the Success sheet
+    For i = LBound(headerList) To UBound(headerList)
+        wsTarget.Cells(1, i + 1).Value = headerList(i)
+    Next i
+    
+    ' Find last row in the source sheet
+    lastRow = wsSource.Cells(wsSource.Rows.Count, 1).End(xlUp).Row
+    
+    ' Find the "Result" column in source
+    On Error Resume Next
+    resultCol = Application.Match("Result", wsSource.Rows(1), 0)
+    On Error GoTo 0
+    
+    If resultCol = 0 Then
+        Exit Sub
+    End If
+    
+    ' Start pasting from row 2 in target
+    pasteRow = 2
+    
+    ' Loop through each row in source
+    For copyRow = 2 To lastRow
+        If wsSource.Cells(copyRow, resultCol).Value = "Successful Send to Botty" Then
+            
+            ' Copy over each required header column
+            For i = LBound(headerList) To UBound(headerList)
+                srcCol = 0
+                On Error Resume Next
+                srcCol = Application.Match(headerList(i), wsSource.Rows(1), 0)
+                On Error GoTo 0
+                
+                If srcCol > 0 Then
+                    wsTarget.Cells(pasteRow, i + 1).Value = wsSource.Cells(copyRow, srcCol).Value
+                End If
+            Next i
+            
+            pasteRow = pasteRow + 1
+        End If
+    Next copyRow
+    
+    
+    lastRow = wsTarget.Cells(wsSource.Rows.Count, 1).End(xlUp).Row
+    If lastRow <= 1 Then
+     Dim deletion As Worksheet
+    Application.DisplayAlerts = False
+    Err.Clear
+    On Error Resume Next
+    Set deletion = Sheets("Successful Send to Botty")
+    If Err <> 0 Then
+    Else
+    deletion.Delete
+    End If
+    End If
+
+ On Error GoTo ErrHandler
+    With ThisWorkbook
+        .Worksheets("Successful Send to Botty").Tab.Color = vbGreen
+    End With
+    Exit Sub
+ErrHandler:
+    
+ExitPoint:
+    Exit Sub
+
+End Sub
+
+
+Sub CreateValidationExceptionsSheet()
+
+
+On Error GoTo ExitPoint
+
+    Dim wsSource As Worksheet, wsTarget As Worksheet
+    Dim headerList As Variant
+    Dim lastRow As Long
+    Dim i As Long, srcCol As Long
+    Dim resultCol As Long
+    Dim copyRow As Long, pasteRow As Long
+    Dim resultValue As String
+    Dim criteria As Variant, crit As Variant
+    
+    ' Define the headers for Validation Exceptions
+    headerList = Array("Claim Number", "Customer Name", "Customer Ref Number", _
+                       "Claim Amount", "Download Remark", "Validation Remark", "Offer Code", "Offer Status", _
+                       "Result")
+    
+    ' Define the Result values that qualify
+    criteria = Array("Validation Exception", "Backup not Found", _
+                     "Claim Not Open/Claim Not Found", "Offer is Not Active", _
+                     "Accrual Issue")
+    
+    ' Set the source sheet
+    On Error Resume Next
+    Set wsSource = ThisWorkbook.Sheets("Line Level Data")
+    On Error GoTo 0
+    
+    If wsSource Is Nothing Then
+        Exit Sub
+    End If
+    
+    ' Create or clear the Validation Exceptions sheet
+    On Error Resume Next
+    Set wsTarget = ThisWorkbook.Sheets("Validation Exceptions")
+    On Error GoTo 0
+    
+    If wsTarget Is Nothing Then
+        Set wsTarget = ThisWorkbook.Sheets.Add(After:=ThisWorkbook.Sheets(ThisWorkbook.Sheets.Count))
+        wsTarget.Name = "Validation Exceptions"
+    Else
+        wsTarget.Cells.Clear
+    End If
+    
+    ' Write the headers into the Validation Exceptions sheet
+    For i = LBound(headerList) To UBound(headerList)
+        wsTarget.Cells(1, i + 1).Value = headerList(i)
+    Next i
+    
+    ' Find last row in the source sheet
+    lastRow = wsSource.Cells(wsSource.Rows.Count, 1).End(xlUp).Row
+    
+    ' Find the "Result" column in source
+    On Error Resume Next
+    resultCol = Application.Match("Result", wsSource.Rows(1), 0)
+    On Error GoTo 0
+    
+    If resultCol = 0 Then
+        Exit Sub
+    End If
+    
+    ' Start pasting from row 2 in target
+    pasteRow = 2
+    
+    ' Loop through each row in source
+    For copyRow = 2 To lastRow
+        resultValue = Trim(wsSource.Cells(copyRow, resultCol).Value)
+        
+        ' Check if resultValue matches any of the criteria (case-insensitive)
+        For Each crit In criteria
+            If StrComp(resultValue, crit, vbTextCompare) = 0 Then
+                
+                ' Copy over each required header column
+                For i = LBound(headerList) To UBound(headerList)
+                    srcCol = 0
+                    On Error Resume Next
+                    srcCol = Application.Match(headerList(i), wsSource.Rows(1), 0)
+                    On Error GoTo 0
+                    
+                    If srcCol > 0 Then
+                        wsTarget.Cells(pasteRow, i + 1).Value = wsSource.Cells(copyRow, srcCol).Value
+                    End If
+                Next i
+                
+                pasteRow = pasteRow + 1
+                Exit For ' No need to check other criteria for this row
+            End If
+        Next crit
+    Next copyRow
+    
+    
+        lastRow = wsTarget.Cells(wsSource.Rows.Count, 1).End(xlUp).Row
+    If lastRow <= 1 Then
+     Dim deletion As Worksheet
+    Application.DisplayAlerts = False
+    Err.Clear
+    On Error Resume Next
+    Set deletion = Sheets("Validation Exceptions")
+    If Err <> 0 Then
+    Else
+    deletion.Delete
+    End If
+    End If
+    
+
+ On Error GoTo ErrHandler
+    With ThisWorkbook
+        .Worksheets("Validation Exceptions").Tab.Color = vbYellow
+    End With
+    Exit Sub
+ErrHandler:
+
+ExitPoint:
+    Exit Sub
+
+End Sub
+Sub CreateSystemExceptionsSheet()
+
+
+On Error GoTo ExitPoint
+
+    Dim wsSource As Worksheet, wsTarget As Worksheet
+    Dim headerList As Variant
+    Dim lastRow As Long
+    Dim i As Long, srcCol As Long
+    Dim resultCol As Long
+    Dim copyRow As Long, pasteRow As Long
+    Dim resultValue As String
+    Dim criteria As Variant, crit As Variant
+    
+    ' Define the headers for Validation Exceptions
+    headerList = Array("Claim Number", "Customer Name", "Customer Ref Number", _
+                       "Claim Amount", "Download Remark", "Validation Remark", "Offer Code", "Offer Status", _
+                       "Result")
+    
+    ' Define the Result values that qualify
+    criteria = Array("Uploader Failed", _
+                     "Issue Adding to Botty File")
+    
+    ' Set the source sheet
+    On Error Resume Next
+    Set wsSource = ThisWorkbook.Sheets("Line Level Data")
+    On Error GoTo 0
+    
+    If wsSource Is Nothing Then Exit Sub
+    
+    ' Create or clear the System Exceptions sheet
+    On Error Resume Next
+    Set wsTarget = ThisWorkbook.Sheets("System Exceptions")
+    On Error GoTo 0
+    
+    If wsTarget Is Nothing Then
+        Set wsTarget = ThisWorkbook.Sheets.Add(After:=ThisWorkbook.Sheets(ThisWorkbook.Sheets.Count))
+        wsTarget.Name = "System Exceptions"
+    Else
+        wsTarget.Cells.Clear
+    End If
+    
+    ' Write the headers
+    For i = LBound(headerList) To UBound(headerList)
+        wsTarget.Cells(1, i + 1).Value = headerList(i)
+    Next i
+    
+    ' Find last row in source
+    lastRow = wsSource.Cells(wsSource.Rows.Count, 1).End(xlUp).Row
+    
+    ' Find the "Result" column in source
+    On Error Resume Next
+    resultCol = Application.Match("Result", wsSource.Rows(1), 0)
+    On Error GoTo 0
+    
+    If resultCol = 0 Then Exit Sub
+    
+    pasteRow = 2 ' Start pasting from row 2
+    
+    ' Loop through each row in source
+    For copyRow = 2 To lastRow
+        resultValue = Trim(wsSource.Cells(copyRow, resultCol).Value)
+        
+        ' Check criteria
+        For Each crit In criteria
+            If StrComp(resultValue, crit, vbTextCompare) = 0 Then
+                For i = LBound(headerList) To UBound(headerList)
+                    srcCol = 0
+                    On Error Resume Next
+                    srcCol = Application.Match(headerList(i), wsSource.Rows(1), 0)
+                    On Error GoTo 0
+                    If srcCol > 0 Then
+                        wsTarget.Cells(pasteRow, i + 1).Value = wsSource.Cells(copyRow, srcCol).Value
+                    End If
+                Next i
+                pasteRow = pasteRow + 1
+                Exit For
+            End If
+        Next crit
+    Next copyRow
+    
+    ' If System Exceptions is empty, delete it
+    lastRow = wsTarget.Cells(wsTarget.Rows.Count, 1).End(xlUp).Row
+    If lastRow <= 1 Then
+        Application.DisplayAlerts = False
+        wsTarget.Delete
+        Application.DisplayAlerts = True
+    End If
+    
+    ' Try to color System Exceptions tab if it exists
+    On Error Resume Next
+    ThisWorkbook.Worksheets("System Exceptions").Tab.Color = vbRed
+    On Error GoTo 0
+    
+    ' Rename tabs if they exist
+    On Error Resume Next
+    Sheets("Output").Name = "PT"
+    Sheets("Line Level Data").Name = "Output"
+    On Error GoTo 0
+    
+    ' Desired tab order
+    Dim wsOrder As Variant, ws As Worksheet
+    wsOrder = Array("Output", "Successful Send to Botty", _
+                    "Validation Exceptions", "System Exceptions", _
+                    "Uploader", "Uploader Output", "Claim List")
+    
+    Application.ScreenUpdating = False
+    Application.EnableEvents = False
+    
+    ' Keep ignoring missing tabs while moving
+    On Error Resume Next
+    For i = LBound(wsOrder) To UBound(wsOrder)
+        Set ws = ThisWorkbook.Sheets(wsOrder(i))
+        If Not ws Is Nothing Then
+            ws.Move After:=ThisWorkbook.Sheets(ThisWorkbook.Sheets.Count)
+        End If
+        Set ws = Nothing
+    Next i
+    On Error GoTo 0
+    
+    Application.ScreenUpdating = True
+    Application.EnableEvents = True
+    
+    
+ExitPoint:
+    Exit Sub
+
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+

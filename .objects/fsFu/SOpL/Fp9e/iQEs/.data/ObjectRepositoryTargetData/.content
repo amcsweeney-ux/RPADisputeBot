@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="bhu4sUB5EEWY7ZF4pKMAEg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="vendorcentral.amazon.eu/katalmonsapp/vendor/members/disputes/create" DesignTimeRectangle="291, 433, 194, 21" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='current-active-step-heading' tag='H3' type='' class='' aaname='Step 1 : Select invoice(s)' matching:id='fuzzy' fuzzylevel:id='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='Step 1 : Select invoice(s)' /&gt;" Guid="4b9682ec-9ffc-479c-86e6-9115eccca963" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon' /&gt;" SearchSteps="FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="e8b0be26bb3f0ca44a95c0e10ac9c58e.png" xmlns="">0WywwkBAf0kaTdKN5X1NzoA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">CheckState</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Chrome TEC",
+  "Type": "Screen",
+  "Id": "KJ2mbHpbQkinQ08aKIr5Jg",
+  "Reference": "hGGVLoWPekKE0Kk0gH4tDQ/KJ2mbHpbQkinQ08aKIr5Jg",
+  "ParentRef": "hGGVLoWPekKE0Kk0gH4tDQ/h_91KkC-2Eu_9Q7FFPElfg",
+  "Created": "2025-11-13T14:49:52.3481093Z",
+  "Updated": "2025-11-13T14:49:52.3481093Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.13.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

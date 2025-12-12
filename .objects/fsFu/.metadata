@@ -1,0 +1,12 @@
+﻿{
+  "Name": "Chrome Amazon",
+  "Type": "App",
+  "Id": "fsFuTvohAUGtJkCITWS9zg",
+  "Reference": "hGGVLoWPekKE0Kk0gH4tDQ/fsFuTvohAUGtJkCITWS9zg",
+  "Created": "2025-11-18T16:06:37.4903657Z",
+  "Updated": "2025-11-18T16:06:37.4903657Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.13.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

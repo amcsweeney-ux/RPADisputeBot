@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Chrome Reverse Logistics - Finance Claims Man",
+  "Type": "Screen",
+  "Id": "jZUpBKEjUU6y9c6XtRbvGA",
+  "Reference": "hGGVLoWPekKE0Kk0gH4tDQ/jZUpBKEjUU6y9c6XtRbvGA",
+  "ParentRef": "hGGVLoWPekKE0Kk0gH4tDQ/xJC9sToypUC-MnOfzbwm2w",
+  "Created": "2025-11-12T10:38:51.5668014Z",
+  "Updated": "2025-11-12T10:38:51.5668014Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.13.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

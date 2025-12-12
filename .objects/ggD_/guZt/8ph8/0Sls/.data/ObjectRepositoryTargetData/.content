@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="HH6zfUHCWkG3M7mTcahs6g" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="retaillink2.wal-mart.com/apdp/CreateDisputes" DesignTimeRectangle="922, 731, 77, 22" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Upload File' class='MuiButton-label' tag='SPAN' type='' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='UPLOAD FILE' /&gt;" Guid="2d192217-143a-4825-b57d-8071213f918b" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Disputes Management' /&gt;" SearchSteps="FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target DesignTimeRectangle="908, 726, 105, 32" ElementType="Button" FuzzySelectorArgument="&lt;webctrl aaname='Upload File' tag='BUTTON' type='button' class='MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='UPLOAD FILE' /&gt;" Guid="4fdc04b4-0320-4709-ac27-5ca4e99dd724" SearchSteps="FuzzySelector" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="9dc919a1554832f5e5af9b7706447bcc.png" xmlns="">0ZmtMWqXaRk6fF2VdCbS_Uw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="7hpyxG6pg0qx-xJJbKYErQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="vendorcentral.amazon.com/hz/vendor/members/inv-mgmt/invoice-details" DesignTimeRectangle="194, 394, 83, 10" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='sc-content-container' tag='A' /&gt;" Guid="4f77a8dd-6c47-4271-b867-bc31ec9d87e3" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="d8a499c09e38089df79665112165524f.png" xmlns="">0SUp5g1V7jUaIW1LjWGemPg</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">CheckState</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

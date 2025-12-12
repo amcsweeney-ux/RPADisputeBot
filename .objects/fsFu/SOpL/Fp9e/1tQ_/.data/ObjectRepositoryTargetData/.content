@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="VE9dvKVgqE28r70uOku3_g" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="vendorcentral.amazon.eu/hz/vendor/members/disputes" DesignTimeRectangle="1145, 833, 88, 23" ElementType="Button" FullSelectorArgument="&lt;webctrl aria-labelledby='create-new-dispute-next-button-announce' tag='INPUT' type='submit' /&gt;" Guid="48b52268-efca-4e5c-a6f4-f02fa999216b" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="45e69be1ac402a135e768727f69b7c24.png" xmlns="">0W41SAJYH2ESswd8jSy9eYA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

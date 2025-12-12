@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="N8Hi6OoBBEqP1SHyayrfyw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="retaillink2.wal-mart.com/apdp/CreateDisputes" DesignTimeRectangle="1814, 493, 90, 31" ElementType="Button" FuzzySelectorArgument="&lt;webctrl aaname='Submit' tag='BUTTON' type='button' class='MuiButtonBase-root MuiButton-root MuiButton-contained jss658' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='Submit' /&gt;" Guid="9efbabd3-138e-4af8-ae60-b451200374af" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Disputes Management' /&gt;" SearchSteps="FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target DesignTimeRectangle="1829, 499, 60, 19" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Submit' class='MuiButton-label' parentid='div302' tag='SPAN' type='' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:parentid='fuzzy' fuzzylevel:parentid='0.0' check:innerText='Submit' /&gt;" Guid="3b7e52dc-6b71-4198-b6d8-d4cc34aafcb6" SearchSteps="FuzzySelector" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="13025c1464b97613e7c4b165ce2aeee9.png" xmlns="">01vfoOXpht06fBfFhmDIdXA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

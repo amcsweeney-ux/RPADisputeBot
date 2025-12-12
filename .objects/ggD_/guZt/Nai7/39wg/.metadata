@@ -1,0 +1,14 @@
+﻿{
+  "Name": "LOG IN",
+  "Type": "Element",
+  "TaxonomyType": "Button",
+  "Id": "39wgCPAOTkGJhmoY3WMtFQ",
+  "Reference": "hGGVLoWPekKE0Kk0gH4tDQ/39wgCPAOTkGJhmoY3WMtFQ",
+  "ParentRef": "hGGVLoWPekKE0Kk0gH4tDQ/Nai7lI6mREyluqnPXEyLXw",
+  "Created": "2025-11-10T09:42:09.4078657Z",
+  "Updated": "2025-11-10T09:42:09.4078657Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.13.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

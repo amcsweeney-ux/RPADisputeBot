@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="-buT0xm650OzvCvYCzdvFA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="vendorcentral.amazon.eu/katalmonsapp/vendor/members/disputes/create" DesignTimeRectangle="565, 755, 12, 12" FuzzySelectorArgument="&lt;webctrl tag='KAT-CHECKBOX' /&gt;&lt;webctrl shadowhostid='' tag='DIV' type='' class='checkbox' aaname='  ' matching:shadowhostid='fuzzy' fuzzylevel:shadowhostid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="2b285774-3972-4831-b8e4-1f47841f7f5c" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon' /&gt;" SearchSteps="FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target DesignTimeRectangle="565, 754, 1046, 13" FuzzySelectorArgument="&lt;webctrl tag='KAT-CHECKBOX' type='' class='margin-md margin-top-lg' aaname='I acknowledge that I have verified the information provided' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='I acknowledge that I have verified the information provided' /&gt;" Guid="eafb4f66-0190-45dc-8885-358d8eddd174" SearchSteps="FuzzySelector" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="f5c5a15fd2187f42d192ab5a46abf826.png" xmlns="">0Cov-hMRQnU2Mtnh5kUixYg</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

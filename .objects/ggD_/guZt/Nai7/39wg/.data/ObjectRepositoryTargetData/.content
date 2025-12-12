@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="Mmjm_wGvUku9IxeWBbH4dQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="retaillink.login.wal-mart.com" DesignTimeRectangle="1041, 495, 370, 48" ElementType="Button" FuzzySelectorArgument="&lt;webctrl aaname='LOG IN' tag='BUTTON' type='' class='app-btn spin-wrapper spin-button spinner' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='LOG IN' /&gt;" Guid="9518c941-8d75-4469-8085-d247e3d39b58" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Retail Link' /&gt;" SearchSteps="FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target DesignTimeRectangle="1200, 508, 52, 22" ElementType="Text" FuzzySelectorArgument="&lt;webctrl class='spin-button-children' tag='SPAN' type='' aaname='LOG IN' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='LOG IN' /&gt;" Guid="f72588b9-56a8-4363-9b6f-64be9de8e88a" SearchSteps="FuzzySelector" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="9a24156d7c3bad42b62cdc9ff3e959d2.png" xmlns="">08f2FixIHW0qaZKXuT_kDBQ</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Chrome Amazon(1)",
+  "Type": "Screen",
+  "Id": "yQg612IvXEuYK_22U6x4Ig",
+  "Reference": "hGGVLoWPekKE0Kk0gH4tDQ/yQg612IvXEuYK_22U6x4Ig",
+  "ParentRef": "hGGVLoWPekKE0Kk0gH4tDQ/SOpLoljz1EqHpn1bgbfCxA",
+  "Created": "2025-11-18T16:10:17.0647983Z",
+  "Updated": "2025-11-18T16:10:17.0647983Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.13.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="3957EggqRUGJtsa-xvxEBw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="vendorcentral.amazon.eu/katalmonsapp/vendor/members/disputes/create" DesignTimeRectangle="1567, 337, 44, 12" ElementType="Text" FullSelectorArgument="&lt;webctrl id='continue-button' tag='KAT-BUTTON' /&gt;&lt;webctrl aaname='Continue' shadowhostid='continue-button' tag='SPAN' /&gt;" Guid="02cb09fe-7ff8-427d-890f-a96c5edf4aa9" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="46cd851c5ea19174874b2892ee0508f7.png" xmlns="">0bYjZ0b9_t0u6aFjAUtW1ig</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

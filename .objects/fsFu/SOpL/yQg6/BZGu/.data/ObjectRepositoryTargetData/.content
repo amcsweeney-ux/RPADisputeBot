@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="01v46ZQtsE-OU1DK64UxVA" Reference="hGGVLoWPekKE0Kk0gH4tDQ/BZGusK8YP0uhyEZOhHfo2A" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="vendorcentral.amazon.com/katalmonsapp/vendor/members/disputes/create" DesignTimeRectangle="289, 516, 1018, 19" FuzzySelectorArgument="&lt;webctrl id='dispute-title-input' tag='KAT-INPUT' matching:id='fuzzy' fuzzylevel:id='0.0' /&gt;&lt;webctrl class='ring' shadowhostid='dispute-title-input' tag='SPAN' type='' aaname='' matching:class='fuzzy' fuzzylevel:class='0.0' matching:shadowhostid='fuzzy' fuzzylevel:shadowhostid='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="d68012c1-f19a-489b-b269-6c2adcabeb56" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon' /&gt;" SearchSteps="FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target DesignTimeRectangle="288, 491, 88, 19" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='dispute-title-label' tag='H3' type='' class='' aaname='Dispute title' matching:id='fuzzy' fuzzylevel:id='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='Dispute title' /&gt;" Guid="d6e06d40-ad64-49be-b2b5-e65dd512b33d" SearchSteps="FuzzySelector" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="3440c71598bd5d4f04fb45f4783f2667.png" xmlns="">0DG1Y_sPIGkCbA5x-FZ4Shw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">TypeInto</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

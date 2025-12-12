@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Step 1  Select invoice…",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "cKtI4RsIu0Wmtp7lzfoooA",
+  "Reference": "hGGVLoWPekKE0Kk0gH4tDQ/cKtI4RsIu0Wmtp7lzfoooA",
+  "ParentRef": "hGGVLoWPekKE0Kk0gH4tDQ/yQg612IvXEuYK_22U6x4Ig",
+  "Created": "2025-11-19T11:44:50.1656531Z",
+  "Updated": "2025-11-19T11:44:50.1656531Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.13.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

@@ -1,0 +1,832 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="PortalCheck" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System.Text.RegularExpressions" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:um="clr-namespace:UiPath.Mail;assembly=UiPath.Mail.Activities" xmlns:umab="clr-namespace:UiPath.Mail.Activities.Business;assembly=UiPath.Mail.Activities" xmlns:umabf="clr-namespace:UiPath.Mail.Activities.Business.ForEachMail;assembly=UiPath.Mail.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Region" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>PortalCheck_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.Mail</x:String>
+      <x:String>UiPath.Mail.Activities.Business</x:String>
+      <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>UiPath.GSuite.Activities.Gmail.Models</x:String>
+      <x:String>UiPath.GSuite.Models</x:String>
+      <x:String>UiPath.Shared.Api.Google.Gmail.Models</x:String>
+      <x:String>UiPath.GSuite.Activities.Gmail.Filters</x:String>
+      <x:String>UiPath.GSuite.Activities.Filters</x:String>
+      <x:String>UiPath.GSuite.Gmail.Enums</x:String>
+      <x:String>UiPath.GSuite.Activities.Gmail.Enums</x:String>
+      <x:String>UiPath.Shared.Activities.Utils</x:String>
+      <x:String>UiPath.GSuite.Activities</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>UiPath.Mail.Activities.Business.ForEachMail</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Core</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="PortalCheck" sap:VirtualizedContainerService.HintSize="1338,2051" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="LoginCheck" />
+      <Variable x:TypeArguments="x:String" Name="BrowserLink" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign sap:VirtualizedContainerService.HintSize="1126,114" sap2010:WorkflowViewState.IdRef="Assign_13">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Boolean">[LoginCheck]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+      </Assign.Value>
+    </Assign>
+    <If Condition="[in_Region = &quot;EMEA&quot;]" sap:VirtualizedContainerService.HintSize="1126,500" sap2010:WorkflowViewState.IdRef="If_5">
+      <If.Then>
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_45">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_20">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[BrowserLink]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">https://vendorcentral.amazon.eu/home/vc</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_46">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_21">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[BrowserLink]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">https://vendorcentral.amazon.com</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Else>
+    </If>
+    <ui:RetryScope LogRetriedExceptions="{x:Null}" RetriedExceptionsLogLevel="{x:Null}" DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="1126,1414" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:05">
+      <ui:RetryScope.ActivityBody>
+        <ActivityAction>
+          <Sequence DisplayName="ActivityBody" sap:VirtualizedContainerService.HintSize="1092,1153" sap2010:WorkflowViewState.IdRef="Sequence_18">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Chrome Amazon Sign-In" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="1058,57" sap2010:WorkflowViewState.IdRef="NApplicationCard_5" InteractionMode="DebuggerApi" OpenMode="Always" ScopeGuid="97110fad-762b-4d58-b4a3-e2b7bfb35ff9" Version="V1" WindowResize="Maximize">
+              <uix:NApplicationCard.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1970,4899" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="sd:DataTable" Name="dtMapping" />
+                      <Variable x:TypeArguments="sd:DataTable" Name="dtFilterMapping" />
+                      <Variable x:TypeArguments="x:Boolean" Name="AgreementPageFound" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="B32" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="1936,148" sap2010:WorkflowViewState.IdRef="WriteCell_5" SheetName="Customer Mapping" WorkbookPath="Data\Mapping Table.xlsx">
+                      <ui:WriteCell.Text>
+                        <InArgument x:TypeArguments="x:String">
+                          <Literal x:TypeArguments="x:String" Value="" />
+                        </InArgument>
+                      </ui:WriteCell.Text>
+                    </ui:WriteCell>
+                    <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dtMapping]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="1936,120" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="Customer Mapping" WorkbookPath="Data\Mapping Table.xlsx" />
+                    <ui:FilterDataTable DataTable="[dtMapping]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="1936,193" sap2010:WorkflowViewState.IdRef="FilterDataTable_3" OutputDataTable="[dtFilterMapping]" SelectColumnsMode="Keep">
+                      <ui:FilterDataTable.Filters>
+                        <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                          <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+                            <ui:FilterOperationArgument.Column>
+                              <InArgument x:TypeArguments="x:String">["Customer"]</InArgument>
+                            </ui:FilterOperationArgument.Column>
+                            <ui:FilterOperationArgument.Operand>
+                              <InArgument x:TypeArguments="x:String">["AMAZON.COM"]</InArgument>
+                            </ui:FilterOperationArgument.Operand>
+                          </ui:FilterOperationArgument>
+                        </scg:List>
+                      </ui:FilterDataTable.Filters>
+                      <ui:FilterDataTable.SelectColumns>
+                        <scg:List x:TypeArguments="InArgument" Capacity="4">
+                          <x:Null />
+                        </scg:List>
+                      </ui:FilterDataTable.SelectColumns>
+                    </ui:FilterDataTable>
+                    <uix:NCheckState DisplayName="Check App State 'CA - Logitech Canada'" Exists="[AgreementPageFound]" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="1936,3757" sap2010:WorkflowViewState.IdRef="NCheckState_7" ScopeIdentifier="97110fad-762b-4d58-b4a3-e2b7bfb35ff9" Timeout="12" Version="V1">
+                      <uix:NCheckState.IfExists>
+                        <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="672,3540" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="x:String" Name="loginCode" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ContinueOnError="True" DisplayName="Type Into 'Email or'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="638,286" sap2010:WorkflowViewState.IdRef="NTypeInto_7" ScopeIdentifier="97110fad-762b-4d58-b4a3-e2b7bfb35ff9" Text="[dtFilterMapping(0)(&quot;Portal Username&quot;).toString]" Timeout="10" Version="V1">
+                            <uix:NTypeInto.Target>
+                              <uix:TargetAnchorable BrowserURL="vendorcentral.amazon.com/ap/signin" ContentHash="nzw82JM5-0-1MoJefPerSg" DesignTimeRectangle="870, 281, 196, 21" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='ap_email' tag='INPUT' type='email' class='a-input-text a-span12 auth-required-field auth-require-claim-validation' aaname='               Enter mobile number or email             ' matching:id='fuzzy' fuzzylevel:id='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="74163d12-9dba-44ee-9396-a117d6a7e173" InformativeScreenshot="e428245a675d67ccdd4a9373846ace90.png" IsResponsive="True" Reference="hGGVLoWPekKE0Kk0gH4tDQ/Iw3zYS_eHEW8yvmrnw3OXQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon Sign-In' /&gt;" SearchSteps="FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="870, 266, 196, 15" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='a-form-label' aaname='               Enter mobile number or email             ' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='Enter mobile number or email' /&gt;" Guid="4d908e3d-9b11-4df6-a724-658dbc69fd2a" SearchSteps="FuzzySelector" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NTypeInto.Target>
+                            <uix:NTypeInto.VerifyOptions>
+                              <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                  <InArgument x:TypeArguments="x:Boolean" />
+                                </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                  <InArgument x:TypeArguments="x:Double" />
+                                </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                              </uix:VerifyExecutionTypeIntoOptions>
+                            </uix:NTypeInto.VerifyOptions>
+                          </uix:NTypeInto>
+                          <uix:NClick ActivateBefore="True" ClickType="Single" ContinueOnError="True" DisplayName="Click 'INPUT continue'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="638,225" sap2010:WorkflowViewState.IdRef="NClick_9" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="97110fad-762b-4d58-b4a3-e2b7bfb35ff9" Timeout="1" Version="V1">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="https://vendorcentral.amazon.com/ap/signin?clientContext=130-4693233-0887448&amp;openid.pape.preferred_auth_policies=SinglefactorWithPossessionChallenge&amp;openid.return_to=https%3A%2F%2Fvendorcentral.amazon.com%2Fhome%2Fvc&amp;openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&amp;openid.assoc_handle=amzn_vc_us_v2&amp;openid.mode=checkid_setup&amp;intercept=false&amp;language=en_US&amp;openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&amp;pageId=amzn_vc_us_auth&amp;openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0" DesignTimeRectangle="871, 369, 195, 19" ElementType="Button" FullSelectorArgument="&lt;webctrl tag='INPUT' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='submit' aaname='' /&gt;" Guid="3d342e2c-d01f-4d0f-b704-fafab662bbe0" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMcAAAAXCAYAAAC/O1vpAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALhSURBVHhe7Zu/S1tRFMf9D8q954JDoVAKFgqGQGg7BTqYpcWhSBwkQsC3CNlsHSqCEOiS8UGHIgQEoTi+ofBAEDtIgkNRGnh1KHbLmC5Nt28576nP9yNqTCw0OV/4wMu5992X4Xy5vycgEolSNREPRPS7CbTfAj+eAt/vA54RhP8XzmHOZc5pzu1rlG6OP9+An6+Ak4fJDwjCKMC5zTnOud5DSXP8+pRsSBBGGc75FEXNwZVOHiRfFoRRhnM+xSChObh7ib8kCONEbIgVmoPHX/HKgjBOsAcS5uCZu0y+B6dl0PlMcLYNOl9Tym/IUd2gkxIX7hj2wKVVrMAcvLQVryj0h0uYfaxQXCE47wm1ekqdK6jOEU79Z8LOyvmz8M9hL0TMwWu/8UpCX+y8VnizHYu3DJpVjeKsxlo16A3adY2PHwj2chDfPzTwbI3MpEaprOEeELbKhCPPwF0lOHXC2qxG8R3573OMy7j9i+cGoVbWsOYJzpfkfxP6gL0QMYds8A0IofpIw2lF46frCs9WDbqeQbOiULKDWGHdoNsy8FYV8huEboNQyhKaBxwnWErD9Qh2TsF2A5PVshr2Hse4LPjm+XM1q7HVCExSnCG0E/9PuDHshYg54hWEvuHk3YnNM9wFBXv37Pemxr1F8s1hbQYx3zzr5Ce6lQuHVaE5LhuB24rHgnrWWa9TKWtkLtoRbo30HMNlf0mhaEdj7mI41Ora2jfCXZij8iQcagkDkug5ZM4xOIeEtecKU1mN4ozC1DL5k/TCtIJV1shPa7iHgSGS5jCo5RQK8xrO3lXmMHDmFDIvNawFjfxkUO5tKGReBD1HaUmGVQORmHPIatXwaBl0j6OxDs8l4vUGoMPzi3j82KCdFhf6I7FaJfscgtBjn4MlO+TCuJO6Q86Ss1XCuNPzbBVLTuUK48i1p3LPJfc5hHEjxRispDlYchNQGHVudRPwsuQOuTBKDOUOuUgkwl/bKfm6OFXA4AAAAABJRU5ErkJggg==" InformativeScreenshot="a7b3f0b3d0b82e31d56935f74a6786e6.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon Sign-In' /&gt;" SearchSteps="FuzzySelector, Image" />
+                            </uix:NClick.Target>
+                            <uix:NClick.VerifyOptions>
+                              <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                <uix:VerifyExecutionOptions.Retry>
+                                  <InArgument x:TypeArguments="x:Boolean" />
+                                </uix:VerifyExecutionOptions.Retry>
+                                <uix:VerifyExecutionOptions.Timeout>
+                                  <InArgument x:TypeArguments="x:Double" />
+                                </uix:VerifyExecutionOptions.Timeout>
+                              </uix:VerifyExecutionOptions>
+                            </uix:NClick.VerifyOptions>
+                          </uix:NClick>
+                          <uix:NClick ActivateBefore="True" ClickType="Single" ContinueOnError="True" DisplayName="Click 'INPUT signInSubmit'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="638,225" sap2010:WorkflowViewState.IdRef="NClick_10" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="97110fad-762b-4d58-b4a3-e2b7bfb35ff9" Timeout="6" Version="V1">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="vendorcentral.amazon.com/ap/signin" DesignTimeRectangle="1108, 335, 64, 38" ElementType="Button" FullSelectorArgument="&lt;ctrl name='No passkeys available' role='dialog' /&gt;&lt;ctrl name='Close' role='push button' /&gt;" Guid="618f183b-1fcd-4f05-a1ba-62db66da21b4" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEQAAAAqCAYAAAAK7f2YAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAeVSURBVGhD5Vp7UJRVFN8ap5rJysomK0uzKKodK9JJRydzprApK2ekGcb8AyYLfIBroCIguI6KpvhIkQjEN4riCxtHNEREUIJJFlOQdNNchV1esg+WZYHTPefb77qrlxCQWpY/fjN77zn33vP77b33uy8F2AHuBfknUiBC9TxMD3iAY9ECb9i9dRacPLYBNMWZoNNqoMlkEpbvCWBb2Ca2jTHs2jIDFkW87hJj5PcvwpncLcLyInQoSGHeDlg49xXewOq4DynPWKsX+rsDGmoqofDUdohf+gGPO3b+a1BcsFvo74x2BbFbmyBx7ZcuFWqKDrn4tDXVg63hNFgMW8CsTwBT5Sow3ljCsOg/whJqE9vGGDCWtqYGlxhLfjsAMfO9OI/kDV8xbjYXH2cIBTHfqoUV6vd5Jcd+WcltbTYL2IxnwaJPFgToHrAYUqHZWESxynEfzYzjfFYtGQuNxlvc5oy7BKmtusaHyJzpT0DFhVxus5vL2b+xURiEOwJjtZsrePxlmuMwJ/hx4oZzTZ3+OrfJcBHEZrHw7hUVPhQMNy5TfkvjVTAbfhI22htgMWxiHP4mLpXXLrKJ9iXiiNNAk9nM+SNcBPlx5QRyXDh3GJjqqikPxZDmBnFjvQXIoaXxL+JkqjNAdPjLxDUh/jPOH8EF2bN9NjlglzLo/qQ8W0Meq0x9V+W9F2rGKZ+46XUVoArqT5wzdoa5CoLzBBpmBD7I54wWy2WqQFxxb4aacZP+8IslWcQZuV8pL7gtiDryTcrcu0NFma3WWjDejBNU5iFg3FqtNcR195aZxH1ZrI8kCK5AMSNsxpN8lWnRp4gr8iDgp5m4NtQTd9TgTO5WUMwNeYYSp35NJAe76bywAk+E3VxGnHOy1pMGEaoXQIE/cMigAextYKpaIyzsicB1CnJua27l0wYJcjo7mQTB1Z2ooCcDOSN3HCFcEHO9NMG483K8p4Cckfut6puSIHEx71FGm80kLNAXgNxRg6Ux74LicEYMJXp+uEyFoMEKGBevEtj+X8jDBrVQlBQdpIS17oDQubOoLvKHqC8GgBcjPwQxbACEpoUzm/sKYq09TBrgUYFCe+kMJSzV24XOnYEu4x3wQRHGKCFhsz8cTPOH9HglBK1HEdxXkMaaXaTBlfJ8UFTf1FLCrE8UOt87AiB8GBPDbxLohPY7BYkGTZISfLEMiug9yNGTJH9d5liYPNxhY71MnSXlV+dPhAA5f7g3JGRF8DJdBXJHDXAPxzd33V6qs94xZHB/UOcIbARXQbRJQ5n/IxCQNAu0pSrIjhxE6XAiLvmODpkK2vII0GaMgDUZLL90Ekxm+b6RAaDVRkBe2EBWxhvStc7tdAGMO2pgNTaAQj4P6K4gZfFISAkHBTYJzoKoIGE8+4f9/KCa26dRD/MKmQZGrR8EMF/llEmgcSIrt3FELlP0CYxjfqEolpzXFTgEQS3YkLlCCbN+vdj5XpGmZMEOhDX5AhvBWRDH72WznOxMpDFMpMCplNZljuLDyQeFYXlHAh1D5Q4EdVMQ5I4a4IGYQt72Wgybhc73DEd3VjJCHc8h7fcQn8hgRxoRDVomDPYCX1auLJ4NkWEjIJvb7w+QO2pwuew0++yyTw0mGmv3Cp07Aw11aSbKhFGQwr4w//aVEc8hgyChiNVVNBFCaZ6IBl3+J/C5QxB5iIwO8gdNaThoi4IhZZkflN0RR2eB3FGD389msIXZvlhKSKdj4gKdgTZtFEwe2Y93Z6/hgyAqK5rZXAUx3mCTYrw3jJa/Ms5fjFJ/COV19APfQD8aMmjTZbCh5O0owwT1DZvm1Mu6BptRWnoc2hMFiuWLRlICD0xEzn0BbTbpw0JLd9zQyAfKfXlzhxtcvtuV7z7v17DpTUDOyD0/Z9NtQeJiR1CmdEC0VljQE4FckTNyXxyllAQJm/kU/ThXuI8MfeoIkXFFzsUF6aQBnq0qThxdRwm82sOjNHToTdeVXYV0fAjEGW8pUYOTxxNA4ZyRl/0zObU2VnV/b+POYNxardJzjtzjG4l7zLxXSRza3OGCBDNVwY/Bzat/kKNnX1RJ2xXkipyRu3wuxHe7qYlTyDAv9Fmo00sXw7hgEVfaeyEvwpAjckXO25IDKQ/BBUGsiRsvdZ/5XnQhjHktFq1nDB/GQb7sxtdPOESQ67ofPub8ES6CWE1G/hwC32ZVXS+nfFzFmvUbxA31AuBuVr66xGGC3JCjesEbxNlZAxdBEPhgRr60wdtxfNAm2ezQbCxk3+7VwkbdEabK1fTaCWNHDjhPzP7uUeK2OPKtjh/MyMCDknUrPqKCiNTEr/m8gmg2Ft+XM9ieAsbWbDzH48XYUzb6cz4b4j+966GMDKEgCPwE7UsL55WETHsY9u+aR8dst/3s9DVqqs+Gxpo9YDYksbG6XBhkj4C1hW1i2xgDxiL3BgTGim8/Zn3zEOexf9dcxk1anYrQriAyLp0/Qd1LrhBXtvhsouLCSaG/OwBjTt8Wym/1EUsWvu3yXq49dCiIjIKcVJg/+zneACJ85tOwMzXI9eFuO12xJ4BPGa5rS6htvMHfkfotxeQcI8Z89tQ2Yfm7AfAPPs2jzvZHvXQAAAAASUVORK5CYII=" InformativeScreenshot="1b2368e2461f62dd832295d8c32d67c4.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Amazon Sign-In - Google Chrome' /&gt;" SearchSteps="Selector, Image" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
+                            </uix:NClick.Target>
+                            <uix:NClick.VerifyOptions>
+                              <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                <uix:VerifyExecutionOptions.Retry>
+                                  <InArgument x:TypeArguments="x:Boolean" />
+                                </uix:VerifyExecutionOptions.Retry>
+                                <uix:VerifyExecutionOptions.Timeout>
+                                  <InArgument x:TypeArguments="x:Double" />
+                                </uix:VerifyExecutionOptions.Timeout>
+                              </uix:VerifyExecutionOptions>
+                            </uix:NClick.VerifyOptions>
+                          </uix:NClick>
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ContinueOnError="True" DisplayName="Type Into 'Password'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="638,286" sap2010:WorkflowViewState.IdRef="NTypeInto_8" ScopeIdentifier="97110fad-762b-4d58-b4a3-e2b7bfb35ff9" Text="[dtFilterMapping(0)(&quot;Portal Password&quot;).toString]" Timeout="5" Version="V1">
+                            <uix:NTypeInto.Target>
+                              <uix:TargetAnchorable BrowserURL="https://vendorcentral.amazon.com/ap/signin" DesignTimeRectangle="870, 360, 197, 21" ElementType="InputBoxPassword" FullSelectorArgument="&lt;webctrl tag='INPUT' type='password' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='password' aaname='                                 Password                                      ' /&gt;" Guid="6b5da02f-0cf8-49c3-8d1e-b05b43feb1fb" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMkAAAAZCAYAAACb+AoqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGbSURBVHhe7dw9S4JRGIfxQ9+koMGtT9AHaHR0rC0aKqI1EGppb2grqIyIlqaWotEh6IWCQrEX84UwIyyH8o6/9kDiywGh6Vw3/OCgyINwLh4Ez+NOr/I2NrNjw5MbAH6pCbWhcVEg02sndp59sUaj+TrDBDfa+2pALUShFCs1c1Eg+bd3m1jftaH5FXNzy0BwtPfVgFqIQklup1uRqB69Obt3ZGc3T3ZxW7DLuyIQDO157X01oBbUhNoYX9xvRaLbjCq6zr7YfenTHst1IDja+2pALagJtTEytdmKRKPbTa70YYXXbytWG0BwtPfVgFrQRD/i2yJ5KNc7PgiERA0QCdAHkQAeRAJ4EAngQSSAxwCRHFrcOXOxVUtXM7YUc+Zcwrba1g1LJ2PmnLN4qve6mEo016PJTPu67Rq9rtf5ZYD/QCSAxwCRAGEhEsCDSAAPIgE8iATwIBLAo2ck0XmSbIG/yiNc2vuZQq37eZLoZOLCwbHlSnV7rnwBwdHeVwNdTyZyxh3oc8adp6UwTGt6Pi2F524Bnf4+d+sHA0yJWk8DPkEAAAAASUVORK5CYII=" InformativeScreenshot="e2a094b9d090156d284e5072f781a440.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon Sign-In' /&gt;" SearchSteps="FuzzySelector">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="870, 346, 80, 15" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' aaname='                                 Password                                      ' check:text='Password' /&gt;" Guid="bd6654ec-69de-4c80-8775-c89cb22ae509" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFQAAAATCAYAAAAONioVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAL/SURBVFhH7ZbBSxtZHMfD/gPDO4TMSdw9JIdCmlMEQQuCQhdqTgqC7WE3BVkmpK1NPSh7MG4P2z01QVBPGthldReW7EESL5teSiwE4hZrUpRIG3ZmkWWW7ZKBgJ/yZow0Krs0FVrLfOELM+/9eI/5zPc3bzy4Old5Tg64eje5QM9ZLtBzlgv0nNUO1DLRDePIJo22yfer8nIMbbl8cviDUzvQ9ZsoQtB1KYBfFSiDS9TaCt6fchMCZSJ/cviD0xlAb5KT19XvCIseUrvQKGWYHruCPxxBW9jEBMwnS2jDPYSHY6zuAvUsSVkzMErqcZXs1zEebBjQLLMYn3FqdteYji9RtNrrk78azv5bGbT5POVf5pw0NiusxiP0DccY772wQG+watQoL4ziExFWDNBLWQrbBvqjGYL2WI3UgODaQg19v8xOHXKaoGsyj25UKFctilMqSjQLpTmCQhB+WENfjqAMZ9CpkLwsCE5kKWwkCIsQye3W/iGuxZ323rkfQumdobBfIXX1wgJ1Wl4mb/GJzOJRmqKjjEQjBI9SuzM/ZNf6r6cpmmCux/ALga8/RrYOPE7gUxOsPOxhZDKBfyzDSlQwuGDAfpo+ESBZkotXeBAW9M3X2jsE56X5Z53v5sVv+WM5Dxb+tgJWlvEjoLZeOcnxTW0695ZBLh5wUtgscFcNEbws6/No3hDBwBCLEnYzT1QIRn6yjq+j66f3tyGOZOxPzEcEFIpT3ShqgGB/iC4baI3UoIr/UgCfN4C2YZHTVDvZXV6ZQucoK0yqKGqCIharYwKlN318yLUSrnjl4Zdmp3nG/tU0g3Le240/oF5AoP+hxsHp36jGgYEpD5jWvWlgvnqz4n8kf9PeXOAjkA1U/+tfZr/fpP/ez3z25QqffrHsukN7Hj2tE9J+ODXhujN7WjC/mv+N8t4Bh4cnQ+zqbeRpwaz//Q+fL/7IJ3fu47n9jetOLYHKZEqYt9bylJ69ZKv6B78/1113YBuobHOZzO29A/aNBi/+tFx36NdY/aAPM6rq6AAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NTypeInto.Target>
+                            <uix:NTypeInto.VerifyOptions>
+                              <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                  <InArgument x:TypeArguments="x:Boolean" />
+                                </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                  <InArgument x:TypeArguments="x:Double" />
+                                </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                              </uix:VerifyExecutionTypeIntoOptions>
+                            </uix:NTypeInto.VerifyOptions>
+                          </uix:NTypeInto>
+                          <uix:NClick ActivateBefore="True" ClickType="Single" ContinueOnError="True" DisplayName="Click 'INPUT signInSubmit'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="638,229.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_11" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="97110fad-762b-4d58-b4a3-e2b7bfb35ff9" Timeout="1" Version="V1">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="https://vendorcentral.amazon.com/ap/signin" DesignTimeRectangle="871, 398, 195, 19" ElementType="Button" FullSelectorArgument="&lt;webctrl tag='INPUT' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='submit' aaname='' /&gt;" Guid="9bbb3aaa-b412-427b-bfac-a71202749ce2" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMcAAAAXCAYAAAC/O1vpAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJ8SURBVHhe7Zu/axNhGMf7H5R739uEgku6hUIxU7tVB6WDg4sgdMhS6FbsoAQCASHodhCkBAp1sV2EDkLAJQ6BI4NQDMQOJW63unhuX3n6JuTu3gst5qzx7vuFDwnPPe97y/PlvffXEiiKStVSMhDTTx8IngOX94Bvd4ChS8j/i9Sw1LLUtNT2NUo3x6+vwPdHwMVd+wWE5AGpbalxqfUZss3x473dESF5Rmo+RXFzSNLFit2YkDwjNZ9ikKk5ZHhJNiKkSCQ+sabmkO+vZDIhRUI8YJlDZu6cfGdO2HfRbWl0P7oIBy7Cjob/2c67CcN3LoKBHScZIh6IrGIZc8jSVjKRzMcHjcqawmFL47SmcHzmIjzR8E5Scm+AX9fwv9hxkjHihZg5ZO03mUTmYlRXqLyIx4IjhddH5r/fUHiybcxzKLEzjcYbjeN9Ez/txNt2DhQ6PdOHtPF2TV63b7+bzIF4IWYObvBlT19jb9VBacuMGhIb1RxUahqhp1DedRGKYV6pqxjaCqUdjeDcRdhSWH6mI/1peOsOvE+mj/s185k2PHCwWY/mkbkRL8TMkUwgmSHzjJcbDrabU3PIb7U9zmlPzXH1O44tP51tjknbSX/Jd5I54chxi7w1I8GkmIOmQnl/+ozmWCCskYNzjswZNRU2txT2dhQqKw68TqSYBy68Bw7K6wrVh+MYzbEYWHMOrlb9Hc5dBD0zt7CejQka5pMrGSf/CGu1ivsct0tPo7rmoLTqoPJYY8j9i8UgdZ9DxB1yUnRSd8hFPFtFis7Ms1UinsolReTaU7kT8T4HKRopxhDZ5hDxJiDJO390EzAq3iEneSKTO+QUReE3pX8TsEsjoO8AAAAASUVORK5CYII=" InformativeScreenshot="6c07175f2c508f7fcf8469a37e4a2276.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon Sign-In' /&gt;" SearchSteps="FuzzySelector, Image" />
+                            </uix:NClick.Target>
+                            <uix:NClick.VerifyOptions>
+                              <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                <uix:VerifyExecutionOptions.Retry>
+                                  <InArgument x:TypeArguments="x:Boolean" />
+                                </uix:VerifyExecutionOptions.Retry>
+                                <uix:VerifyExecutionOptions.Timeout>
+                                  <InArgument x:TypeArguments="x:Double" />
+                                </uix:VerifyExecutionOptions.Timeout>
+                              </uix:VerifyExecutionOptions>
+                            </uix:NClick.VerifyOptions>
+                          </uix:NClick>
+                          <Delay Duration="00:00:12" sap:VirtualizedContainerService.HintSize="638,124" sap2010:WorkflowViewState.IdRef="Delay_4" />
+                          <umab:GmailApplicationCard ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" Account="amazon.finance@logitech.com" DisplayName="Use Gmail" EmailAddress="amazon.finance@logitech.com" sap:VirtualizedContainerService.HintSize="638,1587.3333333333333" sap2010:WorkflowViewState.IdRef="GmailApplicationCard_3" Timeout="90" UseConnectionService="False">
+                            <umab:GmailApplicationCard.Body>
+                              <ActivityAction x:TypeArguments="um:IMailQuickHandle">
+                                <ActivityAction.Argument>
+                                  <DelegateInArgument x:TypeArguments="um:IMailQuickHandle" Name="Gmail" />
+                                </ActivityAction.Argument>
+                                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="604,1364.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <umab:ForEachEmailX DisplayName="For Each Email" sap:VirtualizedContainerService.HintSize="570,1302" sap2010:WorkflowViewState.IdRef="ForEachEmailX_3" IncludeSubfolders="False" Mails="[Gmail.Folder(&quot;Inbox&quot;)]" NumberOfEmailsLimit="5" RetrieveAttachments="False" UnreadOnly="True" WithAttachmentsOnly="False">
+                                    <umab:ForEachEmailX.Body>
+                                      <ActivityAction x:TypeArguments="snm:MailMessage, x:Int32">
+                                        <ActivityAction.Argument1>
+                                          <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="CurrentMail" />
+                                        </ActivityAction.Argument1>
+                                        <ActivityAction.Argument2>
+                                          <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
+                                        </ActivityAction.Argument2>
+                                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="536,999.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                                          <Sequence.Variables>
+                                            <Variable x:TypeArguments="x:String" Name="ReadMailBody" />
+                                            <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="CheckRegexCode" />
+                                          </Sequence.Variables>
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <umab:MarkMailAsReadX DisplayName="Mark Email As Read/Unread" sap:VirtualizedContainerService.HintSize="502,168.66666666666666" sap2010:WorkflowViewState.IdRef="MarkMailAsReadX_3" MailMessage="[CurrentMail]" MarkAs="Read" />
+                                          <Assign sap:VirtualizedContainerService.HintSize="502,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_14">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:String">[ReadMailBody]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:String">[CurrentMail.Body]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <ui:Matches BuilderPattern="\b\d{6}\b" DisplayName="Find Matching Patterns" FirstMatch="[loginCode]" sap:VirtualizedContainerService.HintSize="502,92" sap2010:WorkflowViewState.IdRef="Matches_3" Input="[ReadMailBody]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;\\b\\d{6}\\b&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="\b\d{6}\b" RegexOption="IgnoreCase, Compiled" Result="[CheckRegexCode]" />
+                                          <If Condition="[CheckRegexCode.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="502,558.6666666666666" sap2010:WorkflowViewState.IdRef="If_4">
+                                            <If.Then>
+                                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,225.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <Assign sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_15">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:String">[loginCode]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:String">[loginCode]</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                                <ui:Break sap:VirtualizedContainerService.HintSize="434,48" sap2010:WorkflowViewState.IdRef="Break_4" />
+                                              </Sequence>
+                                            </If.Then>
+                                            <If.Else>
+                                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,168" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <Assign sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_16">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:String">[loginCode]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:String">
+                                                      <Literal x:TypeArguments="x:String" Value="" />
+                                                    </InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                              </Sequence>
+                                            </If.Else>
+                                          </If>
+                                        </Sequence>
+                                      </ActivityAction>
+                                    </umab:ForEachEmailX.Body>
+                                    <umab:ForEachEmailX.MailFilter>
+                                      <umabf:MailFilterArgument LogicalOperator="And">
+                                        <umabf:MailFilterArgument.Filters>
+                                          <scg:List x:TypeArguments="umabf:SingleMailFilterArgument" Capacity="1">
+                                            <umabf:SingleMailFilterArgument DateEqualsFilter="{x:Null}" Criteria="From" DateFilter="SevenDays" Operator="Contains" Value="account-update@amazon.com" />
+                                          </scg:List>
+                                        </umabf:MailFilterArgument.Filters>
+                                      </umabf:MailFilterArgument>
+                                    </umab:ForEachEmailX.MailFilter>
+                                  </umab:ForEachEmailX>
+                                </Sequence>
+                              </ActivityAction>
+                            </umab:GmailApplicationCard.Body>
+                            <umab:GmailApplicationCard.ClientId>
+                              <InArgument x:TypeArguments="x:String">
+                                <Literal x:TypeArguments="x:String" Value="" />
+                              </InArgument>
+                            </umab:GmailApplicationCard.ClientId>
+                            <umab:GmailApplicationCard.ClientSecret>
+                              <InArgument x:TypeArguments="x:String">
+                                <Literal x:TypeArguments="x:String" Value="" />
+                              </InArgument>
+                            </umab:GmailApplicationCard.ClientSecret>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </umab:GmailApplicationCard>
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ContinueOnError="True" DisplayName="Type Into 'Password'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="638,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_9" ScopeIdentifier="97110fad-762b-4d58-b4a3-e2b7bfb35ff9" Text="[loginCode]" Timeout="5" Version="V1">
+                            <uix:NTypeInto.Target>
+                              <uix:TargetAnchorable BrowserURL="vendorcentral.amazon.com/ap/cvf/transactionapproval" DesignTimeRectangle="832, 339, 272, 25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='input-box-otp' tag='INPUT' /&gt;" Guid="5598e048-d18e-4f53-bc3f-63def07e585b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAARQAAAAdCAYAAABrCJMFAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH1SURBVHhe7d1NTpNRHIXxbsVFMHMviCtwwjZIt+DUSNgAxGCc6wQ1fISEChoJtEp9+/Heew85b3tJSluRcmc+T3JCAmH6Szv539ZNNdaLrV09e/maMcZWmg2xJa2MyfPNbb39cKxefygiooeyFTbDdmRUWhmT86u+tnY+au3Vmzl9GGPs/myFzbAdGZUGFCvjP6y39/TurKuDqtbnqtaXqtZXxhibzibYBhthK9bbu40dNuQOFH90sTb7na4OB0Gnw6CzUVBnum+jyBj7z5c9sA024mgQ9L7TbeywIXegOP88HgSdj6Iu66jrOqobknqMMTadTbANNsJWnAxDY0c2ZAYU63NVR/Vj0iAmjRJjjM3ONtgIw+JPLktB+TGO+h0m/xSSFMUYY7OzDTbiJqTGjKWg/BxH/YlJdZJS81siotlsg42wFTZjKSj+XlTFyacTQCGiRdkGG2ErbAagENHKAQoRFQtQiKhYgEJExQIUIioWoBBRsQCFiIoFKERULEAhomIBChEVC1CIqFiAQkTFAhQiKtY/g8L5AiJ6KNvw1/MF+absp4teczRlnCYC3T+swhhjtsFG2AqbMXdTNl+932jv6eD7r0aeIScgGWMLZhtshK2wGXNX73mXhzH22C18l4eXA4lolRa+HMjbxoyxpy6/bXwLMHBkPRXP6W4AAAAASUVORK5CYII=" InformativeScreenshot="7735e76df04288fe74789273013692b2.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon' /&gt;" SearchSteps="Selector, Image" Version="V6" Visibility="Interactive" WaitForReadyArgument="None" />
+                            </uix:NTypeInto.Target>
+                            <uix:NTypeInto.VerifyOptions>
+                              <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                  <InArgument x:TypeArguments="x:Boolean" />
+                                </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                  <InArgument x:TypeArguments="x:Double" />
+                                </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                              </uix:VerifyExecutionTypeIntoOptions>
+                            </uix:NTypeInto.VerifyOptions>
+                          </uix:NTypeInto>
+                          <uix:NClick ActivateBefore="True" ClickType="Single" ContinueOnError="True" DisplayName="Click 'INPUT signInSubmit'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="638,222.66666666666666" sap2010:WorkflowViewState.IdRef="NClick_12" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="97110fad-762b-4d58-b4a3-e2b7bfb35ff9" Timeout="1" Version="V1">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="vendorcentral.amazon.com/ap/cvf/transactionapproval" DesignTimeRectangle="833, 424, 270, 24" ElementType="Button" FullSelectorArgument="&lt;webctrl aria-labelledby='cvf-submit-otp-button-announce' tag='INPUT' type='submit' /&gt;" Guid="83f20540-92dd-417e-8cc7-8d6b21dc4270" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAARIAAAAcCAYAAACtSjDnAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAP+SURBVHhe7Z2xaxRBFMb9D8LMLF6VI3Cw6UIgcEJQtLhYCCksLkVQSHFN5MBCsVCEQCpRsDiwCKkSbASxE4JpTBEiEUICIRdsUsmBhSnEa4RP3u3s3e7s3nkXI9ya78GPZN+9nWyK+XjvzdzsJdBoNNpf2iXXkWo/PwPfloGT68CXMeD4MlD3CCH/GzK3ZY7LXJc5L3O/D+stJD8+BAMejwFHEfE4SnkAQkj2ic5tmfMy90UDRAt6WHch+XovGMT9Q4SQi4dogWhCF0sKya/vNgsZZeZBCAkQLRBNEG0QjXAsKSQSGC1jCCEkRLRBNMKxuJC0ypnR5M2EEBIiGuGUOR0hkWZKq6maciMhhIS0ypyxWAO2IySSrrg3EEJINyIlTiAkslbMFZr/kvq6QX0v6e+LQw+nZ723D/ZfGTRS/CQjiGbYfSaBkMjGEzZYM8Hpa41iXsEfV/ALCk/WkzEdDGpTCrVN198fJ0saI3dNcL1l8HEjGXN2DCpKYyPhJ5lBNEO0oy0kLGsygsFyQeF53xO6IyTNnfTsornrobFrr/c8NLY9NBPjeMCqRvGpFZU03Hslm9mOjB1yYOMOk0KSGk+GG1veBEIiW2LdADKUrJUUZpcMmodRfzzzOHmq7KQP/P60RmVBY6agUFntxLf9eYViSaM8p1GeVJh4YMdd1RiZN8C6hp9TGMlJJqTx0Xmm+pJCfjwY6+FLA+waVMcVZux4M0s2dsvgTkGjvKBRvqGQC4Xk0EPtahBfkZ/LPQSLDBeiHW0hkf31XK3JBjseVuY1cp7CtQWDRktQegtJu7R5Z+BPG5x0jY+Ih/N7LCbKnkFZBCEibPv3RQzstWQeXvB5zB8pbZo1Df++HVvGm5JnTPnfyXDRWr25TCHJNAcGa7cV8oty3U0YHCFplxPd4s8gJJsGRWfib8yHmU/82Vx/KCQydu6KRnXB8ohN2EyQEBKWNpnk9EXYDA0ma9g7cYWk3VN5q+GXZJKeUUgeJ59BMog7nsabSP+l/kB3Mg/7uWQkMb+bkVRTxibDT6y0YbM1Ixis3FTwJzVmpxVyBY01KwafFhVGJjUqt4S4kBRvaMyUNPy8Qq0lKoMLCd5rFG2PZG0r/lytHoldSZqodnok12aDvszsMxsr/oKCXwqefyIX75GIvzqnUVxMyXzIcBJrtnL5N1PICkxjJ90fb8JG2OuyGnOONJ1VodZK0cGf49r+6AoSGX4Sy7/ckEYIGZTEhjSWN4SQQUlskRfjl/YIIf3Q80t7YjxGgBDyJ3oeIxAaDzYihHSjr4ONxHjUIiHEZeCjFkPj4c+EkJCBD3+OGl9HQcjF4txfRxE1viCLkIvBP3lBFo1Go/VhvwG4+ali27upOwAAAABJRU5ErkJggg==" InformativeScreenshot="1e6454e546c5fc5e742a6512a44db339.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon' /&gt;" SearchSteps="Selector, Image" Version="V6" Visibility="Interactive" WaitForReadyArgument="None" />
+                            </uix:NClick.Target>
+                            <uix:NClick.VerifyOptions>
+                              <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                <uix:VerifyExecutionOptions.Retry>
+                                  <InArgument x:TypeArguments="x:Boolean" />
+                                </uix:VerifyExecutionOptions.Retry>
+                                <uix:VerifyExecutionOptions.Timeout>
+                                  <InArgument x:TypeArguments="x:Double" />
+                                </uix:VerifyExecutionOptions.Timeout>
+                              </uix:VerifyExecutionOptions>
+                            </uix:NClick.VerifyOptions>
+                          </uix:NClick>
+                        </Sequence>
+                      </uix:NCheckState.IfExists>
+                      <uix:NCheckState.IfNotExists>
+                        <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="1210,2613" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NCheckState DisplayName="Check App State 'CA - Logitech Canada'" Exists="[AgreementPageFound]" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="1176,2551" sap2010:WorkflowViewState.IdRef="NCheckState_8" ScopeIdentifier="97110fad-762b-4d58-b4a3-e2b7bfb35ff9" Timeout="5" Version="V1">
+                            <uix:NCheckState.IfExists>
+                              <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="672,2269" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                                <Sequence.Variables>
+                                  <Variable x:TypeArguments="x:String" Name="loginCode" />
+                                </Sequence.Variables>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Delay Duration="00:00:13" sap:VirtualizedContainerService.HintSize="638,122" sap2010:WorkflowViewState.IdRef="Delay_3" />
+                                <umab:GmailApplicationCard ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" Account="amazon.finance@logitech.com" DisplayName="Use Gmail" EmailAddress="amazon.finance@logitech.com" sap:VirtualizedContainerService.HintSize="638,1569" sap2010:WorkflowViewState.IdRef="GmailApplicationCard_4" Timeout="90" UseConnectionService="False">
+                                  <umab:GmailApplicationCard.Body>
+                                    <ActivityAction x:TypeArguments="um:IMailQuickHandle">
+                                      <ActivityAction.Argument>
+                                        <DelegateInArgument x:TypeArguments="um:IMailQuickHandle" Name="Gmail" />
+                                      </ActivityAction.Argument>
+                                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="604,1353" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <umab:ForEachEmailX DisplayName="For Each Email" sap:VirtualizedContainerService.HintSize="570,1291" sap2010:WorkflowViewState.IdRef="ForEachEmailX_4" IncludeSubfolders="False" Mails="[Gmail.Folder(&quot;Inbox&quot;)]" NumberOfEmailsLimit="5" RetrieveAttachments="False" UnreadOnly="True" WithAttachmentsOnly="False">
+                                          <umab:ForEachEmailX.Body>
+                                            <ActivityAction x:TypeArguments="snm:MailMessage, x:Int32">
+                                              <ActivityAction.Argument1>
+                                                <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="CurrentMail" />
+                                              </ActivityAction.Argument1>
+                                              <ActivityAction.Argument2>
+                                                <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
+                                              </ActivityAction.Argument2>
+                                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="536,999" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                                                <Sequence.Variables>
+                                                  <Variable x:TypeArguments="x:String" Name="ReadMailBody" />
+                                                  <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="CheckRegexCode" />
+                                                </Sequence.Variables>
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <umab:MarkMailAsReadX DisplayName="Mark Email As Read/Unread" sap:VirtualizedContainerService.HintSize="502,168.66666666666666" sap2010:WorkflowViewState.IdRef="MarkMailAsReadX_4" MailMessage="[CurrentMail]" MarkAs="Read" />
+                                                <Assign sap:VirtualizedContainerService.HintSize="502,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_17">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:String">[ReadMailBody]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:String">[CurrentMail.Body]</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                                <ui:Matches BuilderPattern="\b\d{6}\b" DisplayName="Find Matching Patterns" FirstMatch="[loginCode]" sap:VirtualizedContainerService.HintSize="502,92" sap2010:WorkflowViewState.IdRef="Matches_4" Input="[ReadMailBody]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;\\b\\d{6}\\b&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="\b\d{6}\b" RegexOption="IgnoreCase, Compiled" Result="[CheckRegexCode]" />
+                                                <If Condition="[CheckRegexCode.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="502,558.6666666666666" sap2010:WorkflowViewState.IdRef="If_3">
+                                                  <If.Then>
+                                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,225.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <Assign sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_18">
+                                                        <Assign.To>
+                                                          <OutArgument x:TypeArguments="x:String">[loginCode]</OutArgument>
+                                                        </Assign.To>
+                                                        <Assign.Value>
+                                                          <InArgument x:TypeArguments="x:String">[loginCode]</InArgument>
+                                                        </Assign.Value>
+                                                      </Assign>
+                                                      <ui:Break sap:VirtualizedContainerService.HintSize="434,48" sap2010:WorkflowViewState.IdRef="Break_3" />
+                                                    </Sequence>
+                                                  </If.Then>
+                                                  <If.Else>
+                                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,168" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <Assign sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_19">
+                                                        <Assign.To>
+                                                          <OutArgument x:TypeArguments="x:String">[loginCode]</OutArgument>
+                                                        </Assign.To>
+                                                        <Assign.Value>
+                                                          <InArgument x:TypeArguments="x:String">
+                                                            <Literal x:TypeArguments="x:String" Value="" />
+                                                          </InArgument>
+                                                        </Assign.Value>
+                                                      </Assign>
+                                                    </Sequence>
+                                                  </If.Else>
+                                                </If>
+                                              </Sequence>
+                                            </ActivityAction>
+                                          </umab:ForEachEmailX.Body>
+                                          <umab:ForEachEmailX.MailFilter>
+                                            <umabf:MailFilterArgument LogicalOperator="And">
+                                              <umabf:MailFilterArgument.Filters>
+                                                <scg:List x:TypeArguments="umabf:SingleMailFilterArgument" Capacity="1">
+                                                  <umabf:SingleMailFilterArgument DateEqualsFilter="{x:Null}" Criteria="From" DateFilter="SevenDays" Operator="Contains" Value="account-update@amazon.com" />
+                                                </scg:List>
+                                              </umabf:MailFilterArgument.Filters>
+                                            </umabf:MailFilterArgument>
+                                          </umab:ForEachEmailX.MailFilter>
+                                        </umab:ForEachEmailX>
+                                      </Sequence>
+                                    </ActivityAction>
+                                  </umab:GmailApplicationCard.Body>
+                                  <umab:GmailApplicationCard.ClientId>
+                                    <InArgument x:TypeArguments="x:String">
+                                      <Literal x:TypeArguments="x:String" Value="" />
+                                    </InArgument>
+                                  </umab:GmailApplicationCard.ClientId>
+                                  <umab:GmailApplicationCard.ClientSecret>
+                                    <InArgument x:TypeArguments="x:String">
+                                      <Literal x:TypeArguments="x:String" Value="" />
+                                    </InArgument>
+                                  </umab:GmailApplicationCard.ClientSecret>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </umab:GmailApplicationCard>
+                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Double" ContinueOnError="True" DisplayName="Type Into 'Password'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="638,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_10" InteractionMode="HardwareEvents" ScopeIdentifier="97110fad-762b-4d58-b4a3-e2b7bfb35ff9" Text="[loginCode]" Timeout="5" Version="V1">
+                                  <uix:NTypeInto.Target>
+                                    <uix:TargetAnchorable BrowserURL="vendorcentral.amazon.com/ap/cvf/transactionapproval" DesignTimeRectangle="832, 339, 272, 25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='input-box-otp' tag='INPUT' /&gt;" Guid="5598e048-d18e-4f53-bc3f-63def07e585b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAARQAAAAdCAYAAABrCJMFAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH1SURBVHhe7d1NTpNRHIXxbsVFMHMviCtwwjZIt+DUSNgAxGCc6wQ1fISEChoJtEp9+/Heew85b3tJSluRcmc+T3JCAmH6Szv539ZNNdaLrV09e/maMcZWmg2xJa2MyfPNbb39cKxefygiooeyFTbDdmRUWhmT86u+tnY+au3Vmzl9GGPs/myFzbAdGZUGFCvjP6y39/TurKuDqtbnqtaXqtZXxhibzibYBhthK9bbu40dNuQOFH90sTb7na4OB0Gnw6CzUVBnum+jyBj7z5c9sA024mgQ9L7TbeywIXegOP88HgSdj6Iu66jrOqobknqMMTadTbANNsJWnAxDY0c2ZAYU63NVR/Vj0iAmjRJjjM3ONtgIw+JPLktB+TGO+h0m/xSSFMUYY7OzDTbiJqTGjKWg/BxH/YlJdZJS81siotlsg42wFTZjKSj+XlTFyacTQCGiRdkGG2ErbAagENHKAQoRFQtQiKhYgEJExQIUIioWoBBRsQCFiIoFKERULEAhomIBChEVC1CIqFiAQkTFAhQiKtY/g8L5AiJ6KNvw1/MF+absp4teczRlnCYC3T+swhhjtsFG2AqbMXdTNl+932jv6eD7r0aeIScgGWMLZhtshK2wGXNX73mXhzH22C18l4eXA4lolRa+HMjbxoyxpy6/bXwLMHBkPRXP6W4AAAAASUVORK5CYII=" InformativeScreenshot="7735e76df04288fe74789273013692b2.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon' /&gt;" SearchSteps="Selector, Image" Version="V6" Visibility="Interactive" WaitForReadyArgument="None" />
+                                  </uix:NTypeInto.Target>
+                                  <uix:NTypeInto.VerifyOptions>
+                                    <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                      <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                        <InArgument x:TypeArguments="x:Boolean" />
+                                      </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                      <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                        <InArgument x:TypeArguments="x:Double" />
+                                      </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                    </uix:VerifyExecutionTypeIntoOptions>
+                                  </uix:NTypeInto.VerifyOptions>
+                                </uix:NTypeInto>
+                                <uix:NClick ActivateBefore="True" ClickType="Single" ContinueOnError="True" DisplayName="Click 'INPUT signInSubmit'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="638,222.66666666666666" sap2010:WorkflowViewState.IdRef="NClick_13" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="97110fad-762b-4d58-b4a3-e2b7bfb35ff9" Timeout="1" Version="V1">
+                                  <uix:NClick.Target>
+                                    <uix:TargetAnchorable BrowserURL="vendorcentral.amazon.com/ap/cvf/transactionapproval" DesignTimeRectangle="833, 424, 270, 24" ElementType="Button" FullSelectorArgument="&lt;webctrl aria-labelledby='cvf-submit-otp-button-announce' tag='INPUT' type='submit' /&gt;" Guid="83f20540-92dd-417e-8cc7-8d6b21dc4270" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAARIAAAAcCAYAAACtSjDnAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAP+SURBVHhe7Z2xaxRBFMb9D8LMLF6VI3Cw6UIgcEJQtLhYCCksLkVQSHFN5MBCsVCEQCpRsDiwCKkSbASxE4JpTBEiEUICIRdsUsmBhSnEa4RP3u3s3e7s3nkXI9ya78GPZN+9nWyK+XjvzdzsJdBoNNpf2iXXkWo/PwPfloGT68CXMeD4MlD3CCH/GzK3ZY7LXJc5L3O/D+stJD8+BAMejwFHEfE4SnkAQkj2ic5tmfMy90UDRAt6WHch+XovGMT9Q4SQi4dogWhCF0sKya/vNgsZZeZBCAkQLRBNEG0QjXAsKSQSGC1jCCEkRLRBNMKxuJC0ypnR5M2EEBIiGuGUOR0hkWZKq6maciMhhIS0ypyxWAO2IySSrrg3EEJINyIlTiAkslbMFZr/kvq6QX0v6e+LQw+nZ723D/ZfGTRS/CQjiGbYfSaBkMjGEzZYM8Hpa41iXsEfV/ALCk/WkzEdDGpTCrVN198fJ0saI3dNcL1l8HEjGXN2DCpKYyPhJ5lBNEO0oy0kLGsygsFyQeF53xO6IyTNnfTsornrobFrr/c8NLY9NBPjeMCqRvGpFZU03Hslm9mOjB1yYOMOk0KSGk+GG1veBEIiW2LdADKUrJUUZpcMmodRfzzzOHmq7KQP/P60RmVBY6agUFntxLf9eYViSaM8p1GeVJh4YMdd1RiZN8C6hp9TGMlJJqTx0Xmm+pJCfjwY6+FLA+waVMcVZux4M0s2dsvgTkGjvKBRvqGQC4Xk0EPtahBfkZ/LPQSLDBeiHW0hkf31XK3JBjseVuY1cp7CtQWDRktQegtJu7R5Z+BPG5x0jY+Ih/N7LCbKnkFZBCEibPv3RQzstWQeXvB5zB8pbZo1Df++HVvGm5JnTPnfyXDRWr25TCHJNAcGa7cV8oty3U0YHCFplxPd4s8gJJsGRWfib8yHmU/82Vx/KCQydu6KRnXB8ohN2EyQEBKWNpnk9EXYDA0ma9g7cYWk3VN5q+GXZJKeUUgeJ59BMog7nsabSP+l/kB3Mg/7uWQkMb+bkVRTxibDT6y0YbM1Ixis3FTwJzVmpxVyBY01KwafFhVGJjUqt4S4kBRvaMyUNPy8Qq0lKoMLCd5rFG2PZG0r/lytHoldSZqodnok12aDvszsMxsr/oKCXwqefyIX75GIvzqnUVxMyXzIcBJrtnL5N1PICkxjJ90fb8JG2OuyGnOONJ1VodZK0cGf49r+6AoSGX4Sy7/ckEYIGZTEhjSWN4SQQUlskRfjl/YIIf3Q80t7YjxGgBDyJ3oeIxAaDzYihHSjr4ONxHjUIiHEZeCjFkPj4c+EkJCBD3+OGl9HQcjF4txfRxE1viCLkIvBP3lBFo1Go/VhvwG4+ali27upOwAAAABJRU5ErkJggg==" InformativeScreenshot="1e6454e546c5fc5e742a6512a44db339.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon' /&gt;" SearchSteps="Selector, Image" Version="V6" Visibility="Interactive" WaitForReadyArgument="None" />
+                                  </uix:NClick.Target>
+                                  <uix:NClick.VerifyOptions>
+                                    <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                      <uix:VerifyExecutionOptions.Retry>
+                                        <InArgument x:TypeArguments="x:Boolean" />
+                                      </uix:VerifyExecutionOptions.Retry>
+                                      <uix:VerifyExecutionOptions.Timeout>
+                                        <InArgument x:TypeArguments="x:Double" />
+                                      </uix:VerifyExecutionOptions.Timeout>
+                                    </uix:VerifyExecutionOptions>
+                                  </uix:NClick.VerifyOptions>
+                                </uix:NClick>
+                              </Sequence>
+                            </uix:NCheckState.IfExists>
+                            <uix:NCheckState.IfNotExists>
+                              <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,93.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </Sequence>
+                            </uix:NCheckState.IfNotExists>
+                            <uix:NCheckState.Target>
+                              <uix:TargetAnchorable BrowserURL="vendorcentral.amazon.com/ap/cvf/transactionapproval" DesignTimeRectangle="844, 343, 127, 15" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='SPAN' type='' class='a-size-base-plus transaction-approval-word-break a-text-bold' aaname='Enter verification code' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='Enter verification code' /&gt;" Guid="f379757f-3bc8-44dd-91de-95d9c43e1ef3" InformativeScreenshot="77ee3aacd17c5a2ec333a48f62cb9c28.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon' /&gt;" SearchSteps="FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="None" />
+                            </uix:NCheckState.Target>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </uix:NCheckState>
+                        </Sequence>
+                      </uix:NCheckState.IfNotExists>
+                      <uix:NCheckState.Target>
+                        <uix:TargetAnchorable BrowserURL="vendorcentral.amazon.com/ap/signin" DesignTimeRectangle="851, 342, 234, 24" ElementType="Button" FullSelectorArgument="&lt;webctrl id='continue' tag='INPUT' /&gt;" Guid="dc9d7209-c732-433a-ad42-1828a3644d04" InformativeScreenshot="c8a644225180159faf5bdddd17906c68.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon Sign-In' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="None" />
+                      </uix:NCheckState.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NCheckState>
+                    <Delay Duration="00:00:06" sap:VirtualizedContainerService.HintSize="1936,124" sap2010:WorkflowViewState.IdRef="Delay_5" />
+                    <uix:NClick ActivateBefore="True" ClickType="Single" ContinueOnError="True" DisplayName="Click 'INPUT signInSubmit'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="1936,229.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_14" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="97110fad-762b-4d58-b4a3-e2b7bfb35ff9" Timeout="1" Version="V1">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="vendorcentral.amazon.com/account/choose" DesignTimeRectangle="608, 365, 157, 24" ElementType="Text" FuzzySelectorArgument="&lt;webctrl class='full-page-account-switcher-account-label' parentid='sc-content-container' tag='SPAN' type='' aaname='CA - Logitech Canada' matching:class='fuzzy' fuzzylevel:class='0.0' matching:parentid='fuzzy' fuzzylevel:parentid='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='CA - Logitech Canada' /&gt;" Guid="9878a595-a69a-4bff-bef4-9b962b1112bf" InformativeScreenshot="c3cc4aded4e55903529eff33cd6ed72a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon' /&gt;" SearchSteps="FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="592, 361, 752, 32" ElementType="Button" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='' class='full-page-account-switcher-account-details' aaname='CA - Logitech Canada' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='CA - Logitech Canada' /&gt;" Guid="5e96767d-3e3e-483a-ad70-600a33a7cd5d" SearchSteps="FuzzySelector" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NClick.Target>
+                      <uix:NClick.VerifyOptions>
+                        <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                          <uix:VerifyExecutionOptions.Retry>
+                            <InArgument x:TypeArguments="x:Boolean" />
+                          </uix:VerifyExecutionOptions.Retry>
+                          <uix:VerifyExecutionOptions.Timeout>
+                            <InArgument x:TypeArguments="x:Double" />
+                          </uix:VerifyExecutionOptions.Timeout>
+                        </uix:VerifyExecutionOptions>
+                      </uix:NClick.VerifyOptions>
+                    </uix:NClick>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" ContinueOnError="True" DisplayName="Click 'INPUT signInSubmit'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="1936,222.66666666666666" sap2010:WorkflowViewState.IdRef="NClick_15" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="97110fad-762b-4d58-b4a3-e2b7bfb35ff9" Timeout="2" Version="V1">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="vendorcentral.amazon.com/account/choose" ContentHash="25xU90oH0kmgDircIcUgUg" DesignTimeRectangle="1203, 794, 125, 32" ElementType="Button" FullSelectorArgument="&lt;webctrl tag='KAT-BUTTON' /&gt;&lt;webctrl shadowhostid='' tag='BUTTON' /&gt;" Guid="a4b649f4-e6ec-4a43-a71f-587e6fdbda43" InformativeScreenshot="1a334a1caad42f4018fb637332c5ae58.png" Reference="0X-GTwh2D0S2OAwaQxPa7Q/5BspUfSolEK7Gkvu8WAI-A" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
+                      </uix:NClick.Target>
+                      <uix:NClick.VerifyOptions>
+                        <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                          <uix:VerifyExecutionOptions.Retry>
+                            <InArgument x:TypeArguments="x:Boolean" />
+                          </uix:VerifyExecutionOptions.Retry>
+                          <uix:VerifyExecutionOptions.Timeout>
+                            <InArgument x:TypeArguments="x:Double" />
+                          </uix:VerifyExecutionOptions.Timeout>
+                        </uix:VerifyExecutionOptions>
+                      </uix:NClick.VerifyOptions>
+                    </uix:NClick>
+                  </Sequence>
+                </ActivityAction>
+              </uix:NApplicationCard.Body>
+              <uix:NApplicationCard.TargetApp>
+                <uix:TargetApp Area="-1928, -8, 1936, 1048" BrowserType="Chrome" ContentHash="ZcRfQAEO5kyW-0miwN_t2A" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHdSURBVDhPjZI/aBphGMbPO+MZLjF/bKM1GWwvR9oEMmRotVgwoe0siKmgDZbEQYKDFEdLSMCtFQehS1soODiJTk7SSXEJRYqC4BwcVURcfIpvuYt3l0BfeOD7nu99ft8fPoZhGNwlg8EAi8VC4jhOtz4nnYFQKIRqtYp+v4/hcIh6vY5oNKrruxMQj8ch13g8xnQ6VebhcFgbVgN4nken06HmSqUCm80Gl8uFwWBAXqFQ0IbVAJZl4fV6EQwG4XA4yBMEAe12mwDlclkbVgNkeTwe5HI5NJtNegO5SqWSrlcHSKVSSqBWqyGbzaLX6/0fQJIkTCYTas7n84rfarXIKxaL2rAa4PP5lN0TiQR5oihiNBqR12g06J3uBbjdbgUwu38sFqPQfAUCgfsBJpOJjjlfs/tnMhkad7td7O0f6AHShhH2lX/f1cQv0q9Lp9NIJpNwOp3k+/1+iNsSDrYYfHxrwYsn/C3g8QMjMu/WEHkpgOdUdJVYhsH54TK+R6w4P1y6BczkWOXwLbKO6092fH2/jrNXS3iza8brZ2acuAV8OV7Dr+QGrnwrCD4XID40qgGyjp6a8fPUij+Xj3DzeZP0+8KOHx+s8O6YdafSAWTxCwasLrKk2Vi7LusvXjbJ4HRJjNYAAAAASUVORK5CYII=" InformativeScreenshot="8b4a27802e9617af347be10d2567ef2b.png" Reference="hGGVLoWPekKE0Kk0gH4tDQ/NTOEYMyIZ0OMnalrndyFoQ" Selector="&lt;html app='chrome.exe' title='Amazon Sign-In'/&gt;" Url="[BrowserLink]" />
+              </uix:NApplicationCard.TargetApp>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NApplicationCard>
+            <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Amazon Confirm Login" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="1058,1036" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InteractionMode="DebuggerApi" OpenMode="Always" ScopeGuid="97110fad-762b-4d58-b4a3-e2b7bfb35ff9" Version="V1" WindowResize="Maximize">
+              <uix:NApplicationCard.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1024,796" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="sd:DataTable" Name="dtMapping" />
+                      <Variable x:TypeArguments="sd:DataTable" Name="dtFilterMapping" />
+                      <Variable x:TypeArguments="x:Boolean" Name="AgreementPageFound" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NCheckState DisplayName="Check App State 'CA - Logitech Canada'" Exists="[AgreementPageFound]" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="990,734" sap2010:WorkflowViewState.IdRef="NCheckState_5" ScopeIdentifier="97110fad-762b-4d58-b4a3-e2b7bfb35ff9" Timeout="10" Version="V1">
+                      <uix:NCheckState.IfExists>
+                        <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="468,492" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="B32" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="434,148" sap2010:WorkflowViewState.IdRef="WriteCell_3" SheetName="Customer Mapping" Text="TRUE" WorkbookPath="Data\Mapping Table.xlsx" />
+                          <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_11">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Boolean">[LoginCheck]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,168" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Fatal" Message="[&quot;Amazon Login Success&quot;]" />
+                        </Sequence>
+                      </uix:NCheckState.IfExists>
+                      <uix:NCheckState.IfNotExists>
+                        <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="468,317" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="B32" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="434,148" sap2010:WorkflowViewState.IdRef="WriteCell_4" SheetName="Customer Mapping" Text="FAIL" WorkbookPath="Data\Mapping Table.xlsx" />
+                          <Assign sap:VirtualizedContainerService.HintSize="434,107" sap2010:WorkflowViewState.IdRef="Assign_12">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Boolean">[LoginCheck]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </uix:NCheckState.IfNotExists>
+                      <uix:NCheckState.Target>
+                        <uix:TargetAnchorable BrowserURL="https://vendorcentral.amazon.com/home/vc?openid.assoc_handle=amzn_vc_us_v2&amp;openid.claimed_id=https%3A%2F%2Fvendorcentral.amazon.com%2Fap%2Fid%2Famzn1.account.AHROX7DVD4WPV45YSVYAP2TP4PXQ&amp;openid.identity=https%3A%2F%2Fvendorcentral.amazon.com%2Fap%2Fid%2Famzn1.account.AHROX7DVD4WPV45YSVYAP2TP4PXQ&amp;openid.mode=id_res&amp;openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&amp;openid.op_endpoint=https%3A%2F%2Fvendorcentral.amazon.com%2Fap%2Fsignin&amp;openid.response_nonce=2025-06-11T13%3A39%3A57Z411613691591443483&amp;openid.return_to=https%3A%2F%2Fvendorcentral.amazon.com%2Fhome%2Fvc&amp;openid.signed=assoc_handle%2Cclaimed_id%2Cidentity%2Cmode%2Cns%2Cop_endpoint%2Cresponse_nonce%2Creturn_to%2Cns.pape%2Cpape.auth_policies%2Cpape.auth_time%2Csigned&amp;openid.ns.pape=http%3A%2F%2Fspecs.openid.net%2Fextensions%2Fpape%2F1.0&amp;openid.pape.auth_policies=SinglefactorWithPossessionChallenge&amp;openid.pape.auth_time=2025-06-11T13%3A39%3A45Z&amp;openid.sig=pzQsk37%2FpVn0Ki3KWnw0opNygMwwCyR92saCyeO4MqQ%3D&amp;serial=" DesignTimeRectangle="189, 241, 99, 17" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' parentid='dropdown-account-switcher-container' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='dropdown-account-switcher-container' tag='DIV' aaname='' /&gt;" Guid="b29c8cec-5b35-464c-882c-f040a099096d" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGcAAAAVCAYAAABbq/AzAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARhSURBVGhD7ZZPaCJXHMffMcccvYbtJZdaPQwEbAMOLEzIQRIQdkBY8BDQUmITcEGkFaZ/2JWFbBUbsCHQbCEN0pXFJAiRQNCDoQNbiHhKSmAwEGFgIBgh8C1vZqLjqElGSmPZ+cIPkt/7veeb3+f9fu+RTz6bhW3jaeTJp5/DtvE08sT5Bah9/9PP2N7ds+2RjXK4ZdKB8/vePmw9vigHG86YyoYzxrLhjLFGg3OloFYtIVc9g3yl+64VNC6bkK9NsXeoJTe78y2piUIiihWxbR54gOrIJgRk62a/UW3IUh2FYhmipKBlHh5RYk5AMHfnD/fIMhz5UIDDzYDM+uDgOMz8Kqn+080AiJPB9Kb2//2SkPRbiTdKwcGmgCSFc1NGmFtG6sHLlME7GfCHZr+umzMkn3tA3CwcnA+O2ZcomGNGVCHGgMTKZvdQWYRTR2yeweR3x6bTRP0s+BfLIPMZ1HrGhmkQHAWVbQHeRT+8iR1UFM0rH2XgXQyC396BkMhDpJWzLkA4aqCSDmDCycK1qlWD/GEHwSU/XJEMchd0dhunxQz4SBR8uoyGDmfutR4X20ftpruDVjEK4g71wr4oI/YihGkuiLl0CY0boHG0gZV3ZeTSUbgWQ4hVlYFxFPbbRAiuJQELfh3OoLgBsgZH2oJr0KmrZzDljqNwkYfX6UPsQZXbD+c2MUL1GKkIC7JaQusyD6+bBb8robYbh8MZR6Ez92/U3lOfD/xvJYhnJSy4AxBOmhDXAyCRfcjqmgGE35eQK9Y7cGZeH0OkXcAZQPK8u6tCggHxb+G060Lr/BiFEwkNKY85N4uwqHcKLo7sSR3J51rSB8XV0j4Q/xoOJFqRw+MGyRocmigK56DXLb7xgSwKyBZ3wHMMptJGOhJSYdoCqa2hO7UfjpqYyL5WlQdxELeAwpEAogIBcL6F6R44ku7TE6zGejCptiOPmuQN45qqDG3NOFdX5UcWZHGjt/qVv5B6FcVcJAqXR5urwtEhdtpVX5yE5DMGjjdaPobHGX+sK2tw9LZGnm1AVC/yNmTlT4Q9DKaWBAQTAvgAB8JlYDwM9OKnj4XGpfFy7YejnUZtbufj1Wr1YeVDG63qmqlyTHDUv5eR1dthd801VDqt4244avU6OfDFprbXKwV/fMtoVYwzCL7hcNTDZYpTx8J5yPfEDZJFOPRr81iY96iXv2pffo0JZwjZS32ctjgni3DVNK9PWoI769CE7ZURfMqAMPRC5hA8pFluQ8yGMDnLwvVVqB/OVRlBVp9/qKCQ4LTL/CkLkqCntIzg7X5pJd4DR31svApggj561H0F8M0vIRCGhcPnh+OOymnk+uNwuoUZhn6TvqdhcQNkHc6trhVLz2YraskKWp2T3oZ8oVWc/C4K4nmJSm94v64UNJRRntm9ahnWaCnGPQ3Xvxk3Opz/TE28XWW1U+wJYIW+ij4S/Q/gfLyy4YyxbDhjrIFwfkitqwO2Pa5RDn1wbBs/+webOyANLrfq4wAAAABJRU5ErkJggg==" InformativeScreenshot="730f9e5d36eea75a4279efede0f40125.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon' /&gt;" SearchSteps="FuzzySelector" />
+                      </uix:NCheckState.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NCheckState>
+                  </Sequence>
+                </ActivityAction>
+              </uix:NApplicationCard.Body>
+              <uix:NApplicationCard.TargetApp>
+                <uix:TargetApp Area="-1928, -8, 1936, 1048" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHdSURBVDhPjZI/aBphGMbPO+MZLjF/bKM1GWwvR9oEMmRotVgwoe0siKmgDZbEQYKDFEdLSMCtFQehS1soODiJTk7SSXEJRYqC4BwcVURcfIpvuYt3l0BfeOD7nu99ft8fPoZhGNwlg8EAi8VC4jhOtz4nnYFQKIRqtYp+v4/hcIh6vY5oNKrruxMQj8ch13g8xnQ6VebhcFgbVgN4nken06HmSqUCm80Gl8uFwWBAXqFQ0IbVAJZl4fV6EQwG4XA4yBMEAe12mwDlclkbVgNkeTwe5HI5NJtNegO5SqWSrlcHSKVSSqBWqyGbzaLX6/0fQJIkTCYTas7n84rfarXIKxaL2rAa4PP5lN0TiQR5oihiNBqR12g06J3uBbjdbgUwu38sFqPQfAUCgfsBJpOJjjlfs/tnMhkad7td7O0f6AHShhH2lX/f1cQv0q9Lp9NIJpNwOp3k+/1+iNsSDrYYfHxrwYsn/C3g8QMjMu/WEHkpgOdUdJVYhsH54TK+R6w4P1y6BczkWOXwLbKO6092fH2/jrNXS3iza8brZ2acuAV8OV7Dr+QGrnwrCD4XID40qgGyjp6a8fPUij+Xj3DzeZP0+8KOHx+s8O6YdafSAWTxCwasLrKk2Vi7LusvXjbJ4HRJjNYAAAAASUVORK5CYII=" InformativeScreenshot="8b4a27802e9617af347be10d2567ef2b.png" Selector="&lt;html app='chrome.exe' title='Amazon Sign-In'/&gt;" Url="[BrowserLink]" />
+              </uix:NApplicationCard.TargetApp>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NApplicationCard>
+          </Sequence>
+        </ActivityAction>
+      </ui:RetryScope.ActivityBody>
+      <ui:RetryScope.Condition>
+        <ActivityFunc x:TypeArguments="x:Boolean">
+          <ui:CheckTrue ErrorMessage="{x:Null}" DisplayName="Check True" Expression="[LoginCheck]" sap:VirtualizedContainerService.HintSize="334,129" sap2010:WorkflowViewState.IdRef="CheckTrue_1" />
+        </ActivityFunc>
+      </ui:RetryScope.Condition>
+    </ui:RetryScope>
+  </Sequence>
+</Activity>

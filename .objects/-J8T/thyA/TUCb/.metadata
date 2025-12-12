@@ -1,0 +1,13 @@
+﻿{
+  "Name": "VIP Access",
+  "Type": "Screen",
+  "Id": "TUCbR49nGkCbKE_DDVElbg",
+  "Reference": "hGGVLoWPekKE0Kk0gH4tDQ/TUCbR49nGkCbKE_DDVElbg",
+  "ParentRef": "hGGVLoWPekKE0Kk0gH4tDQ/thyAwy9EQUuFsdKmPUABJA",
+  "Created": "2025-11-10T09:36:02.7754894Z",
+  "Updated": "2025-11-10T09:36:02.7754894Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.13.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

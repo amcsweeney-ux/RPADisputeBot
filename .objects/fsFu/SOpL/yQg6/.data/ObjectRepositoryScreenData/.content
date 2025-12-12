@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryScreenData ContentHash="gfRGuXj6FEO5-rXvcy92CQ" Reference="hGGVLoWPekKE0Kk0gH4tDQ/yQg612IvXEuYK_22U6x4Ig" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryScreenData.Data>
+    <TargetApp x:Key="TargetApp" Area="-1928, -8, 1936, 1048" BrowserType="Chrome" ContentHash="THaHE9RW3kSnZo5tChPw8Q" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHdSURBVDhPjZI/aBphGMbPO+MZLjF/bKM1GWwvR9oEMmRotVgwoe0siKmgDZbEQYKDFEdLSMCtFQehS1soODiJTk7SSXEJRYqC4BwcVURcfIpvuYt3l0BfeOD7nu99ft8fPoZhGNwlg8EAi8VC4jhOtz4nnYFQKIRqtYp+v4/hcIh6vY5oNKrruxMQj8ch13g8xnQ6VebhcFgbVgN4nken06HmSqUCm80Gl8uFwWBAXqFQ0IbVAJZl4fV6EQwG4XA4yBMEAe12mwDlclkbVgNkeTwe5HI5NJtNegO5SqWSrlcHSKVSSqBWqyGbzaLX6/0fQJIkTCYTas7n84rfarXIKxaL2rAa4PP5lN0TiQR5oihiNBqR12g06J3uBbjdbgUwu38sFqPQfAUCgfsBJpOJjjlfs/tnMhkad7td7O0f6AHShhH2lX/f1cQv0q9Lp9NIJpNwOp3k+/1+iNsSDrYYfHxrwYsn/C3g8QMjMu/WEHkpgOdUdJVYhsH54TK+R6w4P1y6BczkWOXwLbKO6092fH2/jrNXS3iza8brZ2acuAV8OV7Dr+QGrnwrCD4XID40qgGyjp6a8fPUij+Xj3DzeZP0+8KOHx+s8O6YdafSAWTxCwasLrKk2Vi7LusvXjbJ4HRJjNYAAAAASUVORK5CYII=" Reference="hGGVLoWPekKE0Kk0gH4tDQ/yQg612IvXEuYK_22U6x4Ig" Selector="&lt;html app='chrome.exe' title='Amazon' /&gt;" Url="https://vendorcentral.amazon.com/hz/vendor/members/inv-mgmt/invoice-details?invoiceNumber=*" Version="V2">
+      <imageRef attrName="InformativeScreenshot" originalValue="5c3d5ec7e75de536c6d8965a3be783d4.jpg" xmlns="">0gC4hzpTgeESkti1N3AGS5w</imageRef>
+    </TargetApp>
+  </ObjectRepositoryScreenData.Data>
+</ObjectRepositoryScreenData>

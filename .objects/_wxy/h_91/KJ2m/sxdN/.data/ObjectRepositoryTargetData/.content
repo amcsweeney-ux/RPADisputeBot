@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="nSFHSh69E0GHIrP-WuZ7Vg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="tracking.arvato-scm.net/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html" DesignTimeRectangle="1080, 844, 67, 25" ElementType="Button" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' ui5-class='sap.m.Button' ui5-role='button' ui5p-text='Download' type='' class='sapMBtnBase sapMBtn' aaname='Download' matching:ui5-class='fuzzy' fuzzylevel:ui5-class='0.0' matching:ui5-role='fuzzy' fuzzylevel:ui5-role='0.0' matching:ui5p-text='fuzzy' fuzzylevel:ui5p-text='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='Download' /&gt;" Guid="d71bd4ad-d1ba-4e0b-a9b2-1dbe237cb18b" ImageBase64="" ScopeSelectorArgument="&lt;html app='chrome.exe' title='TEC' /&gt;" SearchSteps="FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target DesignTimeRectangle="789, 844, 139, 25" ElementType="Text" FullSelectorArgument="&lt;webctrl ui5-class='sap.m.Text' ui5p-text='Signed Bill of Lading_1' /&gt;" Guid="d86f670c-3842-4341-881e-54c338dad972" SearchSteps="Selector" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="09b5504314d806b8bc0ae07a56ae9719.png" xmlns="">0-i-du5-N0ESKpuTKbinW9Q</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

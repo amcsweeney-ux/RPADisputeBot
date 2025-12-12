@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="0efQaLcf602-fzbpl4dFWQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="vendorcentral.amazon.com/katalmonsapp/vendor/members/disputes/create" DesignTimeRectangle="307, 842, 70, 13" FullSelectorArgument="&lt;webctrl id='drag-and-drop-file-uploader' tag='KAT-FILE-UPLOAD' /&gt;&lt;webctrl parentid='select-file' shadowhostid='drag-and-drop-file-uploader' tag='DIV' /&gt;" Guid="fc4c9949-0a40-4f5d-9913-cf4436ea5c4e" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="32f4bfc77da7a1649cb551365b2db981.png" xmlns="">0eKnK-GojTkaG8MwE_5J1_A</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

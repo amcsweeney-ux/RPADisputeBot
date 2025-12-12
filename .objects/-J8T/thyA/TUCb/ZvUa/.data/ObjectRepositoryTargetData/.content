@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="PYP1y_Hp0UKvxZC2LExjyg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="20, 114, 137, 30" ElementType="Text" FuzzySelectorArgument="&lt;wnd ctrlid='11007' matching:ctrlid='fuzzy' fuzzylevel:ctrlid='0.0' /&gt;" Guid="58e68032-6a80-4c24-8d66-51492f37063d" ScopeSelectorArgument="&lt;wnd app='vipuimanager.exe' cls='#32770' title=' VIP Access' /&gt;" SearchSteps="FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="aaadc846ebb29290e87495f8020ac207.png" xmlns="">0zfKVhAzT-UuftOnvrHOVCg</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">GetText</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

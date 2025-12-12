@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="9xBd27DGTUmSvkxyhaygng" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="form.asana.com" DesignTimeRectangle="610, 339, 95, 36" ElementType="Button" FuzzySelectorArgument="&lt;webctrl aria-role='button' tag='DIV' type='' class='ButtonThemeablePresentation--isEnabled ButtonThemeablePresentation ButtonThemeablePresentation--large ButtonSecondaryPresentation ButtonSecondaryPresentation--sentimentDefault SecondaryButton ValidatedTextInput-input WorkRequestsField-input WorkRequestsField-dropdown HighlightSol HighlightSol--core HighlightSol--buildingBlock Stack Stack--align-center Stack--direction-row Stack--display-inline Stack--justify-center' aaname='' matching:aria-role='fuzzy' fuzzylevel:aria-role='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='Shannen' /&gt;" Guid="0aa9b10e-6d3f-4d42-bb3c-4cd6053fedd0" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Reverse Logistics - Finance Claims Management - Form by Asana' /&gt;" SearchSteps="FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target DesignTimeRectangle="623, 346, 53, 22" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='*' tag='SPAN' type='' class='TypographyPresentation TypographyPresentation--overflowTruncate TypographyPresentation--medium WorkRequestsDropdownInput-label HighlightSol HighlightSol--buildingBlock' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='Shannen' /&gt;" Guid="b7429e33-e6f3-4b5c-aeb9-e3638ddb3754" SearchSteps="FuzzySelector" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="c7a0a0acdf6a572b4121169839a86fa2.png" xmlns="">0WwYGnWYaGkCcFD2rVxz_lQ</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">SelectItem</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

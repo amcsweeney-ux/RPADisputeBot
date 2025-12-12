@@ -1,0 +1,12 @@
+﻿{
+  "Name": "VIP Access",
+  "Type": "App",
+  "Id": "-J8TkP4op0ayAymTLDYngA",
+  "Reference": "hGGVLoWPekKE0Kk0gH4tDQ/-J8TkP4op0ayAymTLDYngA",
+  "Created": "2025-11-10T09:36:02.7119146Z",
+  "Updated": "2025-11-10T09:36:02.7119146Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.13.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

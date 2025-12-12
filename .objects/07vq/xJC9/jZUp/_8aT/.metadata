@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Shannen",
+  "Type": "Element",
+  "TaxonomyType": "Button",
+  "Id": "_8aTS11PfkSqZ-GV0nUDKg",
+  "Reference": "hGGVLoWPekKE0Kk0gH4tDQ/_8aTS11PfkSqZ-GV0nUDKg",
+  "ParentRef": "hGGVLoWPekKE0Kk0gH4tDQ/jZUpBKEjUU6y9c6XtRbvGA",
+  "Created": "2025-11-12T10:40:05.1122034Z",
+  "Updated": "2025-11-12T10:40:05.1122034Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.13.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

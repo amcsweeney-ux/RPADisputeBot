@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Upload files",
+  "Type": "Element",
+  "Id": "GLBHjieDH0qSaZreLHdr6Q",
+  "Reference": "hGGVLoWPekKE0Kk0gH4tDQ/GLBHjieDH0qSaZreLHdr6Q",
+  "ParentRef": "hGGVLoWPekKE0Kk0gH4tDQ/yQg612IvXEuYK_22U6x4Ig",
+  "Created": "2025-11-19T11:49:13.455071Z",
+  "Updated": "2025-11-19T11:49:13.455071Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.13.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

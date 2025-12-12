@@ -1,0 +1,13 @@
+﻿{
+  "Name": "TEC 2.0",
+  "Type": "Element",
+  "Id": "QpgKL0Zps0KUgEtXC5r_nA",
+  "Reference": "hGGVLoWPekKE0Kk0gH4tDQ/QpgKL0Zps0KUgEtXC5r_nA",
+  "ParentRef": "hGGVLoWPekKE0Kk0gH4tDQ/VBFRwaJezE2Z-orL03atlg",
+  "Created": "2025-11-20T14:32:10.7285633Z",
+  "Updated": "2025-11-20T14:32:10.7285633Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.13.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

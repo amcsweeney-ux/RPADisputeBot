@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryScreenData ContentHash="5iKdRICO1U-D7Z_-_dkFAQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryScreenData.Data>
+    <TargetApp x:Key="TargetApp" Area="-84, 104, 1734, 1399" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAICSURBVGhD7ZjfTcMwEMY7AiMwQkdgA9iAvkTyXR7oBrBB2QBGYIOO0BEywjVdoOjcBqqLY5/tkhrJP+mT+tB8OZ//3DmLRaVSqVQqV4SMeSDE9z1At0c8nrXrET/ImHv5/6Lo23ZzEbRTPcBGPlcEnGUZ7KQAtvL5m9Ijvo6CDKiYmeB1LYPTitbrO+k3OwSwloFpRYhv0m92eD3LwLQiY76k3+xEbd6xOuk3O1kDKOE0IoDPUWBKcXGTfrPDlVcGptWhbZ+l300QbYNWt1//A9Q0S0eAXhXXF5Exqz0iyUAdIkJcyeeLgLPq3dQA2+Iy78IOxJgVV1or/l1C2/Dv4c3aI778ZBbgKWdJ8KxczpT1bpql/F829qz39Dyxty0buG+vIO6uNpCIXr/TDMK238q6we+Wz0fBUypNA/IOIib4QdyuSx8VKS+z8jRogWUzJUo6wXhTOcxUcs1C1s0t5eKT0ya7pj3n5saxSL8gDhO1XG1y4vIZRNIviMNErT8YwFH6BUnawGfxlznpZ7/WOf6rVHzrnZOxA+LjyC/j4uOa0SAZL3Rmi49CZbs9Esci/VT42ocp+a6JKSdRUvYHbNYi9oLmvI6sL97KriJ4STmJXGf/FKpB8OUnpQJPYb/7nwYyFDhezzvbCie8yCbmdDL9FkyA7tzZpq35SqVSqcTyDY/Ypg+K7lVHAAAAAElFTkSuQmCC" Selector="&lt;html app='chrome.exe' title='Reverse Logistics - Finance Claims Management - Form by Asana' /&gt;" Url="https://form.asana.com/?k=Samb11G0NHq057PmuJmXEQ&amp;d=1083097041131" Version="V2">
+      <imageRef attrName="InformativeScreenshot" originalValue="f883c46770288146be8026d398ebbde7.jpg" xmlns="">0HtOddnJNLkqO2e7MMKuaZw</imageRef>
+    </TargetApp>
+  </ObjectRepositoryScreenData.Data>
+</ObjectRepositoryScreenData>

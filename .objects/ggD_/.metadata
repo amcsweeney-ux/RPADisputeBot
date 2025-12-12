@@ -1,0 +1,12 @@
+﻿{
+  "Name": "Chrome Disputes Management",
+  "Type": "App",
+  "Id": "ggD_-uiGx0K-5JtO41CQ4g",
+  "Reference": "hGGVLoWPekKE0Kk0gH4tDQ/ggD_-uiGx0K-5JtO41CQ4g",
+  "Created": "2025-11-10T09:41:22.7369832Z",
+  "Updated": "2025-11-10T09:41:22.7369832Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.13.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

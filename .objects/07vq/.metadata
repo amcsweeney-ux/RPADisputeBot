@@ -1,0 +1,12 @@
+﻿{
+  "Name": "Chrome Reverse Logistics - Finance Claims Management - Form by Asana",
+  "Type": "App",
+  "Id": "07vqIqb3Pkyxgb2768VC8g",
+  "Reference": "hGGVLoWPekKE0Kk0gH4tDQ/07vqIqb3Pkyxgb2768VC8g",
+  "Created": "2025-11-12T10:38:51.5388303Z",
+  "Updated": "2025-11-12T10:38:51.5388303Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.13.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

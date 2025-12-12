@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="YRx2NiLte0O5QbBz1kxwsA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="vendorcentral.amazon.com/hz/vendor/members/inv-mgmt/invoice-details" DesignTimeRectangle="194, 394, 83, 10" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='sc-content-container' tag='A' /&gt;" Guid="10987d3a-7eb6-4cd9-9338-ea856b0e89fb" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="30803a44e6fb1acc49701a8117953da1.png" xmlns="">07OyXoV4MJkC8mllEPQI2Rg</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>
