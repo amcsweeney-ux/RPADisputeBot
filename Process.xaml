@@ -17,6 +17,7 @@
     <x:Property Name="out_BatchFile" Type="OutArgument(x:String)" />
     <x:Property Name="out_AsanaStatus" Type="OutArgument(x:String)" />
     <x:Property Name="out_AsanaCreateRemark" Type="OutArgument(x:String)" />
+    <x:Property Name="out_DisputeType" Type="OutArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -173,7 +174,7 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1566,7325" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1566,7439" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="CustomerName" />
       <Variable x:TypeArguments="x:String" Name="CusRefNum" />
@@ -300,6 +301,14 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
+    <Assign sap:VirtualizedContainerService.HintSize="734,114" sap2010:WorkflowViewState.IdRef="Assign_214">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_DisputeType]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[DisputeType]</InArgument>
+      </Assign.Value>
+    </Assign>
     <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dt_MappingTable]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="734,120" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="Sheet1" WorkbookPath="Data\Mapping Table.xlsx" />
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="734,173" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Running for &quot; + CusRefNum]" />
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="734,173" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Process Type &quot; + DisputeType]" />
