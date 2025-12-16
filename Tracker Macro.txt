@@ -2705,6 +2705,55 @@ End Sub
 
 
 
+Sub DeleteNonMatchingOutput()
+    Dim ws As Worksheet
+    Dim lastRow As Long
+    
+    ' 1. Turn off screen updating to make the macro run instantly
+    Application.ScreenUpdating = False
+    Application.Calculation = xlCalculationManual
+    
+    Set ws = Sheets("Output")
+    
+    ' 2. Clear any existing filters to ensure we work with all data
+    If ws.AutoFilterMode Then ws.AutoFilterMode = False
+    
+    ' 3. Find the last used row in Column B (assuming B is your key column)
+    lastRow = ws.Cells(ws.Rows.Count, "B").End(xlUp).Row
+    
+    ' Safety check: Ensure there is data to process
+    If lastRow < 2 Then GoTo Cleanup
+    
+    ' 4. Apply the VLOOKUP to Column N in one go (Dynamic Range)
+    ' This replicates: =VLOOKUP(B2, 'Dispute List'!A:A, 1, 0)
+    With ws.Range("N2:N" & lastRow)
+        .Formula = "=VLOOKUP(B2,'Dispute List'!A:A,1,0)"
+    End With
+    
+    ' 5. Filter for #N/A (Items NOT found in Dispute List)
+    ws.Range("A1:N" & lastRow).AutoFilter Field:=14, Criteria1:="#N/A"
+    
+    ' 6. Delete visible rows (excluding header)
+    ' We use On Error Resume Next because if no N/A exists, .SpecialCells throws an error
+    On Error Resume Next
+        ws.Range("N2:N" & lastRow).SpecialCells(xlCellTypeVisible).EntireRow.Delete
+    On Error GoTo 0
+    
+    ' 7. Remove the filter and the helper column formulas (Optional)
+    ws.AutoFilterMode = False
+    ' Uncomment the line below if you want to clear column N after running
+    ' ws.Columns("N").ClearContents
+   Range("N2:N" & lastRow).Clear
+    
+
+Cleanup:
+    ' Restore settings
+    Application.ScreenUpdating = True
+    Application.Calculation = xlCalculationAutomatic
+    
+End Sub
+
+
 
 
 

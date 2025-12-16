@@ -179,7 +179,7 @@
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Asana Get Tasks" sap:VirtualizedContainerService.HintSize="1270,2790" sap2010:WorkflowViewState.IdRef="Sequence_47">
+  <Sequence DisplayName="Asana Get Tasks" sap:VirtualizedContainerService.HintSize="1234.6666666666667,3556" sap2010:WorkflowViewState.IdRef="Sequence_47">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtOriginal" />
       <Variable x:TypeArguments="sd:DataTable" Name="dtFullUploader" />
@@ -225,7 +225,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="CommentOut_9">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="590.6666666666666,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_9">
       <ui:CommentOut.Body>
         <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="468,402.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_65">
           <sap:WorkflowViewStateService.ViewState>
@@ -268,10 +268,10 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <ui:RetryScope LogRetriedExceptions="{x:Null}" RetriedExceptionsLogLevel="{x:Null}" DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="450,258" sap2010:WorkflowViewState.IdRef="RetryScope_6" NumberOfRetries="3" RetryInterval="00:00:05">
+    <ui:RetryScope LogRetriedExceptions="{x:Null}" RetriedExceptionsLogLevel="{x:Null}" DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="590.6666666666666,166.66666666666666" sap2010:WorkflowViewState.IdRef="RetryScope_6" NumberOfRetries="3" RetryInterval="00:00:05">
       <ui:RetryScope.ActivityBody>
         <ActivityAction>
-          <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_115">
+          <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="416,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_115">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -389,8 +389,8 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:RetryScope>
-    <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dtOutput]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="450,120" sap2010:WorkflowViewState.IdRef="ReadRange_4" SheetName="Output" WorkbookPath="Data\Asana.xlsx" />
-    <Assign sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_8">
+    <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dtOutput]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="590.6666666666666,120" sap2010:WorkflowViewState.IdRef="ReadRange_4" SheetName="Output" WorkbookPath="Data\Asana.xlsx" />
+    <Assign sap:VirtualizedContainerService.HintSize="590.6666666666666,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_8">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[folderName]</OutArgument>
       </Assign.To>
@@ -398,7 +398,7 @@
         <InArgument x:TypeArguments="x:String">[System.IO.Directory.GetCurrentDirectory()]</InArgument>
       </Assign.Value>
     </Assign>
-    <If Condition="[in_TaskID = &quot;&quot;]" DisplayName="If TASK ID is blank" sap:VirtualizedContainerService.HintSize="450,220" sap2010:WorkflowViewState.IdRef="If_9">
+    <If Condition="[in_TaskID = &quot;&quot;]" DisplayName="If TASK ID is blank" sap:VirtualizedContainerService.HintSize="590.6666666666666,1040" sap2010:WorkflowViewState.IdRef="If_9">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -406,37 +406,37 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_66">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="556.6666666666666,842.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_66">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="710,173" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[&quot;Check if Task exists&quot; + in_CusRef]" />
-          <ui:RetryScope LogRetriedExceptions="{x:Null}" RetriedExceptionsLogLevel="{x:Null}" DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="710,2038" sap2010:WorkflowViewState.IdRef="RetryScope_3" NumberOfRetries="3" RetryInterval="00:00:05">
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="522.6666666666666,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[&quot;Check if Task exists&quot; + in_CusRef]" />
+          <ui:RetryScope LogRetriedExceptions="{x:Null}" RetriedExceptionsLogLevel="{x:Null}" DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="522.6666666666666,606" sap2010:WorkflowViewState.IdRef="RetryScope_3" NumberOfRetries="3" RetryInterval="00:00:05">
             <ui:RetryScope.ActivityBody>
               <ActivityAction>
-                <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="676,1814" sap2010:WorkflowViewState.IdRef="Sequence_84">
+                <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="488.6666666666667,382" sap2010:WorkflowViewState.IdRef="Sequence_84">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="642,1754" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="454.6666666666667,322" sap2010:WorkflowViewState.IdRef="TryCatch_3">
                     <TryCatch.Try>
-                      <Sequence sap:VirtualizedContainerService.HintSize="604,1503" sap2010:WorkflowViewState.IdRef="Sequence_70">
+                      <Sequence sap:VirtualizedContainerService.HintSize="416,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_70">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="x:Int32" Name="StatusCode" />
                           <Variable x:TypeArguments="x:String" Name="in_ProjectID" />
                         </Sequence.Variables>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <Assign sap:VirtualizedContainerService.HintSize="570,114" sap2010:WorkflowViewState.IdRef="Assign_15">
+                        <Assign sap:VirtualizedContainerService.HintSize="570,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_15">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:String">[in_ProjectID]</OutArgument>
                           </Assign.To>
@@ -444,14 +444,14 @@
                             <InArgument x:TypeArguments="x:String">1083097041131</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <uwah:NetHttpRequest BasicAuthPassword="{x:Null}" BasicAuthSecurePassword="{x:Null}" BasicAuthUsername="{x:Null}" BinaryPayload="{x:Null}" ClientCertPassword="{x:Null}" ClientCertPath="{x:Null}" ClientCertSecurePassword="{x:Null}" Cookies="{x:Null}" CustomNegotiatedAuthCredentials="{x:Null}" FilePath="{x:Null}" FormData="{x:Null}" LocalFiles="{x:Null}" OutputFileName="{x:Null}" OutputFileTargetFolder="{x:Null}" PathResource="{x:Null}" ProxyConfiguration="{x:Null}" ResourceFiles="{x:Null}" TextPayload="{x:Null}" AuthenticationType="None" ContinueOnError="False" DisableSslVerification="False" DisplayName="HTTP Request" EnableCookies="True" FileOverwrite="AutoRename" FollowRedirects="True" FormDataParts="[New List (Of FormDataPart) From _&#xA;{&#xA;&#x9;New FileFormDataPart(),&#xA;&#x9;New BinaryFormDataPart(),&#xA;&#x9;New TextFormDataPart()&#xA;}]" Headers="[new System.Collections.Generic.Dictionary(Of System.String, System.String) From { { &quot;Authorization&quot;, &quot;Bearer 2/1211874928425211/1211898855458680:de749b27974bb891c933f8a24f4d6f01&quot; },{ &quot;Accept&quot;, &quot;application/json&quot; } }]" sap:VirtualizedContainerService.HintSize="570,273" sap2010:WorkflowViewState.IdRef="NetHttpRequest_22" InitialDelay="500" MaxRedirects="3" MaxRetryAfterDelay="30000" Method="GET" Multiplier="2" OAuthToken="Bearer 2/1211874928425211/1211898855458680:de749b27974bb891c933f8a24f4d6f01" Parameters="[new System.Collections.Generic.Dictionary(Of System.String, System.String) From { { &quot;resource_type&quot;, &quot;task&quot; },{ &quot;query&quot;, in_CusRef },{ &quot;opt_fields&quot;, &quot;name,gid&quot; } }]" PreferRetryAfterValue="True" RequestBodyType="None" RequestUrl="[&quot;https://app.asana.com/api/1.0/workspaces/&quot; +in_ProjectID+&quot;/typeahead&quot;]" Result="[jsonResponse]" RetryCount="3" RetryPolicyType="Basic" RetryStatusCodes="[New List (Of System.Net.HttpStatusCode) From _&#xA;{&#xA;&#x9;System.Net.HttpStatusCode.RequestTimeout,&#xA;&#x9;System.Net.HttpStatusCode.TooManyRequests,&#xA;&#x9;System.Net.HttpStatusCode.InternalServerError,&#xA;&#x9;System.Net.HttpStatusCode.BadGateway,&#xA;&#x9;System.Net.HttpStatusCode.ServiceUnavailable,&#xA;&#x9;System.Net.HttpStatusCode.GatewayTimeout&#xA;}]" SaveRawRequestResponse="False" SaveResponseAsFile="False" TextPayloadContentType="application/json" TextPayloadEncoding="UTF-8" TlsProtocol="Automatic" UseJitter="True" UseOsNegotiatedAuthCredentials="True">
+                        <uwah:NetHttpRequest BasicAuthPassword="{x:Null}" BasicAuthSecurePassword="{x:Null}" BasicAuthUsername="{x:Null}" BinaryPayload="{x:Null}" ClientCertPassword="{x:Null}" ClientCertPath="{x:Null}" ClientCertSecurePassword="{x:Null}" Cookies="{x:Null}" CustomNegotiatedAuthCredentials="{x:Null}" FilePath="{x:Null}" FormData="{x:Null}" LocalFiles="{x:Null}" OutputFileName="{x:Null}" OutputFileTargetFolder="{x:Null}" PathResource="{x:Null}" ProxyConfiguration="{x:Null}" ResourceFiles="{x:Null}" TextPayload="{x:Null}" AuthenticationType="None" ContinueOnError="False" DisableSslVerification="False" DisplayName="HTTP Request" EnableCookies="True" FileOverwrite="AutoRename" FollowRedirects="True" FormDataParts="[New List (Of FormDataPart) From _&#xA;{&#xA;&#x9;New FileFormDataPart(),&#xA;&#x9;New BinaryFormDataPart(),&#xA;&#x9;New TextFormDataPart()&#xA;}]" Headers="[new System.Collections.Generic.Dictionary(Of System.String, System.String) From { { &quot;Authorization&quot;, &quot;Bearer 2/1211874928425211/1211898855458680:de749b27974bb891c933f8a24f4d6f01&quot; },{ &quot;Accept&quot;, &quot;application/json&quot; } }]" sap:VirtualizedContainerService.HintSize="570,281.3333333333333" sap2010:WorkflowViewState.IdRef="NetHttpRequest_22" InitialDelay="500" MaxRedirects="3" MaxRetryAfterDelay="30000" Method="GET" Multiplier="2" OAuthToken="Bearer 2/1211874928425211/1211898855458680:de749b27974bb891c933f8a24f4d6f01" Parameters="[new System.Collections.Generic.Dictionary(Of System.String, System.String) From { { &quot;resource_type&quot;, &quot;task&quot; },{ &quot;query&quot;, in_CusRef },{ &quot;opt_fields&quot;, &quot;name,gid&quot; } }]" PreferRetryAfterValue="True" RequestBodyType="None" RequestUrl="[&quot;https://app.asana.com/api/1.0/workspaces/&quot; +in_ProjectID+&quot;/typeahead&quot;]" Result="[jsonResponse]" RetryCount="3" RetryPolicyType="Basic" RetryStatusCodes="[New List (Of System.Net.HttpStatusCode) From _&#xA;{&#xA;&#x9;System.Net.HttpStatusCode.RequestTimeout,&#xA;&#x9;System.Net.HttpStatusCode.TooManyRequests,&#xA;&#x9;System.Net.HttpStatusCode.InternalServerError,&#xA;&#x9;System.Net.HttpStatusCode.BadGateway,&#xA;&#x9;System.Net.HttpStatusCode.ServiceUnavailable,&#xA;&#x9;System.Net.HttpStatusCode.GatewayTimeout&#xA;}]" SaveRawRequestResponse="False" SaveResponseAsFile="False" TextPayloadContentType="application/json" TextPayloadEncoding="UTF-8" TlsProtocol="Automatic" UseJitter="True" UseOsNegotiatedAuthCredentials="True">
                           <uwah:NetHttpRequest.TimeoutInMiliseconds>
                             <InArgument x:TypeArguments="s:Nullable(x:Int32)">
                               <Literal x:TypeArguments="s:Nullable(x:Int32)" Value="10000" />
                             </InArgument>
                           </uwah:NetHttpRequest.TimeoutInMiliseconds>
                         </uwah:NetHttpRequest>
-                        <Assign sap:VirtualizedContainerService.HintSize="570,114" sap2010:WorkflowViewState.IdRef="Assign_11">
+                        <Assign sap:VirtualizedContainerService.HintSize="570,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_11">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:Int32">[StatusCode]</OutArgument>
                           </Assign.To>
@@ -459,16 +459,16 @@
                             <InArgument x:TypeArguments="x:Int32">[jsonResponse.StatusCode]</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <If Condition="[StatusCode = 200]" sap:VirtualizedContainerService.HintSize="570,942" sap2010:WorkflowViewState.IdRef="If_10">
+                        <If Condition="[StatusCode = 200]" sap:VirtualizedContainerService.HintSize="570,956.6666666666666" sap2010:WorkflowViewState.IdRef="If_10">
                           <If.Then>
-                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="536,756" sap2010:WorkflowViewState.IdRef="Sequence_82">
+                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="536,768.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_82">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" Settings="{x:Null}" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="502,172" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_18" JsonObject="[asanaObject]" JsonString="[jsonResponse.TextContent]">
+                              <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" Settings="{x:Null}" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="502,176" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_18" JsonObject="[asanaObject]" JsonString="[jsonResponse.TextContent]">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -476,15 +476,15 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </ui:DeserializeJson>
-                              <If Condition="[asanaObject(&quot;data&quot;).Count &gt; 0]" sap:VirtualizedContainerService.HintSize="502,524" sap2010:WorkflowViewState.IdRef="If_16">
+                              <If Condition="[asanaObject(&quot;data&quot;).Count &gt; 0]" sap:VirtualizedContainerService.HintSize="502,532.6666666666666" sap2010:WorkflowViewState.IdRef="If_16">
                                 <If.Then>
-                                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,338" sap2010:WorkflowViewState.IdRef="Sequence_85">
+                                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,344.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_85">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_16">
+                                    <Assign sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_16">
                                       <Assign.To>
                                         <OutArgument x:TypeArguments="x:String">[in_TaskID]</OutArgument>
                                       </Assign.To>
@@ -492,7 +492,7 @@
                                         <InArgument x:TypeArguments="x:String">[asanaObject("data")(0)("gid").ToString]</InArgument>
                                       </Assign.Value>
                                     </Assign>
-                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,164" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Info" Message="[&quot;Task Found - ID is &quot; + in_TaskID]">
+                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Info" Message="[&quot;Task Found - ID is &quot; + in_TaskID]">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -503,7 +503,7 @@
                                   </Sequence>
                                 </If.Then>
                                 <If.Else>
-                                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_86">
+                                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_86">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -667,7 +667,7 @@
                             </Sequence>
                           </If.Then>
                           <If.Else>
-                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_83">
+                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_83">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -813,7 +813,7 @@
                       </Sequence>
                     </TryCatch.Try>
                     <TryCatch.Catches>
-                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="608,22" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="420.6666666666667,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_3">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -824,7 +824,7 @@
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                           </ActivityAction.Argument>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="Info" Message="[&quot;An unexpected error occurred during the Asana API call. Message: &quot; + exception.Message + &quot; | Source: &quot; + exception.Source]" />
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="Info" Message="[&quot;An unexpected error occurred during the Asana API call. Message: &quot; + exception.Message + &quot; | Source: &quot; + exception.Source]" />
                         </ActivityAction>
                       </Catch>
                     </TryCatch.Catches>
@@ -845,7 +845,7 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_67">
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_67">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -855,7 +855,7 @@
         </Sequence>
       </If.Else>
     </If>
-    <Sequence DisplayName="Task Exists" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="Sequence_87">
+    <Sequence DisplayName="Task Exists" sap:VirtualizedContainerService.HintSize="590.6666666666666,57.333333333333336" sap2010:WorkflowViewState.IdRef="Sequence_87">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:Int32" Name="StatusCode" />
       </Sequence.Variables>
@@ -1548,7 +1548,7 @@
         </If.Else>
       </If>
     </Sequence>
-    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{in_ClaimNum, in_ClaimDate, in_Currency, in_ClaimAmt, in_Customer, in_ClaimReason, in_CusRef, in_InvNum, in_BOL, in_DN, in_CustomerPO, in_DMFound, in_TaskID, Task_Name, taskDescription, submitterName, Assignee, DueDate, Task_Status, ClaimResolution, RMANumber, CreditMemoNumber, &quot;AMOUNT&quot;, Comment_Text, str_AttachmentList}]" DataTable="[dtOutput]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="450,218" sap2010:WorkflowViewState.IdRef="AddDataRow_10">
+    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{in_ClaimNum, in_ClaimDate, in_Currency, in_ClaimAmt, in_Customer, in_ClaimReason, in_CusRef, in_InvNum, in_BOL, in_DN, in_CustomerPO, in_DMFound, in_TaskID, Task_Name, taskDescription, submitterName, Assignee, DueDate, Task_Status, ClaimResolution, RMANumber, CreditMemoNumber, &quot;AMOUNT&quot;, Comment_Text, str_AttachmentList}]" DataTable="[dtOutput]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="590.6666666666666,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_10">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1556,8 +1556,8 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:AddDataRow>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,173" sap2010:WorkflowViewState.IdRef="LogMessage_25" Level="Info" Message="[&quot;Write to Excel&quot;]" />
-    <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" DataTable="[dtOutput]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="450,148" sap2010:WorkflowViewState.IdRef="WriteRange_4" SheetName="Output" WorkbookPath="Data\Asana.xlsx">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="590.6666666666666,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_25" Level="Info" Message="[&quot;Write to Excel&quot;]" />
+    <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" DataTable="[dtOutput]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="590.6666666666666,148" sap2010:WorkflowViewState.IdRef="WriteRange_4" SheetName="Output" WorkbookPath="Data\Asana.xlsx">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1565,7 +1565,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:WriteRange>
-    <Assign sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_27">
+    <Assign sap:VirtualizedContainerService.HintSize="590.6666666666666,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_27">
       <Assign.To>
         <OutArgument x:TypeArguments="sd:DataTable">[dt_SingleRow]</OutArgument>
       </Assign.To>
@@ -1573,7 +1573,7 @@
         <InArgument x:TypeArguments="sd:DataTable">[dtOutput.Clone]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{in_ClaimNum, in_ClaimDate, in_Currency, in_ClaimAmt, in_Customer, in_ClaimReason, in_CusRef, in_InvNum, in_BOL, in_DN, in_CustomerPO, in_DMFound, in_TaskID, Task_Name, taskDescription, submitterName, Assignee, DueDate, Task_Status, ClaimResolution, RMANumber, CreditMemoNumber, &quot;AMOUNT&quot;, Comment_Text, str_AttachmentList}]" DataTable="[dt_SingleRow]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="450,218" sap2010:WorkflowViewState.IdRef="AddDataRow_11">
+    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{in_ClaimNum, in_ClaimDate, in_Currency, in_ClaimAmt, in_Customer, in_ClaimReason, in_CusRef, in_InvNum, in_BOL, in_DN, in_CustomerPO, in_DMFound, in_TaskID, Task_Name, taskDescription, submitterName, Assignee, DueDate, Task_Status, ClaimResolution, RMANumber, CreditMemoNumber, &quot;AMOUNT&quot;, Comment_Text, str_AttachmentList}]" DataTable="[dt_SingleRow]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="590.6666666666666,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_11">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1581,9 +1581,9 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:AddDataRow>
-    <If Condition="[Task_Status = &quot;Completed&quot; and ClaimResolution = &quot;Denied&quot;]" DisplayName="If CB Required" sap:VirtualizedContainerService.HintSize="450,849" sap2010:WorkflowViewState.IdRef="If_26">
+    <If Condition="[Task_Status = &quot;Completed&quot; and ClaimResolution = &quot;Denied&quot;]" DisplayName="If CB Required" sap:VirtualizedContainerService.HintSize="590.6666666666666,861.3333333333334" sap2010:WorkflowViewState.IdRef="If_26">
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,590" sap2010:WorkflowViewState.IdRef="Sequence_118">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,598.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_118">
           <Sequence.Variables>
             <Variable x:TypeArguments="sd:DataTable" Name="dt_UploaderRow" />
           </Sequence.Variables>
@@ -1592,7 +1592,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{in_ClaimNum, &quot;&quot;, in_ClaimAmt, &quot;&quot;, in_ClaimAmt, &quot;Credit Memo - On Account&quot;, &quot;https://app.asana.com/0/search?q=CB-805509248&amp;searched_type=task&amp;locatedIn=anywhere&amp;child=&quot;+in_TaskID+&quot;&amp;f=true&quot;, &quot;&quot;, &quot;CHARGEBACK&quot;, &quot;&quot;, &quot;&quot;, &quot;POD CB&quot;, &quot;&quot;}]" DataTable="[dt_UploaderRow]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="382,218" sap2010:WorkflowViewState.IdRef="AddDataRow_12">
+          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{in_ClaimNum, &quot;&quot;, in_ClaimAmt, &quot;&quot;, in_ClaimAmt, &quot;Credit Memo - On Account&quot;, &quot;https://app.asana.com/0/search?q=CB-805509248&amp;searched_type=task&amp;locatedIn=anywhere&amp;child=&quot;+in_TaskID+&quot;&amp;f=true&quot;, &quot;&quot;, &quot;CHARGEBACK&quot;, &quot;&quot;, &quot;&quot;, &quot;POD CB&quot;, &quot;&quot;}]" DataTable="[dt_UploaderRow]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="382,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_12">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1600,12 +1600,12 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:AddDataRow>
-          <ui:AppendRange WorkbookPathResource="{x:Null}" DataTable="[dt_UploaderRow]" DisplayName="Append Range Workbook" sap:VirtualizedContainerService.HintSize="382,148" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Uploader" WorkbookPath="Data\Batch.xlsx" />
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_26" Level="Info" Message="[&quot;Row added to Uploader for CB&quot;]" />
+          <ui:AppendRange WorkbookPathResource="{x:Null}" DataTable="[dt_UploaderRow]" DisplayName="Append Range Workbook" sap:VirtualizedContainerService.HintSize="382,148" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Uploader" WorkbookPath="Data\Asana.xlsx" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_26" Level="Info" Message="[&quot;Row added to Uploader for CB&quot;]" />
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_117">
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_117">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1614,8 +1614,8 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,173" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="Info" Message="[&quot;Append Google Sheet&quot;]" />
-    <ui:RetryScope LogRetriedExceptions="{x:Null}" RetriedExceptionsLogLevel="{x:Null}" DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="450,48" sap2010:WorkflowViewState.IdRef="RetryScope_5" NumberOfRetries="3" RetryInterval="00:00:05">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="590.6666666666666,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="Info" Message="[&quot;Append Google Sheet&quot;]" />
+    <ui:RetryScope LogRetriedExceptions="{x:Null}" RetriedExceptionsLogLevel="{x:Null}" DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="590.6666666666666,48" sap2010:WorkflowViewState.IdRef="RetryScope_5" NumberOfRetries="3" RetryInterval="00:00:05">
       <ui:RetryScope.ActivityBody>
         <ActivityAction>
           <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="604,1624" sap2010:WorkflowViewState.IdRef="Sequence_109">

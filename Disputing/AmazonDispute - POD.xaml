@@ -149,7 +149,7 @@
       <AssemblyReference>NPOI.Core</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Amazon PO Disputes" sap:VirtualizedContainerService.HintSize="1364,3167" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Amazon PO Disputes" sap:VirtualizedContainerService.HintSize="1566,3172.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="BrowserLink" />
     </Sequence.Variables>
@@ -158,7 +158,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Amazon Dispute" sap:VirtualizedContainerService.HintSize="841,3121" sap2010:WorkflowViewState.IdRef="Sequence_104">
+    <Sequence DisplayName="Amazon Dispute" sap:VirtualizedContainerService.HintSize="840.6666666666666,3150" sap2010:WorkflowViewState.IdRef="Sequence_104">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="InvoiceNumber_SC" />
         <Variable x:TypeArguments="x:String" Name="Status" />
@@ -171,7 +171,7 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Assign sap:VirtualizedContainerService.HintSize="807,114" sap2010:WorkflowViewState.IdRef="Assign_256">
+      <Assign sap:VirtualizedContainerService.HintSize="806.6666666666666,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_256">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[in_BotFolder]</OutArgument>
         </Assign.To>
@@ -179,12 +179,12 @@
           <InArgument x:TypeArguments="x:String">[System.IO.Directory.GetCurrentDirectory()]</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:ReadCell WorkbookPathResource="{x:Null}" Cell="B32" DisplayName="Read Cell Workbook" sap:VirtualizedContainerService.HintSize="807,120" sap2010:WorkflowViewState.IdRef="ReadCell_1" SheetName="Customer Mapping" WorkbookPath="Data\Mapping Table.xlsx">
+      <ui:ReadCell WorkbookPathResource="{x:Null}" Cell="B32" DisplayName="Read Cell Workbook" sap:VirtualizedContainerService.HintSize="806.6666666666666,120" sap2010:WorkflowViewState.IdRef="ReadCell_1" SheetName="Customer Mapping" WorkbookPath="Data\Mapping Table.xlsx">
         <ui:ReadCell.Result>
           <OutArgument x:TypeArguments="x:String">[LoginCheckCell]</OutArgument>
         </ui:ReadCell.Result>
       </ui:ReadCell>
-      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="807,210" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="806.6666666666666,210.66666666666666" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
         <ui:MultipleAssign.AssignOperations>
           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
@@ -220,7 +220,7 @@
           </scg:List>
         </ui:MultipleAssign.AssignOperations>
       </ui:MultipleAssign>
-      <If Condition="[LoginCheckCell = &quot;TRUE&quot;]" sap:VirtualizedContainerService.HintSize="807,2195" sap2010:WorkflowViewState.IdRef="If_62">
+      <If Condition="[LoginCheckCell = &quot;TRUE&quot;]" sap:VirtualizedContainerService.HintSize="806.6666666666666,2198" sap2010:WorkflowViewState.IdRef="If_62">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -228,14 +228,14 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <If.Then>
-          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="702,1622" sap2010:WorkflowViewState.IdRef="Sequence_246">
+          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="702,1623.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_246">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_DisputeType]" sap:VirtualizedContainerService.HintSize="668,214" sap2010:WorkflowViewState.IdRef="Switch`1_7">
+            <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_DisputeType]" sap:VirtualizedContainerService.HintSize="668,215.33333333333334" sap2010:WorkflowViewState.IdRef="Switch`1_7">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -524,7 +524,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Flowchart DisplayName="Invoice Flowchart" sap:VirtualizedContainerService.HintSize="1381,1136.04" sap2010:WorkflowViewState.IdRef="Flowchart_5">
+                    <Flowchart DisplayName="Invoice Flowchart" sap:VirtualizedContainerService.HintSize="1583.3333333333333,775.3733333333332" sap2010:WorkflowViewState.IdRef="Flowchart_5">
                       <Flowchart.Variables>
                         <Variable x:TypeArguments="x:Boolean" Name="InvoiceFoundCheck" />
                         <Variable x:TypeArguments="x:String" Name="Invoice_Number" />
@@ -1057,10 +1057,7 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <FlowDecision.True>
-                              <FlowDecision x:Name="__ReferenceID48" DisplayName="PRICING OR POD" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_64">
-                                <FlowDecision.Condition>
-                                  <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="in_DisputeType = &quot;AMAZON PRICING&quot;" />
-                                </FlowDecision.Condition>
+                              <FlowDecision x:Name="__ReferenceID48" Condition="[in_DisputeType = &quot;AMAZON PRICING&quot;]" DisplayName="PRICING OR POD" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_64">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1078,7 +1075,7 @@
                                         <av:Size x:Key="ShapeSize">110,70</av:Size>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <Sequence DisplayName="PRICING-View Invoice details" sap:VirtualizedContainerService.HintSize="702,1299" sap2010:WorkflowViewState.IdRef="Sequence_361">
+                                    <Sequence DisplayName="PRICING-View Invoice details" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_361">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2119,27 +2116,27 @@
                                         <av:Size x:Key="ShapeSize">110,70</av:Size>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <Sequence DisplayName="POD-View Invoice details" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_256">
+                                    <Sequence DisplayName="POD-View Invoice details" sap:VirtualizedContainerService.HintSize="702,1308.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_256">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="668,173" sap2010:WorkflowViewState.IdRef="LogMessage_39" Level="Info" Message="[&quot;Invoice Found&quot;]" />
-                                      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Chrome Amazon Invoice" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="668,1066" sap2010:WorkflowViewState.IdRef="NApplicationCard_7" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="4b94f2f8-3c58-4759-a41c-1fc135cbc72f" Version="V2">
+                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="668,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_39" Level="Info" Message="[&quot;Invoice Found&quot;]" />
+                                      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Chrome Amazon Invoice" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="668,1072" sap2010:WorkflowViewState.IdRef="NApplicationCard_7" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="4b94f2f8-3c58-4759-a41c-1fc135cbc72f" Version="V2">
                                         <uix:NApplicationCard.Body>
                                           <ActivityAction x:TypeArguments="x:Object">
                                             <ActivityAction.Argument>
                                               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                                             </ActivityAction.Argument>
-                                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="634,826" sap2010:WorkflowViewState.IdRef="Sequence_281">
+                                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="634,830" sap2010:WorkflowViewState.IdRef="Sequence_281">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
-                                              <Flowchart DisplayName="Dispute Flowchart" sap:VirtualizedContainerService.HintSize="600,657" sap2010:WorkflowViewState.IdRef="Flowchart_6">
+                                              <Flowchart DisplayName="Dispute Flowchart" sap:VirtualizedContainerService.HintSize="1583.3333333333333,775.3733333333332" sap2010:WorkflowViewState.IdRef="Flowchart_6">
                                                 <Flowchart.Variables>
                                                   <Variable x:TypeArguments="x:Boolean" Name="SCR" />
                                                   <Variable x:TypeArguments="x:Boolean" Name="SCR2" />
@@ -2353,7 +2350,7 @@
                                                                                 </uix:VerifyExecutionOptions>
                                                                               </uix:NClick.VerifyOptions>
                                                                             </uix:NClick>
-                                                                            <uix:NCheckState DisplayName="Check App State 'I acknowledge that I ha…'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="954,57" sap2010:WorkflowViewState.IdRef="NCheckState_22" ScopeIdentifier="f561c37b-c3c1-4297-bcbc-a4bcd757adc1" Timeout="5" Version="V5">
+                                                                            <uix:NCheckState DisplayName="Check App State 'I acknowledge that I ha…'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="954,794" sap2010:WorkflowViewState.IdRef="NCheckState_22" ScopeIdentifier="f561c37b-c3c1-4297-bcbc-a4bcd757adc1" Timeout="10" Version="V5">
                                                                               <uix:NCheckState.IfExists>
                                                                                 <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,505" sap2010:WorkflowViewState.IdRef="Sequence_352">
                                                                                   <sap:WorkflowViewStateService.ViewState>
@@ -2363,13 +2360,7 @@
                                                                                   </sap:WorkflowViewStateService.ViewState>
                                                                                   <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'I acknowledge that I ha…'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,225" sap2010:WorkflowViewState.IdRef="NClick_85" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f561c37b-c3c1-4297-bcbc-a4bcd757adc1" Version="V5">
                                                                                     <uix:NClick.Target>
-                                                                                      <uix:TargetAnchorable BrowserURL="vendorcentral.amazon.eu/katalmonsapp/vendor/members/disputes/create" DesignTimeRectangle="515, 763, 12, 12" FullSelectorArgument="&lt;webctrl tag='KAT-CHECKBOX' /&gt;&lt;webctrl shadowhostid='' tag='DIV' /&gt;" Guid="73088d9e-c0e3-4b00-bf98-a7072aa4705d" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAwSURBVDhPY/j75cZ/SjADugCpGG5AW+9UkjBWA4gFowaMGgACtDOAFIxhALmYYgMA9cyq0lBOXHoAAAAASUVORK5CYII=" InformativeScreenshot="277ac7673c57a67518f534b96ffd3304.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon' /&gt;" SearchSteps="Selector, Image" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
-                                                                                        <uix:TargetAnchorable.Anchors>
-                                                                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                                                                            <uix:Target DesignTimeRectangle="515, 762, 920, 13" FuzzySelectorArgument="&lt;webctrl tag='KAT-CHECKBOX' type='' class='margin-md margin-top-lg' aaname='I acknowledge that I have verified the information provided' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='I acknowledge that I have verified the information provided' /&gt;" Guid="dcd001a9-6190-40d3-bab1-bccaf1d935a9" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
-                                                                                          </scg:List>
-                                                                                        </uix:TargetAnchorable.Anchors>
-                                                                                      </uix:TargetAnchorable>
+                                                                                      <uix:TargetAnchorable BrowserURL="vendorcentral.amazon.eu/katalmonsapp/vendor/members/disputes/create" DesignTimeRectangle="606, 464, 18, 18" FullSelectorArgument="&lt;webctrl tag='KAT-CHECKBOX' /&gt;&lt;webctrl shadowhostid='' tag='DIV' /&gt;" Guid="fc75ae98-a797-4061-8991-c4d9400947a2" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA8SURBVEhLY/j75cZ/WmAGdAFqYdob3NY7lSoYq8GUglGD4WDUYDgYNRgORg2Gg1GD4QCnwdTAGAZTGwMAJVYNxiBA2t8AAAAASUVORK5CYII=" InformativeScreenshot="5f1957abf746cd9c142700cfa29b3ba2.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon' /&gt;" SearchSteps="Selector, Image" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
                                                                                     </uix:NClick.Target>
                                                                                     <uix:NClick.VerifyOptions>
                                                                                       <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
@@ -2384,7 +2375,7 @@
                                                                                   </uix:NClick>
                                                                                   <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'I acknowledge that I ha…'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,218" sap2010:WorkflowViewState.IdRef="NClick_86" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f561c37b-c3c1-4297-bcbc-a4bcd757adc1" Version="V5">
                                                                                     <uix:NClick.Target>
-                                                                                      <uix:TargetAnchorable BrowserURL="vendorcentral.amazon.eu/katalmonsapp/vendor/members/disputes/create" DesignTimeRectangle="515, 787, 150, 24" FullSelectorArgument="&lt;webctrl id='dpe-continue-button' tag='KAT-BUTTON' /&gt;" Guid="04f225b8-1807-4c4a-9c8c-1709852f6dfe" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJoAAAAcCAYAAACZFqbSAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAVmSURBVHhe7ZtRS+NKGIb3n3m/v6De97rilYrshbQsdAnai67ionSpIhaWFpbAoqUUsVSp9BQh4CGwNGAtUomlpCkk5PAeZjJN06SpRWPOgZ2LB+xk5ptv3nnzzbTgh3+Gf4PDeW8+eBs4nPfAMdp2ZhtLH5c5nNAgnvIZzduJwwkDbjROJHCjcSKBG40TCdxonEjgRuNEAjcaJxJCMtoGMhUZyqMOY9iHItew6+uzAPEUPn1OIUY/p1BWTKi3BX+/kDiod6AoDFlC+ST7fnOvpJHc2vC3zyUkXd1ErPGYEIyWhnhvAsMOrn4WkBQKKFZK+OLrtwDfJGhDyRFz7aiK068Jf7+QEO+B7mUWSSGHfEWGagDqzTF9Fvrc5x3gvupvDyREXd1ErPGYtxvtSIZhdSBu+p/F92qQyNs46EGqF7BG27MQJQnFkyqaSh/asA+5kkNs5wzNRxOwdHSVDi6O7Ioj/coGj2FVifS15yzgQmnggP6dQLLUgvKkQ3vq4OpH2pcfMZpyPvkcOyFraaMYd8+doFWlOzChPbZxdZLC0lED8uUZircdqEMdyo3oWpsMUWAxhSokqYqjwwbkAYBRH4rCnq/kUJZ60EY6ulINmbhHv0BdmRZ7Iq5ktvZZsYieMsmP5C2jTMw0V2NvnAYOtuw5D+ptXJRKuGDPJutdnDcbLXndB55bSHqf7bSgWjqknzkkhRKaA0C93sfSx2M0h4B6V8WBkEXmvAMDHYjkaLnsAUMZp0IWayu2EbRbUmECxvjMUoXC2mOlNoxhG8WdFFZPJGiGbSB3jl6j2eN1NL+55hZaUEdtFAW78u1+TdnVadRB+Ttp867NHk/jsepxvL6N0zsdeGggKWxjNb6Pq2cT3foxVtf3Ub43od6Q8QvoyrQwHmVcVGrI7wTE2ikgv0fyyyJT79mx5mpM4gDa3RkyQhb5W52OIRWU9DHuG3a87xJUotGeN6/5vNlouyShhxo78ydQoVztsUoPGEjIeDfDZQ66ga6yPm202WOCjHb6m4wtUaGTgghpavwk/otG26yha+lQ6iV8WWH9PMcgXRs1xWyjkfVQncZjiHmtDso0t6y9+Z5jNUhXnxZzYsXWt+22gjw5LoM0JnHQQ3n8MsZr6DJDTevk3YvFeLPRln5NJz5mSliCs0Bvou9jNDpWaaBcqTHOsOs5hnxG22ygiz6uBPfcy4ilS7iQ+zAsu3J4jRa4tiCjkXarB8nJrYZyYbqiBenq0yIg1hqp+sMepJsWpAd9EitIYxJnvA+U6ZfuvzdaXIRsAN16DnGnPYHYeRsYycjTNySB/J1JhY75En270bqXKbt9hbyFdvu4os67S0wJGM/SY4fkuDo1t2vMjzYMcpyQPB9qbL1sbb9FlqcJ6cTuHzuaVJLpF0+EbOloHs65hAfpGvdqMTsW1aVif8t15xGsMYlDcrfj0Psq0TL+fzEaSeqwhe4IgGXCGJkAqQp7aYiKCRiszehApJdLb6Iuo+00oFqg/bvXuYWMtvuX7syrPfQmbyXZkGc48xvknuXJm8R38rNMaMrkUu7MvdeCapjQnvrQDBPKeZptVp+2GwaJMV5byl4zy0d96MNgm0rvjGxtsrhsVxzWb7zexXT1ajE71rhNG+jQnsnPI8xcgRp74lhsrd4X0rcXixGK0RzIZdP5jcaG3hM8bWET38ri0/rs6kCeJYW0qyq8AvLbE7s808/O0bmBNd/aElj97Oo7DxY3KHeHGbr6mBGLaP9ibC80DvnCMuPZGwjXaH8K3jsa50W40V7Dq37l/7PhRuNEAjcaJxK40TiRwI3GiQSf0fi/23HCZua/23E47wk3GicS/gU8QF0bAe2TuAAAAABJRU5ErkJggg==" InformativeScreenshot="c6830ed16ffea511f5a42139e7c15e91.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon' /&gt;" SearchSteps="Selector, Image" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
+                                                                                      <uix:TargetAnchorable BrowserURL="vendorcentral.amazon.eu/katalmonsapp/vendor/members/disputes/create" DesignTimeRectangle="606, 500, 225, 35" FullSelectorArgument="&lt;webctrl id='dpe-continue-button' tag='KAT-BUTTON' /&gt;" Guid="7f27abfe-a476-4386-86d5-71eddc48468d" ImageBase64="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" InformativeScreenshot="2d92031475cdbdf80cd697c99e8be3fc.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon' /&gt;" SearchSteps="Selector, Image" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
                                                                                     </uix:NClick.Target>
                                                                                     <uix:NClick.VerifyOptions>
                                                                                       <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
@@ -2409,11 +2400,11 @@
                                                                                 </Sequence>
                                                                               </uix:NCheckState.IfNotExists>
                                                                               <uix:NCheckState.Target>
-                                                                                <uix:TargetAnchorable BrowserURL="vendorcentral.amazon.eu/katalmonsapp/vendor/members/disputes/create" DesignTimeRectangle="515, 762, 920, 13" FuzzySelectorArgument="&lt;webctrl tag='KAT-CHECKBOX' type='' class='margin-md margin-top-lg' aaname='I acknowledge that I have verified the information provided' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='I acknowledge that I have verified the information provided' /&gt;" Guid="62ba07c5-6ac6-4f05-9126-7770a104e7a9" InformativeScreenshot="0813194da0d54272fda07e8e37d8ab3a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon' /&gt;" SearchSteps="FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
+                                                                                <uix:TargetAnchorable BrowserURL="vendorcentral.amazon.eu/katalmonsapp/vendor/members/disputes/create" DesignTimeRectangle="606, 462, 971, 20" FuzzySelectorArgument="&lt;webctrl tag='KAT-CHECKBOX' type='' class='margin-md margin-top-lg' aaname='I acknowledge that I have verified the information provided' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='I acknowledge that I have verified the information provided' /&gt;" Guid="c307b88e-4020-410c-88c0-7c670a717d9e" InformativeScreenshot="e1a215e49990bd64574574ae004559e3.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon' /&gt;" SearchSteps="FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
                                                                               </uix:NCheckState.Target>
                                                                               <sap:WorkflowViewStateService.ViewState>
                                                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                                                                 </scg:Dictionary>
                                                                               </sap:WorkflowViewStateService.ViewState>
@@ -2546,7 +2537,7 @@
                                                                                           <av:Size x:Key="ShapeSize">110,70</av:Size>
                                                                                         </scg:Dictionary>
                                                                                       </sap:WorkflowViewStateService.ViewState>
-                                                                                      <Sequence DisplayName="Step 3: File Upload" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_284">
+                                                                                      <Sequence DisplayName="Step 3: File Upload" sap:VirtualizedContainerService.HintSize="530.6666666666666,3885.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_284">
                                                                                         <Sequence.Variables>
                                                                                           <Variable x:TypeArguments="x:String" Name="DisputeFile" />
                                                                                           <Variable x:TypeArguments="x:Boolean" Name="FileFound" />
@@ -2558,15 +2549,15 @@
                                                                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                                                           </scg:Dictionary>
                                                                                         </sap:WorkflowViewStateService.ViewState>
-                                                                                        <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_DisputeType]" sap:VirtualizedContainerService.HintSize="508,721" sap2010:WorkflowViewState.IdRef="Switch`1_13">
-                                                                                          <Sequence x:Key="AMAZON AMR PODs" sap:VirtualizedContainerService.HintSize="468,459" sap2010:WorkflowViewState.IdRef="Sequence_299">
+                                                                                        <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_DisputeType]" sap:VirtualizedContainerService.HintSize="496.6666666666667,225.33333333333334" sap2010:WorkflowViewState.IdRef="Switch`1_13">
+                                                                                          <Sequence x:Key="AMAZON AMR PODs" sap:VirtualizedContainerService.HintSize="468,332" sap2010:WorkflowViewState.IdRef="Sequence_299">
                                                                                             <sap:WorkflowViewStateService.ViewState>
                                                                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                                                               </scg:Dictionary>
                                                                                             </sap:WorkflowViewStateService.ViewState>
-                                                                                            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,122" sap2010:WorkflowViewState.IdRef="WriteLine_110" Text="[in_BotFolder + &quot;\Data\Combined files\&quot; + in_CusRef + &quot; combined files.pdf&quot;]" />
-                                                                                            <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_236">
+                                                                                            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,124" sap2010:WorkflowViewState.IdRef="WriteLine_110" Text="[in_BotFolder + &quot;\Data\Combined files\&quot; + in_CusRef + &quot; combined files.pdf&quot;]" />
+                                                                                            <Assign sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_236">
                                                                                               <Assign.To>
                                                                                                 <OutArgument x:TypeArguments="x:String">[DisputeFile]</OutArgument>
                                                                                               </Assign.To>
@@ -2574,16 +2565,16 @@
                                                                                                 <InArgument x:TypeArguments="x:String" xml:space="preserve">[in_BotFolder + "\Data\Combined files\" +  in_CusRef + " combined files.pdf"]</InArgument>
                                                                                               </Assign.Value>
                                                                                             </Assign>
-                                                                                            <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[FileFound]" sap:VirtualizedContainerService.HintSize="434,163" sap2010:WorkflowViewState.IdRef="PathExists_18" Path="[DisputeFile]" PathType="File" />
+                                                                                            <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[FileFound]" sap:VirtualizedContainerService.HintSize="434,166.66666666666666" sap2010:WorkflowViewState.IdRef="PathExists_18" Path="[DisputeFile]" PathType="File" />
                                                                                           </Sequence>
-                                                                                          <Sequence x:Key="AMAZON EMEA PODs" sap:VirtualizedContainerService.HintSize="468,459" sap2010:WorkflowViewState.IdRef="Sequence_300">
+                                                                                          <Sequence x:Key="AMAZON EMEA PODs" sap:VirtualizedContainerService.HintSize="468,332" sap2010:WorkflowViewState.IdRef="Sequence_300">
                                                                                             <sap:WorkflowViewStateService.ViewState>
                                                                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                                                               </scg:Dictionary>
                                                                                             </sap:WorkflowViewStateService.ViewState>
-                                                                                            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,122" sap2010:WorkflowViewState.IdRef="WriteLine_111" Text="[in_BotFolder + &quot;\Data\Combined files\&quot; + in_CusRef + &quot;.pdf&quot;]" />
-                                                                                            <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_237">
+                                                                                            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,124" sap2010:WorkflowViewState.IdRef="WriteLine_111" Text="[in_BotFolder + &quot;\Data\Combined files\&quot; + in_CusRef + &quot;.pdf&quot;]" />
+                                                                                            <Assign sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_237">
                                                                                               <Assign.To>
                                                                                                 <OutArgument x:TypeArguments="x:String">[DisputeFile]</OutArgument>
                                                                                               </Assign.To>
@@ -2591,16 +2582,16 @@
                                                                                                 <InArgument x:TypeArguments="x:String">[in_BotFolder + "\Data\Combined files\" + in_CusRef + ".pdf"]</InArgument>
                                                                                               </Assign.Value>
                                                                                             </Assign>
-                                                                                            <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[FileFound]" sap:VirtualizedContainerService.HintSize="434,163" sap2010:WorkflowViewState.IdRef="PathExists_19" Path="[DisputeFile]" PathType="File" />
+                                                                                            <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[FileFound]" sap:VirtualizedContainerService.HintSize="434,166.66666666666666" sap2010:WorkflowViewState.IdRef="PathExists_19" Path="[DisputeFile]" PathType="File" />
                                                                                           </Sequence>
-                                                                                          <Sequence x:Key="AMAZON PRICING" sap:VirtualizedContainerService.HintSize="468,459" sap2010:WorkflowViewState.IdRef="Sequence_358">
+                                                                                          <Sequence x:Key="AMAZON PRICING" sap:VirtualizedContainerService.HintSize="468,332" sap2010:WorkflowViewState.IdRef="Sequence_358">
                                                                                             <sap:WorkflowViewStateService.ViewState>
                                                                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                                                               </scg:Dictionary>
                                                                                             </sap:WorkflowViewStateService.ViewState>
-                                                                                            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,122" sap2010:WorkflowViewState.IdRef="WriteLine_125" Text="[in_BotFolder + &quot;\Data\Combined files\&quot; + in_CusRef + &quot;.pdf&quot;]" />
-                                                                                            <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_278">
+                                                                                            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,124" sap2010:WorkflowViewState.IdRef="WriteLine_125" Text="[in_BotFolder + &quot;\Data\Combined files\&quot; + in_CusRef + &quot;.pdf&quot;]" />
+                                                                                            <Assign sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_278">
                                                                                               <Assign.To>
                                                                                                 <OutArgument x:TypeArguments="x:String">[DisputeFile]</OutArgument>
                                                                                               </Assign.To>
@@ -2608,10 +2599,10 @@
                                                                                                 <InArgument x:TypeArguments="x:String">[in_BotFolder + "\Data\Combined files\" + in_CusRef + ".pdf"]</InArgument>
                                                                                               </Assign.Value>
                                                                                             </Assign>
-                                                                                            <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[FileFound]" sap:VirtualizedContainerService.HintSize="434,163" sap2010:WorkflowViewState.IdRef="PathExists_20" Path="[DisputeFile]" PathType="File" />
+                                                                                            <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[FileFound]" sap:VirtualizedContainerService.HintSize="434,166.66666666666666" sap2010:WorkflowViewState.IdRef="PathExists_20" Path="[DisputeFile]" PathType="File" />
                                                                                           </Sequence>
                                                                                         </Switch>
-                                                                                        <If Condition="[FileFound]" sap:VirtualizedContainerService.HintSize="508,1416" sap2010:WorkflowViewState.IdRef="If_72">
+                                                                                        <If Condition="[FileFound]" sap:VirtualizedContainerService.HintSize="496.6666666666667,1424" sap2010:WorkflowViewState.IdRef="If_72">
                                                                                           <sap:WorkflowViewStateService.ViewState>
                                                                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2619,14 +2610,14 @@
                                                                                             </scg:Dictionary>
                                                                                           </sap:WorkflowViewStateService.ViewState>
                                                                                           <If.Then>
-                                                                                            <Sequence DisplayName="Attach File" sap:VirtualizedContainerService.HintSize="416,1155" sap2010:WorkflowViewState.IdRef="Sequence_285">
+                                                                                            <Sequence DisplayName="Attach File" sap:VirtualizedContainerService.HintSize="416,1161.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_285">
                                                                                               <sap:WorkflowViewStateService.ViewState>
                                                                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                                                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                                                                                 </scg:Dictionary>
                                                                                               </sap:WorkflowViewStateService.ViewState>
-                                                                                              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Upload files'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="382,225" sap2010:WorkflowViewState.IdRef="NClick_56" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4b94f2f8-3c58-4759-a41c-1fc135cbc72f" Version="V5">
+                                                                                              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Upload files'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="382,229.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_56" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4b94f2f8-3c58-4759-a41c-1fc135cbc72f" Version="V5">
                                                                                                 <uix:NClick.Target>
                                                                                                   <uix:TargetAnchorable BrowserURL="vendorcentral.amazon.com/katalmonsapp/vendor/members/disputes/create" ContentHash="0efQaLcf602-fzbpl4dFWQ" DesignTimeRectangle="307, 842, 70, 13" FullSelectorArgument="&lt;webctrl id='drag-and-drop-file-uploader' tag='KAT-FILE-UPLOAD' /&gt;&lt;webctrl parentid='select-file' shadowhostid='drag-and-drop-file-uploader' tag='DIV' /&gt;" Guid="fc4c9949-0a40-4f5d-9913-cf4436ea5c4e" InformativeScreenshot="32f4bfc77da7a1649cb551365b2db981.png" Reference="hGGVLoWPekKE0Kk0gH4tDQ/GLBHjieDH0qSaZreLHdr6Q" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Amazon' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
                                                                                                 </uix:NClick.Target>
@@ -2641,7 +2632,7 @@
                                                                                                   </uix:VerifyExecutionOptions>
                                                                                                 </uix:NClick.VerifyOptions>
                                                                                               </uix:NClick>
-                                                                                              <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="382,122" sap2010:WorkflowViewState.IdRef="Delay_25" />
+                                                                                              <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="382,124" sap2010:WorkflowViewState.IdRef="Delay_25" />
                                                                                               <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" ClipboardMode="Never" DisplayName="Type Into 'Edit'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="382,286" sap2010:WorkflowViewState.IdRef="NTypeInto_6" InteractionMode="Simulate" ScopeIdentifier="4b94f2f8-3c58-4759-a41c-1fc135cbc72f" Text="[DisputeFile]" Version="V5">
                                                                                                 <uix:NTypeInto.Target>
                                                                                                   <uix:TargetAnchorable BrowserURL="vendorcentral.amazon.com/katalmonsapp/vendor/members/disputes/create" ContentHash="CILTLo8FOEWTeIhnTKNH0g" DesignTimeRectangle="201, 552, 576, 15" ElementType="InputBox" FullSelectorArgument="&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;" Guid="3506c3a6-cc49-4207-a9f8-e4263522bad8" InformativeScreenshot="bae506da4045b26a1fb6587ee4f9939f.png" Reference="hGGVLoWPekKE0Kk0gH4tDQ/MM9f-N60tkKcmZZlFQeYEA" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='#32770' title='Open' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
@@ -2849,7 +2840,7 @@
                                                                                             <OutArgument x:TypeArguments="x:String">[Status]</OutArgument>
                                                                                           </Assign.To>
                                                                                           <Assign.Value>
-                                                                                            <InArgument x:TypeArguments="x:String">PASS</InArgument>
+                                                                                            <InArgument x:TypeArguments="x:String">Success</InArgument>
                                                                                           </Assign.Value>
                                                                                         </Assign>
                                                                                         <Assign sap:VirtualizedContainerService.HintSize="496.6666666666667,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_262">
@@ -3035,7 +3026,7 @@
                                                                                   <av:Size x:Key="ShapeSize">110,70</av:Size>
                                                                                 </scg:Dictionary>
                                                                               </sap:WorkflowViewStateService.ViewState>
-                                                                              <Sequence DisplayName="View Dispute" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_287">
+                                                                              <Sequence DisplayName="View Dispute" sap:VirtualizedContainerService.HintSize="468,805.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_287">
                                                                                 <Sequence.Variables>
                                                                                   <Variable x:TypeArguments="x:String" Name="getViewDisputeID" />
                                                                                 </Sequence.Variables>
@@ -3093,7 +3084,7 @@
                                                                                     <OutArgument x:TypeArguments="x:String">[Status]</OutArgument>
                                                                                   </Assign.To>
                                                                                   <Assign.Value>
-                                                                                    <InArgument x:TypeArguments="x:String">PASS</InArgument>
+                                                                                    <InArgument x:TypeArguments="x:String">Success</InArgument>
                                                                                   </Assign.Value>
                                                                                 </Assign>
                                                                                 <Assign sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_265">
@@ -3184,7 +3175,7 @@
                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                           <av:Point x:Key="ShapeLocation">380,390</av:Point>
                                                           <av:Size x:Key="ShapeSize">60,60</av:Size>
-                                                          <av:PointCollection x:Key="FalseConnector">440,420 470,420 470,350.00000000000006 630,350.00000000000006 630,380</av:PointCollection>
+                                                          <av:PointCollection x:Key="FalseConnector">440,420 470,420 470,350 630,350 630,380</av:PointCollection>
                                                           <av:PointCollection x:Key="TrueConnector">380,420 350,420 350,490 125,490</av:PointCollection>
                                                         </scg:Dictionary>
                                                       </sap:WorkflowViewStateService.ViewState>
@@ -3229,7 +3220,7 @@
                                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                               <av:Point x:Key="ShapeLocation">600,380</av:Point>
                                                               <av:Size x:Key="ShapeSize">60,60</av:Size>
-                                                              <av:PointCollection x:Key="FalseConnector">660,410 690,410 690,320.00000000000006 880,320.00000000000006 880,350</av:PointCollection>
+                                                              <av:PointCollection x:Key="FalseConnector">660,410 690,410 690,320 880,320 880,350</av:PointCollection>
                                                               <av:PointCollection x:Key="TrueConnector">600,410 570,410 570,555 290,555 290,585</av:PointCollection>
                                                             </scg:Dictionary>
                                                           </sap:WorkflowViewStateService.ViewState>
@@ -3602,7 +3593,7 @@
                                                 <x:Reference>__ReferenceID45</x:Reference>
                                                 <x:Reference>__ReferenceID46</x:Reference>
                                               </Flowchart>
-                                              <uix:NNavigateBrowser Action="CloseTab" DisplayName="Navigate Browser - Close Tab" sap:VirtualizedContainerService.HintSize="600,107" sap2010:WorkflowViewState.IdRef="NNavigateBrowser_2" Version="V5" />
+                                              <uix:NNavigateBrowser Action="CloseTab" DisplayName="Navigate Browser - Close Tab" sap:VirtualizedContainerService.HintSize="600,110" sap2010:WorkflowViewState.IdRef="NNavigateBrowser_2" Version="V5" />
                                             </Sequence>
                                           </ActivityAction>
                                         </uix:NApplicationCard.Body>
@@ -3974,10 +3965,7 @@
                                   </uix:NCheckState>
                                 </Sequence>
                                 <FlowStep.Next>
-                                  <FlowDecision x:Name="__ReferenceID52" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_46">
-                                    <FlowDecision.Condition>
-                                      <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="InvoiceFoundCheck" />
-                                    </FlowDecision.Condition>
+                                  <FlowDecision x:Name="__ReferenceID52" Condition="[InvoiceFoundCheck]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_46" True="{x:Reference __ReferenceID48}">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -3987,9 +3975,6 @@
                                         <av:PointCollection x:Key="FalseConnector">1130,320 1160,320 1160,310 1215,310</av:PointCollection>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <FlowDecision.True>
-                                      <x:Reference>__ReferenceID48</x:Reference>
-                                    </FlowDecision.True>
                                     <FlowDecision.False>
                                       <FlowStep x:Name="__ReferenceID53" sap2010:WorkflowViewState.IdRef="FlowStep_21">
                                         <sap:WorkflowViewStateService.ViewState>

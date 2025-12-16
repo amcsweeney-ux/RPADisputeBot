@@ -357,24 +357,24 @@
                     </sap:WorkflowViewStateService.ViewState>
                     <If Condition="[in_DisputeType = &quot;NEW PODS&quot; or in_DisputeType = &quot;EXISTING PODs&quot;]" sap:VirtualizedContainerService.HintSize="450,787" sap2010:WorkflowViewState.IdRef="If_10">
                       <If.Then>
-                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,537" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_46">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[TransactionStatusDT]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="382,120" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Output Headers" WorkbookPath="Data\Mapping Table.xlsx" />
-                          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{in_BatchName,in_ClaimNum, in_CusRef, in_CusName, in_ClaimAmount,in_OverallProcess, in_FileProcessStatus, in_CombinedFileComment, in_FileComment,in_DisputeStatus, in_DisputeRemark, in_DispureID,in_DisputeID2}]" DataTable="[TransactionStatusDT]" DisplayName="Add Data Row Transction status" sap:VirtualizedContainerService.HintSize="382,218" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
-                          <ui:AppendRange WorkbookPathResource="{x:Null}" DataTable="[TransactionStatusDT]" DisplayName="Append Range transaction status" sap:VirtualizedContainerService.HintSize="382,139" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Output" WorkbookPath="Data\Batch.xlsx" />
                         </Sequence>
                       </If.Then>
                       <If.Else>
-                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,537" sap2010:WorkflowViewState.IdRef="Sequence_47">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
+                          <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[TransactionStatusDT]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="382,120" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="Output Headers" WorkbookPath="Data\Mapping Table.xlsx" />
+                          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{in_BatchName,in_ClaimNum, in_CusRef, in_CusName, in_ClaimAmount,in_OverallProcess, in_FileProcessStatus, in_CombinedFileComment, in_FileComment,in_DisputeStatus, in_DisputeRemark, in_DispureID,in_DisputeID2}]" DataTable="[TransactionStatusDT]" DisplayName="Add Data Row Transction status" sap:VirtualizedContainerService.HintSize="382,218" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+                          <ui:AppendRange WorkbookPathResource="{x:Null}" DataTable="[TransactionStatusDT]" DisplayName="Append Range transaction status" sap:VirtualizedContainerService.HintSize="382,139" sap2010:WorkflowViewState.IdRef="AppendRange_2" SheetName="Output" WorkbookPath="Data\Batch.xlsx" />
                         </Sequence>
                       </If.Else>
                     </If>
