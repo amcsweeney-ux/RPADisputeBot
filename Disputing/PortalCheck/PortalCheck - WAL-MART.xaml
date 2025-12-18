@@ -137,7 +137,7 @@
       <AssemblyReference>NPOI.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="PortalCheck" sap:VirtualizedContainerService.HintSize="1566,1518.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="PortalCheck" sap:VirtualizedContainerService.HintSize="1646,4886" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="LoginCheck" />
       <Variable x:TypeArguments="sd:DataTable" Name="dtMapping" />
@@ -148,8 +148,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dtMapping]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="1022,120" sap2010:WorkflowViewState.IdRef="ReadRange_4" SheetName="Customer Mapping" WorkbookPath="Data\Mapping Table.xlsx" />
-    <ui:FilterDataTable DataTable="[dtMapping]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="1022,196" sap2010:WorkflowViewState.IdRef="FilterDataTable_4" OutputDataTable="[dtFilterMapping]" SelectColumnsMode="Keep">
+    <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dtMapping]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="1646,120" sap2010:WorkflowViewState.IdRef="ReadRange_4" SheetName="Customer Mapping" WorkbookPath="Data\Mapping Table.xlsx" />
+    <ui:FilterDataTable DataTable="[dtMapping]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="1646,193" sap2010:WorkflowViewState.IdRef="FilterDataTable_4" OutputDataTable="[dtFilterMapping]" SelectColumnsMode="Keep">
       <ui:FilterDataTable.Filters>
         <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
           <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
@@ -168,29 +168,29 @@
         </scg:List>
       </ui:FilterDataTable.SelectColumns>
     </ui:FilterDataTable>
-    <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="B31" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="1022,148" sap2010:WorkflowViewState.IdRef="WriteCell_6" SheetName="Customer Mapping" WorkbookPath="Data\Mapping Table.xlsx">
+    <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="B31" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="1646,148" sap2010:WorkflowViewState.IdRef="WriteCell_6" SheetName="Customer Mapping" WorkbookPath="Data\Mapping Table.xlsx">
       <ui:WriteCell.Text>
         <InArgument x:TypeArguments="x:String">
           <Literal x:TypeArguments="x:String" Value="" />
         </InArgument>
       </ui:WriteCell.Text>
     </ui:WriteCell>
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Chrome Retail Link Home" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="1022,57.333333333333336" sap2010:WorkflowViewState.IdRef="NApplicationCard_6" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="40e75981-e76a-4c65-b9a4-8cfedd4a6c18" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Chrome Retail Link Home" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="1646,3435" sap2010:WorkflowViewState.IdRef="NApplicationCard_6" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="40e75981-e76a-4c65-b9a4-8cfedd4a6c18" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1612,2497.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_47">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1612,3146" sap2010:WorkflowViewState.IdRef="Sequence_47">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NCheckState DisplayName="Check App State 'Apps'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="1578,2434.6666666666665" sap2010:WorkflowViewState.IdRef="NCheckState_9" ScopeIdentifier="40e75981-e76a-4c65-b9a4-8cfedd4a6c18" Timeout="10" Version="V5">
+            <uix:NCheckState DisplayName="Check App State 'Apps'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="1578,3084" sap2010:WorkflowViewState.IdRef="NCheckState_9" ScopeIdentifier="40e75981-e76a-4c65-b9a4-8cfedd4a6c18" Timeout="10" Version="V5">
               <uix:NCheckState.IfExists>
-                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="1074,2148" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="1074,2802" sap2010:WorkflowViewState.IdRef="Sequence_45">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:Boolean" Name="HomeFound" />
                   </Sequence.Variables>
@@ -199,10 +199,10 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:RetryScope LogRetriedExceptions="{x:Null}" RetriedExceptionsLogLevel="{x:Null}" DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="1040,2085.3333333333335" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="3" RetryInterval="00:00:04">
+                  <ui:RetryScope LogRetriedExceptions="{x:Null}" RetriedExceptionsLogLevel="{x:Null}" DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="1040,2740" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="3" RetryInterval="00:00:04">
                     <ui:RetryScope.ActivityBody>
                       <ActivityAction>
-                        <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="1006,1818.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                        <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="1006,2477" sap2010:WorkflowViewState.IdRef="Sequence_48">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="x:String" Name="getSecurityCode" />
                           </Sequence.Variables>
@@ -211,7 +211,7 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Assign sap:VirtualizedContainerService.HintSize="972,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_22">
+                          <Assign sap:VirtualizedContainerService.HintSize="972,114" sap2010:WorkflowViewState.IdRef="Assign_22">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:Boolean">[HomeFound]</OutArgument>
                             </Assign.To>
@@ -219,7 +219,7 @@
                               <InArgument x:TypeArguments="x:Boolean">False</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'User ID'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="972,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_11" ScopeIdentifier="40e75981-e76a-4c65-b9a4-8cfedd4a6c18" Text="[dtFilterMapping(0)(&quot;Portal Username&quot;).toString]" Version="V5">
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'User ID'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="972,286" sap2010:WorkflowViewState.IdRef="NTypeInto_11" ScopeIdentifier="40e75981-e76a-4c65-b9a4-8cfedd4a6c18" Text="[dtFilterMapping(0)(&quot;Portal Username&quot;).toString]" Version="V5">
                             <uix:NTypeInto.Target>
                               <uix:TargetAnchorable BrowserURL="retaillink.login.wal-mart.com" DesignTimeRectangle="1041, 356, 370, 42" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' class='form-control__formControl___3uDUX' aaname='' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="0282cc5b-3d5a-4e98-a41e-33bf5790c1f7" InformativeScreenshot="6fa90c63acfb2e869fd85004d788831d.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Retail Link' /&gt;" SearchSteps="FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
                                 <uix:TargetAnchorable.Anchors>
@@ -246,7 +246,7 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </uix:NTypeInto>
-                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'User ID'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="972,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_13" ScopeIdentifier="40e75981-e76a-4c65-b9a4-8cfedd4a6c18" Text="[dtFilterMapping(0)(&quot;Portal Password&quot;).toString]" Version="V5">
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'User ID'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="972,286" sap2010:WorkflowViewState.IdRef="NTypeInto_13" ScopeIdentifier="40e75981-e76a-4c65-b9a4-8cfedd4a6c18" Text="[dtFilterMapping(0)(&quot;Portal Password&quot;).toString]" Version="V5">
                             <uix:NTypeInto.Target>
                               <uix:TargetAnchorable BrowserURL="retaillink.login.wal-mart.com" ContentHash="qFUAUT5jTU6PmgylsjdAVg" DesignTimeRectangle="1041, 437, 370, 42" ElementType="InputBoxPassword" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='password' class='form-control__formControl___3uDUX' aaname='' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="523b6a40-3ce9-42dd-b060-f313f6153be3" InformativeScreenshot="ebbcc0afdd665db8597777ad9cc09520.png" Reference="hGGVLoWPekKE0Kk0gH4tDQ/dGUi8FwQOUGvQxnNZnHAyw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Retail Link' /&gt;" SearchSteps="FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
                                 <uix:TargetAnchorable.Anchors>
@@ -273,7 +273,7 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </uix:NTypeInto>
-                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'LOG IN'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="972,57.333333333333336" sap2010:WorkflowViewState.IdRef="NClick_17" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="40e75981-e76a-4c65-b9a4-8cfedd4a6c18" Version="V5">
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'LOG IN'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="972,225" sap2010:WorkflowViewState.IdRef="NClick_17" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="40e75981-e76a-4c65-b9a4-8cfedd4a6c18" Version="V5">
                             <uix:NClick.Target>
                               <uix:TargetAnchorable BrowserURL="retaillink.login.wal-mart.com" ContentHash="Mmjm_wGvUku9IxeWBbH4dQ" DesignTimeRectangle="1041, 495, 370, 48" ElementType="Button" FuzzySelectorArgument="&lt;webctrl aaname='LOG IN' tag='BUTTON' type='' class='app-btn spin-wrapper spin-button spinner' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='LOG IN' /&gt;" Guid="9518c941-8d75-4469-8085-d247e3d39b58" InformativeScreenshot="9a24156d7c3bad42b62cdc9ff3e959d2.png" Reference="hGGVLoWPekKE0Kk0gH4tDQ/39wgCPAOTkGJhmoY3WMtFQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Retail Link' /&gt;" SearchSteps="FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
                                 <uix:TargetAnchorable.Anchors>
@@ -295,24 +295,24 @@
                             </uix:NClick.VerifyOptions>
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </uix:NClick>
-                          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="VIP Access" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="972,57.333333333333336" sap2010:WorkflowViewState.IdRef="NApplicationCard_7" OpenMode="IfNotOpen" ScopeGuid="88cbcca5-3db2-4aa3-9e99-6a33e392c3d5" Version="V2">
+                          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="VIP Access" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="972,583" sap2010:WorkflowViewState.IdRef="NApplicationCard_7" OpenMode="IfNotOpen" ScopeGuid="88cbcca5-3db2-4aa3-9e99-6a33e392c3d5" Version="V2">
                             <uix:NApplicationCard.Body>
                               <ActivityAction x:TypeArguments="x:Object">
                                 <ActivityAction.Argument>
                                   <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                                 </ActivityAction.Argument>
-                                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,247.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_49">
+                                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,244" sap2010:WorkflowViewState.IdRef="Sequence_49">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <uix:NGetText DisplayName="Get Text '221709'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="382,184.66666666666666" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="88cbcca5-3db2-4aa3-9e99-6a33e392c3d5" TextString="[getSecurityCode]" Version="V5">
+                                  <uix:NGetText DelayBefore="3" DisplayName="Get Text '221709'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="382,182" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="88cbcca5-3db2-4aa3-9e99-6a33e392c3d5" TextString="[getSecurityCode]" Version="V5">
                                     <uix:NGetText.Target>
                                       <uix:TargetAnchorable DesignTimeRectangle="20, 114, 137, 30" ElementType="Text" FuzzySelectorArgument="&lt;wnd ctrlid='11007' matching:ctrlid='fuzzy' fuzzylevel:ctrlid='0.0' /&gt;" Guid="58e68032-6a80-4c24-8d66-51492f37063d" InformativeScreenshot="1bcf36d59e319519eb30f4eb8f90a14c.png" ScopeSelectorArgument="&lt;wnd app='vipuimanager.exe' cls='#32770' title=' VIP Access' /&gt;" SearchSteps="FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
                                     </uix:NGetText.Target>
@@ -325,12 +325,12 @@
                             </uix:NApplicationCard.TargetApp>
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </uix:NApplicationCard>
-                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'INPUT outlined-error-he…'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="972,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_12" ScopeIdentifier="40e75981-e76a-4c65-b9a4-8cfedd4a6c18" Text="[getSecurityCode]" Version="V5">
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'INPUT outlined-error-he…'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="972,286" sap2010:WorkflowViewState.IdRef="NTypeInto_12" ScopeIdentifier="40e75981-e76a-4c65-b9a4-8cfedd4a6c18" Text="[getSecurityCode]" Version="V5">
                             <uix:NTypeInto.Target>
                               <uix:TargetAnchorable BrowserURL="retaillink.login.wal-mart.com/mfa" DesignTimeRectangle="1156, 394, 201, 42" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' class='form-control__formControl___3uDUX' aaname='' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="b005fa93-d358-4778-9d02-2410e163ead3" InformativeScreenshot="0c69120f0a901f3b19e58d79bf575c3e.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Retail Link' /&gt;" SearchSteps="FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
                                 <uix:TargetAnchorable.Anchors>
@@ -357,7 +357,7 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </uix:NTypeInto>
-                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Search'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="972,229.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_16" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="40e75981-e76a-4c65-b9a4-8cfedd4a6c18" Version="V5">
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Search'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="972,225" sap2010:WorkflowViewState.IdRef="NClick_16" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="40e75981-e76a-4c65-b9a4-8cfedd4a6c18" Version="V5">
                             <uix:NClick.Target>
                               <uix:TargetAnchorable BrowserURL="retaillink.login.wal-mart.com/mfa" DesignTimeRectangle="1156, 441, 201, 48" ElementType="Button" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='' class='app-btn spin-wrapper spin-button spinner' aaname='Submit' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='Submit' /&gt;" Guid="bae59a82-08a1-410a-884c-38a4eab34410" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAM0AAAA0CAYAAAApIby4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAJMSURBVHhe7dkxT8JAGIdxvoBf1NXZzY/ht3BgYjVxcXQkrIQBJxgYzlzre7279yr9lxKX501+CcoVGtPHtrAKDMNIs6p/wTDM31NE8/i2DQ8vH2H1/A7g+b3rIXaRT4omPlFvAKCXh5Oi4QwDjIt9uGjqRQBKRAOIiAYQEQ0gIhpARDSAiGgAEdEAIqIBREQDiIgGEBENICIaQEQ0gIhoABHRACKiWcQ+fKU/ZZxL2KzrNeOetpduq+N25567xeuh35uvT/8c5rMhmtnqYIaZGsF9osn267BvPI+5bIhmrs9T/4c7f4en4nen8FqvHXGfaBpnmvV3ONb7CllqJT1oLMI4O+BvORDvFY1DNItIraQHjUX4S3l51jrwr/3HT+FVk9+LdK9x2Jdru8uuXdics42yS7Hife09i5l+NsTAhmhu0Togxw7efP2VaOLYNvYaU6behmiWZUM0iyj/69tZZ2o0+VmqvuxL0ViMKYLhk7q0ze+aa+/r9x9T2BDNgsYO+LGDtxXNEEV/NnCvkS4Ls7OFfShBNHdlQzSz9Qevu//IDk772aKoo6rPEK01LgCi+Tc2RDPTlPuR0TV1NI1p3p907z0jGvedkvYlLHo2RHMLd5NdH4z+E64ulDya+Lh6ndbZywegRJOt6abeT0xhQzTAREQDiIgGEBENICIaQEQ0gIhoABHRACKiAUREA4iIBhARDSAiGkBENICIaACRi+bh5cMtAtCLfbhoHt+2biGAXuzDRWPhcMYBBrGHPJg4RTQMw1wfomEYcX4AjD6bpGnxK6MAAAAASUVORK5CYII=" InformativeScreenshot="e121a6a750cb88550282a41a4ed63c6b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Retail Link' /&gt;" SearchSteps="FuzzySelector, Image" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
                                 <uix:TargetAnchorable.Anchors>
@@ -384,15 +384,15 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </uix:NClick>
-                          <uix:NCheckState DisplayName="Check App State 'Home'" Exists="[HomeFound]" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="972,419.3333333333333" sap2010:WorkflowViewState.IdRef="NCheckState_10" ScopeIdentifier="40e75981-e76a-4c65-b9a4-8cfedd4a6c18" Version="V5">
+                          <uix:NCheckState DisplayName="Check App State 'Home'" Exists="[HomeFound]" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="972,412" sap2010:WorkflowViewState.IdRef="NCheckState_10" ScopeIdentifier="40e75981-e76a-4c65-b9a4-8cfedd4a6c18" Version="V5">
                             <uix:NCheckState.IfExists>
-                              <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="468,173.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_50">
+                              <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="468,169" sap2010:WorkflowViewState.IdRef="Sequence_50">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <Assign sap:VirtualizedContainerService.HintSize="434,110.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_23">
+                                <Assign sap:VirtualizedContainerService.HintSize="434,107" sap2010:WorkflowViewState.IdRef="Assign_23">
                                   <Assign.To>
                                     <OutArgument x:TypeArguments="x:Boolean">[HomeFound]</OutArgument>
                                   </Assign.To>
@@ -403,13 +403,13 @@
                               </Sequence>
                             </uix:NCheckState.IfExists>
                             <uix:NCheckState.IfNotExists>
-                              <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,175.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_51">
+                              <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,172" sap2010:WorkflowViewState.IdRef="Sequence_51">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:NavigateTo Browser="{x:Null}" DisplayName="Navigate To" sap:VirtualizedContainerService.HintSize="416,112.66666666666667" sap2010:WorkflowViewState.IdRef="NavigateTo_1" Url="https://retaillink2.wal-mart.com/rl_portal/#/" />
+                                <ui:NavigateTo Browser="{x:Null}" DisplayName="Navigate To" sap:VirtualizedContainerService.HintSize="416,110" sap2010:WorkflowViewState.IdRef="NavigateTo_1" Url="https://retaillink2.wal-mart.com/rl_portal/#/" />
                               </Sequence>
                             </uix:NCheckState.IfNotExists>
                             <uix:NCheckState.Target>
@@ -427,14 +427,14 @@
                     </ui:RetryScope.ActivityBody>
                     <ui:RetryScope.Condition>
                       <ActivityFunc x:TypeArguments="x:Boolean">
-                        <ui:CheckTrue ErrorMessage="{x:Null}" DisplayName="Check True" Expression="[HomeFound]" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="CheckTrue_2" />
+                        <ui:CheckTrue ErrorMessage="{x:Null}" DisplayName="Check True" Expression="[HomeFound]" sap:VirtualizedContainerService.HintSize="334,129" sap2010:WorkflowViewState.IdRef="CheckTrue_2" />
                       </ActivityFunc>
                     </ui:RetryScope.Condition>
                   </ui:RetryScope>
                 </Sequence>
               </uix:NCheckState.IfExists>
               <uix:NCheckState.IfNotExists>
-                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,93.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,91" sap2010:WorkflowViewState.IdRef="Sequence_46">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -460,27 +460,27 @@
       </uix:NApplicationCard.TargetApp>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </uix:NApplicationCard>
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Chrome Retail Link Home" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="1022,974.6666666666666" sap2010:WorkflowViewState.IdRef="NApplicationCard_8" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="40e75981-e76a-4c65-b9a4-8cfedd4a6c18" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Chrome Retail Link Home" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="1646,967" sap2010:WorkflowViewState.IdRef="NApplicationCard_8" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="40e75981-e76a-4c65-b9a4-8cfedd4a6c18" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="988,732.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_54">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="988,727" sap2010:WorkflowViewState.IdRef="Sequence_54">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NCheckState DisplayName="Check App State 'Home'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="954,670" sap2010:WorkflowViewState.IdRef="NCheckState_14" ScopeIdentifier="40e75981-e76a-4c65-b9a4-8cfedd4a6c18" Version="V5">
+            <uix:NCheckState DisplayName="Check App State 'Home'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="954,665" sap2010:WorkflowViewState.IdRef="NCheckState_14" ScopeIdentifier="40e75981-e76a-4c65-b9a4-8cfedd4a6c18" Version="V5">
               <uix:NCheckState.IfExists>
-                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,383.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_55">
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,383" sap2010:WorkflowViewState.IdRef="Sequence_55">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -491,13 +491,13 @@
                 </Sequence>
               </uix:NCheckState.IfExists>
               <uix:NCheckState.IfNotExists>
-                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,383.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_56">
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,378" sap2010:WorkflowViewState.IdRef="Sequence_56">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;WAL-MART Login Fail&quot;]" />
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;WAL-MART Login Fail&quot;]" />
                   <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="B31" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="416,141.33333333333334" sap2010:WorkflowViewState.IdRef="WriteCell_7" SheetName="Customer Mapping" Text="FAIL" WorkbookPath="Data\Mapping Table.xlsx" />
                 </Sequence>
               </uix:NCheckState.IfNotExists>

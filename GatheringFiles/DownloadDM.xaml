@@ -188,7 +188,7 @@
       <AssemblyReference>System.Collections.Specialized</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DownloadDM" sap:VirtualizedContainerService.HintSize="1702,12870.666666666666" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DownloadDM" sap:VirtualizedContainerService.HintSize="1702,12633.333333333334" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ModifyCusRef" />
       <Variable x:TypeArguments="x:String" Name="folderName" />
@@ -274,9 +274,9 @@
         </scg:List>
       </ui:FilterDataTable.SelectColumns>
     </ui:FilterDataTable>
-    <If Condition="[dt_FilteredMapping.Rows.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="1702,12063.333333333334" sap2010:WorkflowViewState.IdRef="If_50">
+    <If Condition="[dt_FilteredMapping.Rows.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="1702,11826" sap2010:WorkflowViewState.IdRef="If_50">
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="1668,11732.666666666666" sap2010:WorkflowViewState.IdRef="Sequence_206">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="1668,11495.333333333334" sap2010:WorkflowViewState.IdRef="Sequence_206">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="PortalPass" />
             <Variable x:TypeArguments="x:String" Name="PortalUser" />
@@ -339,27 +339,27 @@
               </Sequence>
             </If.Else>
           </If>
-          <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[DummyCusName]" sap:VirtualizedContainerService.HintSize="1634,9640.666666666666" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+          <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[DummyCusName]" sap:VirtualizedContainerService.HintSize="1634,9403.333333333334" sap2010:WorkflowViewState.IdRef="Switch`1_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence x:Key="TARGET NORTHERN OPS CENTER" sap:VirtualizedContainerService.HintSize="1594,9256" sap2010:WorkflowViewState.IdRef="Sequence_158">
+            <Sequence x:Key="TARGET NORTHERN OPS CENTER" sap:VirtualizedContainerService.HintSize="1594,9018.666666666666" sap2010:WorkflowViewState.IdRef="Sequence_158">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Target Auth Services" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="1560,1207.3333333333333" sap2010:WorkflowViewState.IdRef="NApplicationCard_13" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="97110fad-762b-4d58-b4a3-e2b7bfb35ff9" Version="V1" WindowResize="Maximize">
+              <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Target Auth Services" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="1560,1087.3333333333333" sap2010:WorkflowViewState.IdRef="NApplicationCard_13" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="97110fad-762b-4d58-b4a3-e2b7bfb35ff9" Version="V1" WindowResize="Maximize">
                 <uix:NApplicationCard.Body>
                   <ActivityAction x:TypeArguments="x:Object">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1526,876" sap2010:WorkflowViewState.IdRef="Sequence_159">
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1526,836" sap2010:WorkflowViewState.IdRef="Sequence_159">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="sd:DataTable" Name="dtMapping" />
                         <Variable x:TypeArguments="sd:DataTable" Name="dtFilterMapping" />
@@ -372,7 +372,7 @@
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <uix:NCheckState DisplayName="Check App State 'Apps &amp; Reports'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="1492,696" sap2010:WorkflowViewState.IdRef="NCheckState_6" ScopeIdentifier="97110fad-762b-4d58-b4a3-e2b7bfb35ff9" Timeout="5" Version="V4">
+                      <uix:NCheckState DisplayName="Check App State 'Apps &amp; Reports'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="1492,656" sap2010:WorkflowViewState.IdRef="NCheckState_6" ScopeIdentifier="97110fad-762b-4d58-b4a3-e2b7bfb35ff9" Timeout="5" Version="V4">
                         <uix:NCheckState.IfExists>
                           <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,93.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_161">
                             <sap:WorkflowViewStateService.ViewState>
@@ -383,13 +383,13 @@
                           </Sequence>
                         </uix:NCheckState.IfExists>
                         <uix:NCheckState.IfNotExists>
-                          <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="988,442.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_164">
+                          <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="988,402.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_164">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <uix:NCheckState DisplayName="Check App State 'All Agreements'" Exists="[AgreementPageFound]" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="954,380" sap2010:WorkflowViewState.IdRef="NCheckState_5" ScopeIdentifier="97110fad-762b-4d58-b4a3-e2b7bfb35ff9" Timeout="5" Version="V1">
+                            <uix:NCheckState DisplayName="Check App State 'All Agreements'" Exists="[AgreementPageFound]" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="954,340" sap2010:WorkflowViewState.IdRef="NCheckState_5" ScopeIdentifier="97110fad-762b-4d58-b4a3-e2b7bfb35ff9" Timeout="5" Version="V1">
                               <uix:NCheckState.IfExists>
                                 <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_160">
                                   <Sequence.Variables>
@@ -552,19 +552,19 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </uix:NApplicationCard>
-              <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Chrome: Target Auth Services" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="1560,7988.666666666667" sap2010:WorkflowViewState.IdRef="NApplicationCard_8" InteractionMode="Simulate" ScopeGuid="f32ce1c7-d295-414a-a43f-0c50c07380bd" Version="V1">
+              <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Chrome: Target Auth Services" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="1560,7871.333333333333" sap2010:WorkflowViewState.IdRef="NApplicationCard_8" InteractionMode="Simulate" ScopeGuid="f32ce1c7-d295-414a-a43f-0c50c07380bd" Version="V1">
                 <uix:NApplicationCard.Body>
                   <ActivityAction x:TypeArguments="x:Object">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1192,7706.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_114">
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1192,7629.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_114">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Sequence DisplayName="Download DM" sap:VirtualizedContainerService.HintSize="1158,7644" sap2010:WorkflowViewState.IdRef="Sequence_106">
+                      <Sequence DisplayName="Download DM" sap:VirtualizedContainerService.HintSize="1158,7566.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_106">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -725,7 +725,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </uix:NCheckState>
-                        <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Chrome: Target Accounts Payable Reporting" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="1124,538.6666666666666" sap2010:WorkflowViewState.IdRef="NApplicationCard_9" InteractionMode="Simulate" OpenMode="Never" ScopeGuid="1d57aa9e-7ae8-47de-8f3d-2551216a85e9" Version="V1">
+                        <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Chrome: Target Accounts Payable Reporting" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="1124,498.6666666666667" sap2010:WorkflowViewState.IdRef="NApplicationCard_9" InteractionMode="Simulate" OpenMode="Never" ScopeGuid="1d57aa9e-7ae8-47de-8f3d-2551216a85e9" Version="V1">
                           <uix:NApplicationCard.Body>
                             <ActivityAction x:TypeArguments="x:Object">
                               <ActivityAction.Argument>
@@ -761,7 +761,7 @@
                               <ActivityAction.Argument>
                                 <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                               </ActivityAction.Argument>
-                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1330,6052.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_102">
+                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1698,6200" sap2010:WorkflowViewState.IdRef="Sequence_102">
                                 <Sequence.Variables>
                                   <Variable x:TypeArguments="sd:DataTable" Name="dtDM" />
                                 </Sequence.Variables>
@@ -770,17 +770,17 @@
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Credit Debit Report'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="1296,191.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_26" KeyModifiers="None" MouseButton="Left">
+                                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Credit Debit Report'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="1664,191.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_26" KeyModifiers="None" MouseButton="Left">
                                   <uix:NClick.Target>
                                     <uix:TargetAnchorable BrowserURL="https://apreports.partnersonline.com/" DesignTimeRectangle="16, 182, 258, 37" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Credit Debit Report' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Credit Debit Report' tag='A' type='' check:text='Credit Debit Report' /&gt;" Guid="7a320753-b1c8-4e9d-954c-4a95349fa03a" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAQYAAAApCAYAAADXuIdrAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOOSURBVHhe7ZlBbhNBEEW5D2LBIRASJyBIOQBIbEFiCRILECDuEGAXcQVgGa4QjkCWXg76Fj8qqqrtMbJNgt+TRu2erq6u7lT9mdg3JgCABMIAAAWEAQAKCAMAFBAGACggDABQQBgAoIAwAEABYQCAAsIAAAWEAQAKCAMAFBAGACggDABQQBgAoIAwAEDhr4Th7bv3081bty8v9beJ/J2efl5+Pj//Md0/Ol62c8nx6Xry9Nm0WCx+W6zn7Oz7yjk/Ly6mowfHS7u5yDbH5X0CXCU2EgYXQxaCkw+flmPbIgpDRgLx8NHjlet183Xvzt17swVmnTBkFI/iWuU/+5StYtpEXHbBqvOGw2S2MCiZldT7SKBdCIPQPY3NYR/CIK5CUSIMkJktDHMK0sVxcvJx+ZrsItR9vWmMXp/V95gK5/mLl5c2seBUWLbTNSryUaLnPVjsOn8u4i9fv12Ox6L2XNnJr578nV1kjjDEPcY3HK+neNTaRvaReJa6ou/893n1+s0fvjZ5o4L/m9nC0CV1xgIQC8z3nMCx0IUSN/p1YTihs73aWNwdI2GIvlxotnPfcTqOuBd9dj/b5zg7ZJv3qrPxXrq+7b1eLF618fsX7SXOV5vPXv24JzE6Lzhcti4MuTi6eUpCXU52J66JiZp9qt2GMHR+FIeLpos7zsmx5zg7ZOuncxYdkePWGnp7ks91ZzUa15jXGcWY1wXYyb8SMfGUcLEYYlHMSdRsMyeOUaLHublIfVkMNJ6FQfN0T20uxBxnR/Qp+/g0t78uJtnk9Yz2qWu0fl6zs0EYILPxl485MSNd4sleidfR+fS9XQhDvC8/ehprvY5YUCaunWMfFV0k+1Q/vvorvngWkbye8Z5G4+r7/Ecxjs4LDpfZwiCUZHqC5STyz5Vd4ulefDJmlJS5WOIa2WcszhE50V00cR3fGxWE43Dc2d59j3d7z8g2xiAUqwtX41EoIl4vzs/2ii321cazH8WIMEBmI2EQTja/5q4qYqN+/NY+f/utxPSYC2WVT9ur7Yj+fLk4It1ebKdWRai3Co/F9bIwCMUsu1z8xj7jmGPwfu3Dl+29nn5R8Fl2vyLk+TG+dX+fzh8cJhsLA/wbOiEC2BUIwzUBYYB9gjBcExAG2CcIAwAUEAYAKCAMAFBAGACggDAAQAFhAIACwgAABYQBAAoIAwAUEAYAKCAMAFBAGAAgMU2/AHYbj56Om1ugAAAAAElFTkSuQmCC" InformativeScreenshot="8c64e331788df6ee3ab1b3147fad917d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ap-reports' /&gt;" SearchSteps="FuzzySelector, Image" />
                                   </uix:NClick.Target>
                                 </uix:NClick>
-                                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Credit Debit Report'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="1296,191.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_27" KeyModifiers="None" MouseButton="Left">
+                                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Credit Debit Report'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="1664,191.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_27" KeyModifiers="None" MouseButton="Left">
                                   <uix:NClick.Target>
                                     <uix:TargetAnchorable BrowserURL="https://apreports.partnersonline.com/" DesignTimeRectangle="16, 182, 258, 37" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Credit Debit Report' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Credit Debit Report' tag='A' type='' check:text='Credit Debit Report' /&gt;" Guid="cc630278-97d8-40dc-a326-98633453ae76" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAQYAAAApCAYAAADXuIdrAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOOSURBVHhe7ZlBbhNBEEW5D2LBIRASJyBIOQBIbEFiCRILECDuEGAXcQVgGa4QjkCWXg76Fj8qqqrtMbJNgt+TRu2erq6u7lT9mdg3JgCABMIAAAWEAQAKCAMAFBAGACggDABQQBgAoIAwAEABYQCAAsIAAAWEAQAKCAMAFBAGACggDABQQBgAoIAwAEDhr4Th7bv3081bty8v9beJ/J2efl5+Pj//Md0/Ol62c8nx6Xry9Nm0WCx+W6zn7Oz7yjk/Ly6mowfHS7u5yDbH5X0CXCU2EgYXQxaCkw+flmPbIgpDRgLx8NHjlet183Xvzt17swVmnTBkFI/iWuU/+5StYtpEXHbBqvOGw2S2MCiZldT7SKBdCIPQPY3NYR/CIK5CUSIMkJktDHMK0sVxcvJx+ZrsItR9vWmMXp/V95gK5/mLl5c2seBUWLbTNSryUaLnPVjsOn8u4i9fv12Ox6L2XNnJr578nV1kjjDEPcY3HK+neNTaRvaReJa6ou/893n1+s0fvjZ5o4L/m9nC0CV1xgIQC8z3nMCx0IUSN/p1YTihs73aWNwdI2GIvlxotnPfcTqOuBd9dj/b5zg7ZJv3qrPxXrq+7b1eLF618fsX7SXOV5vPXv24JzE6Lzhcti4MuTi6eUpCXU52J66JiZp9qt2GMHR+FIeLpos7zsmx5zg7ZOuncxYdkePWGnp7ks91ZzUa15jXGcWY1wXYyb8SMfGUcLEYYlHMSdRsMyeOUaLHublIfVkMNJ6FQfN0T20uxBxnR/Qp+/g0t78uJtnk9Yz2qWu0fl6zs0EYILPxl485MSNd4sleidfR+fS9XQhDvC8/ehprvY5YUCaunWMfFV0k+1Q/vvorvngWkbye8Z5G4+r7/Ecxjs4LDpfZwiCUZHqC5STyz5Vd4ulefDJmlJS5WOIa2WcszhE50V00cR3fGxWE43Dc2d59j3d7z8g2xiAUqwtX41EoIl4vzs/2ii321cazH8WIMEBmI2EQTja/5q4qYqN+/NY+f/utxPSYC2WVT9ur7Yj+fLk4It1ebKdWRai3Co/F9bIwCMUsu1z8xj7jmGPwfu3Dl+29nn5R8Fl2vyLk+TG+dX+fzh8cJhsLA/wbOiEC2BUIwzUBYYB9gjBcExAG2CcIAwAUEAYAKCAMAFBAGACggDAAQAFhAIACwgAABYQBAAoIAwAUEAYAKCAMAFBAGAAgMU2/AHYbj56Om1ugAAAAAElFTkSuQmCC" InformativeScreenshot="8c64e331788df6ee3ab1b3147fad917d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ap-reports' /&gt;" SearchSteps="FuzzySelector, Image" />
                                   </uix:NClick.Target>
                                 </uix:NClick>
-                                <ui:SelectMultipleItems AddToSelection="{x:Null}" AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Multiple Items 'SELECT  vendor_id'" sap:VirtualizedContainerService.HintSize="1296,139.33333333333334" sap2010:WorkflowViewState.IdRef="SelectMultipleItems_1" MultipleItems="[{&quot;3133505 (LOGITECH)&quot;}]">
+                                <ui:SelectMultipleItems AddToSelection="{x:Null}" AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Multiple Items 'SELECT  vendor_id'" sap:VirtualizedContainerService.HintSize="1664,139.33333333333334" sap2010:WorkflowViewState.IdRef="SelectMultipleItems_1" MultipleItems="[{&quot;3133505 (LOGITECH)&quot;}]">
                                   <ui:SelectMultipleItems.Target>
                                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="871fef44-e161-422c-8c86-7b983a62cc66" InformativeScreenshot="e9f5a5ce13fba52f0c38cf28e7a173af" Selector="&lt;webctrl tag='SELECT' /&gt;">
                                       <ui:Target.TimeoutMS>
@@ -792,8 +792,8 @@
                                     </ui:Target>
                                   </ui:SelectMultipleItems.Target>
                                 </ui:SelectMultipleItems>
-                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1296,124" sap2010:WorkflowViewState.IdRef="WriteLine_17" Text="[&quot;Enter Cus Ref - &quot; + in_CusRef]" />
-                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Enter Document Number'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="1296,254.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_10" Text="[in_CusRef]">
+                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1664,124" sap2010:WorkflowViewState.IdRef="WriteLine_17" Text="[&quot;Enter Cus Ref - &quot; + in_CusRef]" />
+                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Enter Document Number'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="1664,254.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_10" Text="[in_CusRef]">
                                   <uix:NTypeInto.Target>
                                     <uix:TargetAnchorable BrowserURL="https://apreports.partnersonline.com/credit_debit" DesignTimeRectangle="798, 290, 303, 32" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='document_id' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='document_id' tag='INPUT' type='text' aaname='Enter Document Number' /&gt;" Guid="1e7e49b9-f55f-4d8c-bec3-f2e8286ad150" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAATMAAAAkCAYAAADl/N3JAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGVSURBVHhe7d2xSgNBFIZR319E7AyksBAsBDtB1EJbbXwJRQg+Qhj5IbusyaY1mcs5cKts2o+Z3WXnpAEUIGZACXtj9vn13R6fX9vy6qadXSza6fmlMcYcZNKgtChNSpvmzMYsf1gsr9vb+0dbrX7aer3e/ALw/9KgtChNSpvSqG07Mbu9u28PTy8CBhyltCmNSqum/sQstctFAMcurZqu0MaYZR+a5ZsVGdCDtCrNGu6hjTFL4bIfBehFmjWszsaY5UlBbrAB9CLNSrtijFkefdpiAj1Js9KuGGOWdzkAejO0S8yArokZUIKYASWIGVCCmAEliBlQgpgBJYgZUIKYASWIGVCCmAEliBlQgpgBJYgZUIKYASXsxMzHGYHezH6c0Wezgd7MfjbbgSZAb2YPNHHUHNCTtGr2qLlI4RwCDPRg7yHAgxx5nous0IBjlDalUWnV1E7MIrXL8i370dxgEzbgkNKgtChNSpumK7LBbMwi+9D8IU8K8ugz73IYY8whJg1Ki9Kk4R7Ztr0xA+iJmAEFtPYLoDi/PcOvzrEAAAAASUVORK5CYII=" InformativeScreenshot="adb49170c3b5f5adcabbbd53fd5e0d99.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ap-reports' /&gt;" SearchSteps="FuzzySelector, Image">
                                       <uix:TargetAnchorable.Anchors>
@@ -804,15 +804,15 @@
                                     </uix:TargetAnchorable>
                                   </uix:NTypeInto.Target>
                                 </uix:NTypeInto>
-                                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Submit'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="1296,191.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_28" KeyModifiers="None" MouseButton="Left">
+                                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Submit'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="1664,191.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_28" KeyModifiers="None" MouseButton="Left">
                                   <uix:NClick.Target>
                                     <uix:TargetAnchorable BrowserURL="https://apreports.partnersonline.com/credit_debit" DesignTimeRectangle="1453, 284, 71, 32" ElementType="Button" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='submit' aaname='Submit' check:text='Submit' /&gt;" Guid="6c5a6679-1bc8-4874-839e-3c31b0d18c98" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEsAAAAkCAYAAADB7MdlAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJLSURBVGhD7ZqxTsMwEIZ5HZi7gIR4BsSE2ICNhQ1eA6lvACNSFxZY2JA6VExBSFk6tiwdWlUdKh357di1nXPrpFmS+Jf+odi++r6c7SrmgKKCFWGVkBfW9+8fPTx90dntgI4uXujw/Lm1Rn7IE/kib59YWBjUu3ql3vUnHd+N6PQ+yfzTYiciT+SLvJE/pwKsy8cPOrl5FwH4wG13IvIHB1cWLBCVoLgg3TI4uBWmYWGtogS7W1GuE8HD3MM0LLFPZWuWH9hNg4dZXRoWTgO5mfMDu2jwABclDQvHZ1yCrhPBRUnDwu8NfkC3DS5KEdYOR1glXDOsGY3zGFIremP7ccbYNY0GXFs199M10XJBfaatiuuDNVjQ3E12uCiRfP2wXAt40xnbFuL6YA1Xez7FLsHiKstwcaITGi2JxkP1WcEyl7IdT8V4m+bN+TIXf881Tye6v/kAN2OkNt8b7vpgwZgcxFRYGCzI2OdEvM1nBUWNUQA0IKe/W+3FOZRzvbByq6TMpxwGy61Mu08hhgvHjdEEWNKyUryJBsGS1eONgaVvVXFjYclEVXVVg7WjshoLK5vYJnHYrix3yYiJm+15fzMZ0Wdbso2FJU5DWzY8+0SapzO+slJAVTL3o/1h6QeSyZ1biOuD1QFHWCUcYZUwCyu+/OPsefkXXysX7X2tHC8sivZeWMSrMNdbrsIgUIyXrNJbL1mV4vV94PW9kti/shLEmpWbftvBVfzHECWsVQzCaYDjE7832mrkhzyRr7lHufLCiioqwgoW0T+qKs0WHuLTFAAAAABJRU5ErkJggg==" InformativeScreenshot="04b0270680b01cb8a2eebda36d708d91.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ap-reports' /&gt;" SearchSteps="FuzzySelector, Image" />
                                   </uix:NClick.Target>
                                 </uix:NClick>
-                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1296,124" sap2010:WorkflowViewState.IdRef="WriteLine_39" Text="Searching..." />
-                                <uix:NCheckState DisplayName="Check App State '3133505'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="1296,4774" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="cf70f24d-a193-45a2-ae1e-057adb3153a6" Timeout="10">
+                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1664,124" sap2010:WorkflowViewState.IdRef="WriteLine_39" Text="Searching..." />
+                                <uix:NCheckState DisplayName="Check App State '3133505'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="1664,4924" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="cf70f24d-a193-45a2-ae1e-057adb3153a6" Timeout="10">
                                   <uix:NCheckState.IfExists>
-                                    <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="740,4527.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_103">
+                                    <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="1108,4680" sap2010:WorkflowViewState.IdRef="Sequence_103">
                                       <Sequence.Variables>
                                         <Variable x:TypeArguments="si:FileInfo" Name="DownloadedFile" />
                                         <Variable x:TypeArguments="x:String" Name="getInvoiceNum" />
@@ -822,7 +822,7 @@
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="706,354" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+                                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1074,394" sap2010:WorkflowViewState.IdRef="CommentOut_4">
                                         <ui:CommentOut.Body>
                                           <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,242" sap2010:WorkflowViewState.IdRef="Sequence_209">
                                             <sap:WorkflowViewStateService.ViewState>
@@ -841,48 +841,171 @@
                                           </Sequence>
                                         </ui:CommentOut.Body>
                                       </ui:CommentOut>
-                                      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'Intermediate D3D Window'" sap:VirtualizedContainerService.HintSize="706,139.33333333333334" sap2010:WorkflowViewState.IdRef="GetValue_1">
-                                        <ui:GetValue.Target>
-                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8166d838-e501-4603-b164-3506afa67185" InformativeScreenshot="3025882b96f4f271f7867e7e64843d14" Selector="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='DIV' colName='invoices #' idx='2' /&gt;">
-                                            <ui:Target.TimeoutMS>
-                                              <InArgument x:TypeArguments="x:Int32" />
-                                            </ui:Target.TimeoutMS>
-                                            <ui:Target.WaitForReady>
-                                              <InArgument x:TypeArguments="ui:WaitForReady" />
-                                            </ui:Target.WaitForReady>
-                                          </ui:Target>
-                                        </ui:GetValue.Target>
-                                        <ui:GetValue.Value>
-                                          <OutArgument x:TypeArguments="x:String">[getInvoiceNum]</OutArgument>
-                                        </ui:GetValue.Value>
-                                      </ui:GetValue>
-                                      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="706,124" sap2010:WorkflowViewState.IdRef="WriteLine_19" Text="[&quot;Invoice Number is &quot; + getInvoiceNum]" />
-                                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Export As'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="706,191.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_29" KeyModifiers="None" MouseButton="Left">
-                                        <uix:NClick.Target>
-                                          <uix:TargetAnchorable BrowserURL="https://apreports.partnersonline.com/credit_debit" DesignTimeRectangle="1552, 380, 87, 32" ElementType="Button" FullSelectorArgument="&lt;webctrl aaname='Export As' parentid='mainContent' tag='BUTTON' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Export As' parentid='mainContent' tag='BUTTON' type='button' check:text='Export As' /&gt;" Guid="f1a06f74-1d43-453f-9691-f471b45f78b9" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFsAAAAkCAYAAADmQkaNAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALGSURBVGhD7Zo/axRBGIf9OoJfIY2VlmJquzTa2Ag2ElNaCgYRBBGtoykEGyGdWmmTEAyiEQs9ixORpIhh9Fnvt7wZZzZ7e3OjyPvAkLvMn533mZn3FnZPBKcaLrsiWdmvtkdh+faLcPbSeji1+DCcPPfAS6bgB0/4wluOpGw6nV5aC3cfbYY3u+Nw8ONwUuOkwA+e8IU3/KX4Q/bSyrNwbfW5Cx4I3vCHx5gjslkRGjqzg8d4h7eyyTUcAd/RZcAjPm0Ob2WzCuQcpxz4tLu7lc2vKUneKQc+8Spa2dy+eAopCz7xKlrZ3C865bFeXfaccdkVKSp7+f7HsHB560jZeP1tUvtvs/l+L5y5uj3X+RaXfe/pl8m3vw9zYU59oJ3KvHDZvxh9PQgXb74LW7t74cKNt80unwdVZDP589d32iAIbnFlp2n7ff+wCfTJy3HzN5d++G7Tk5XIeEi69fhTW0ex7bvSA3UaLxWDUkyfsbooLtsGiFBEABNEJnLtjpNsgtFixItDX1uvPpKixdOYwl6nC9pIoJ0n6Fqq51qcgCFU2dmgSbP72IVahDgYYcdKjWulaGdrMUQf2fSx84nH0vxycU1DNdlAAPEvfk4241By9VbSLLJpY0+jiu2nOcT/n5aqsqmnaEdCTqYdKzUuYq/c+dD0Hyq7z0LGKIYhVJNtA7ftFLBdAIKP8/1xOXuI7JxUuwjUra5/ntT0Oy05isuOjyOTi2URQHw3Qi6nDX1sW8EY8bgiJ1vXoT39Y5hvThzjM6/R+Pdtoa7LZ22KaSkqewh2F/3vuOyKuOyKJGX7w4PyZB8e+GOx8mQfi/kD3/JkH/j6qwxlwWP2VQZgFfwlnTJ0vqQj/PWz2cAb/o59/UywIhwBcg5J3sV3gx884Qtv8Y4WSdlArqETv6bcvnC/6CVd8IMnfNkcHZOV7ZTHZVcjhJ/YoYRQW4yZ6gAAAABJRU5ErkJggg==" InformativeScreenshot="fc1c4752379896f92966f2fd5b393870.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ap-reports' /&gt;" SearchSteps="FuzzySelector, Image" />
-                                        </uix:NClick.Target>
-                                      </uix:NClick>
-                                      <ui:GetLastDownloadedFile FileResource="{x:Null}" Timeout="{x:Null}" DisplayName="Wait for Download" DownloadFolder="[DownloadPath]" File="[DownloadedFile]" sap:VirtualizedContainerService.HintSize="706,660" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_6" IgnoreFiles="tmp,dr">
-                                        <ui:GetLastDownloadedFile.Body>
-                                          <ActivityAction>
-                                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,366" sap2010:WorkflowViewState.IdRef="Sequence_109">
-                                              <sap:WorkflowViewStateService.ViewState>
-                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                </scg:Dictionary>
-                                              </sap:WorkflowViewStateService.ViewState>
-                                              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'PDF'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="382,191.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_30" KeyModifiers="None" MouseButton="Left">
-                                                <uix:NClick.Target>
-                                                  <uix:TargetAnchorable BrowserURL="https://apreports.partnersonline.com/credit_debit" DesignTimeRectangle="1557, 456, 246, 35" ElementType="Button" FullSelectorArgument="&lt;webctrl aaname='PDF' parentid='mainContent' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='PDF' parentid='mainContent' tag='BUTTON' type='' check:text='PDF' /&gt;" Guid="601986e6-ceec-47e7-b2a4-5d02f7c80777" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALMAAAAnCAYAAABE43mmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFKSURBVHhe7djBDYIwGIZh9jEeHIuDkxjdhDADCxjdwgQvTPALpWghEeWAsV/fJ2kiFji9mh8yA36gaRq3qqpavIZrO9kcdwawMmKGDGKGDGKGDGKGDGKGDGKGDGKGDGKGDGKGDGKGDGKGDGKGDGKGjL+P+XLc2WYbrpNd/J7Z3Yp8ut+u49Xve7fS8uk5eWm134aGKGLOy7s/MqvLfRvjEHQf8+HsDrwh8CB6F3P4I4Ci6GLuY91bcRs+T2Puja4j5iREGPPVDtvPMdv59BoliDkJ0cXsxoznvDsTcxgwMSchipjfP7gtiXl8n/G/PRREEfP78Bgz8CIa8+R7Yk6CYMzdA2I7SoTvmok5CRIxh7Pw5vmmI0DMSfj7mIFvETNkEDNkEDNkEDNkEDNkEDNkEDNkEDNkEDNkEDNkEDNkEDNkEDNkrB9zlj0ALtZDGWKThCIAAAAASUVORK5CYII=" InformativeScreenshot="2078d5178cd1a1a6e4af344a7de5738b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ap-reports' /&gt;" SearchSteps="FuzzySelector, Image" />
-                                                </uix:NClick.Target>
-                                              </uix:NClick>
-                                              <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="382,114.66666666666667" sap2010:WorkflowViewState.IdRef="Delay_20" />
-                                            </Sequence>
-                                          </ActivityAction>
-                                        </ui:GetLastDownloadedFile.Body>
-                                      </ui:GetLastDownloadedFile>
-                                      <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[folderName + &quot;\Data\DM\&quot;+ in_CusRef + &quot; DM.pdf&quot;]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="706,196.66666666666666" sap2010:WorkflowViewState.IdRef="MoveFile_8" Overwrite="True" Path="[DownloadedFile.ToString]" />
-                                      <Assign sap:VirtualizedContainerService.HintSize="706,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_101">
+                                      <uix:NCheckState DisplayName="Check App State '11226570362'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="1074,1424" sap2010:WorkflowViewState.IdRef="NCheckState_14" ScopeIdentifier="cf70f24d-a193-45a2-ae1e-057adb3153a6" Timeout="5" Version="V5">
+                                        <uix:NCheckState.IfExists>
+                                          <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="484,1072.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_225">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'Intermediate D3D Window'" sap:VirtualizedContainerService.HintSize="450,139.33333333333334" sap2010:WorkflowViewState.IdRef="GetValue_1">
+                                              <ui:GetValue.Target>
+                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8166d838-e501-4603-b164-3506afa67185" InformativeScreenshot="3025882b96f4f271f7867e7e64843d14" Selector="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='DIV' colName='invoices #' idx='2' /&gt;">
+                                                  <ui:Target.TimeoutMS>
+                                                    <InArgument x:TypeArguments="x:Int32" />
+                                                  </ui:Target.TimeoutMS>
+                                                  <ui:Target.WaitForReady>
+                                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                  </ui:Target.WaitForReady>
+                                                </ui:Target>
+                                              </ui:GetValue.Target>
+                                              <ui:GetValue.Value>
+                                                <OutArgument x:TypeArguments="x:String">[getInvoiceNum]</OutArgument>
+                                              </ui:GetValue.Value>
+                                            </ui:GetValue>
+                                            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="450,124" sap2010:WorkflowViewState.IdRef="WriteLine_19" Text="[&quot;Invoice Number is &quot; + getInvoiceNum]" />
+                                            <If Condition="[getInvoiceNum.Contains(&quot;,&quot;)]" sap:VirtualizedContainerService.HintSize="450,749.3333333333334" sap2010:WorkflowViewState.IdRef="If_53">
+                                              <If.Then>
+                                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_227">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                </Sequence>
+                                              </If.Then>
+                                              <If.Else>
+                                                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,496" sap2010:WorkflowViewState.IdRef="Sequence_228">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Export As'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="382,191.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_29" KeyModifiers="None" MouseButton="Left">
+                                                    <uix:NClick.Target>
+                                                      <uix:TargetAnchorable BrowserURL="https://apreports.partnersonline.com/credit_debit" DesignTimeRectangle="1552, 380, 87, 32" ElementType="Button" FullSelectorArgument="&lt;webctrl aaname='Export As' parentid='mainContent' tag='BUTTON' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Export As' parentid='mainContent' tag='BUTTON' type='button' check:text='Export As' /&gt;" Guid="f1a06f74-1d43-453f-9691-f471b45f78b9" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFsAAAAkCAYAAADmQkaNAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALGSURBVGhD7Zo/axRBGIf9OoJfIY2VlmJquzTa2Ag2ElNaCgYRBBGtoykEGyGdWmmTEAyiEQs9ixORpIhh9Fnvt7wZZzZ7e3OjyPvAkLvMn533mZn3FnZPBKcaLrsiWdmvtkdh+faLcPbSeji1+DCcPPfAS6bgB0/4wluOpGw6nV5aC3cfbYY3u+Nw8ONwUuOkwA+e8IU3/KX4Q/bSyrNwbfW5Cx4I3vCHx5gjslkRGjqzg8d4h7eyyTUcAd/RZcAjPm0Ob2WzCuQcpxz4tLu7lc2vKUneKQc+8Spa2dy+eAopCz7xKlrZ3C865bFeXfaccdkVKSp7+f7HsHB560jZeP1tUvtvs/l+L5y5uj3X+RaXfe/pl8m3vw9zYU59oJ3KvHDZvxh9PQgXb74LW7t74cKNt80unwdVZDP589d32iAIbnFlp2n7ff+wCfTJy3HzN5d++G7Tk5XIeEi69fhTW0ex7bvSA3UaLxWDUkyfsbooLtsGiFBEABNEJnLtjpNsgtFixItDX1uvPpKixdOYwl6nC9pIoJ0n6Fqq51qcgCFU2dmgSbP72IVahDgYYcdKjWulaGdrMUQf2fSx84nH0vxycU1DNdlAAPEvfk4241By9VbSLLJpY0+jiu2nOcT/n5aqsqmnaEdCTqYdKzUuYq/c+dD0Hyq7z0LGKIYhVJNtA7ftFLBdAIKP8/1xOXuI7JxUuwjUra5/ntT0Oy05isuOjyOTi2URQHw3Qi6nDX1sW8EY8bgiJ1vXoT39Y5hvThzjM6/R+Pdtoa7LZ22KaSkqewh2F/3vuOyKuOyKJGX7w4PyZB8e+GOx8mQfi/kD3/JkH/j6qwxlwWP2VQZgFfwlnTJ0vqQj/PWz2cAb/o59/UywIhwBcg5J3sV3gx884Qtv8Y4WSdlArqETv6bcvnC/6CVd8IMnfNkcHZOV7ZTHZVcjhJ/YoYRQW4yZ6gAAAABJRU5ErkJggg==" InformativeScreenshot="fc1c4752379896f92966f2fd5b393870.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ap-reports' /&gt;" SearchSteps="FuzzySelector, Image" />
+                                                    </uix:NClick.Target>
+                                                  </uix:NClick>
+                                                  <ui:GetLastDownloadedFile FileResource="{x:Null}" Timeout="{x:Null}" DisplayName="Wait for Download" DownloadFolder="[DownloadPath]" File="[DownloadedFile]" sap:VirtualizedContainerService.HintSize="382,57.333333333333336" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_6" IgnoreFiles="tmp,dr">
+                                                    <ui:GetLastDownloadedFile.Body>
+                                                      <ActivityAction>
+                                                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,366" sap2010:WorkflowViewState.IdRef="Sequence_109">
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                            </scg:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'PDF'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="382,191.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_30" KeyModifiers="None" MouseButton="Left">
+                                                            <uix:NClick.Target>
+                                                              <uix:TargetAnchorable BrowserURL="https://apreports.partnersonline.com/credit_debit" DesignTimeRectangle="1557, 456, 246, 35" ElementType="Button" FullSelectorArgument="&lt;webctrl aaname='PDF' parentid='mainContent' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='PDF' parentid='mainContent' tag='BUTTON' type='' check:text='PDF' /&gt;" Guid="601986e6-ceec-47e7-b2a4-5d02f7c80777" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALMAAAAnCAYAAABE43mmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFKSURBVHhe7djBDYIwGIZh9jEeHIuDkxjdhDADCxjdwgQvTPALpWghEeWAsV/fJ2kiFji9mh8yA36gaRq3qqpavIZrO9kcdwawMmKGDGKGDGKGDGKGDGKGDGKGDGKGDGKGDGKGDGKGDGKGDGKGDGKGjL+P+XLc2WYbrpNd/J7Z3Yp8ut+u49Xve7fS8uk5eWm134aGKGLOy7s/MqvLfRvjEHQf8+HsDrwh8CB6F3P4I4Ci6GLuY91bcRs+T2Puja4j5iREGPPVDtvPMdv59BoliDkJ0cXsxoznvDsTcxgwMSchipjfP7gtiXl8n/G/PRREEfP78Bgz8CIa8+R7Yk6CYMzdA2I7SoTvmok5CRIxh7Pw5vmmI0DMSfj7mIFvETNkEDNkEDNkEDNkEDNkEDNkEDNkEDNkEDNkEDNkEDNkEDNkEDNkrB9zlj0ALtZDGWKThCIAAAAASUVORK5CYII=" InformativeScreenshot="2078d5178cd1a1a6e4af344a7de5738b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ap-reports' /&gt;" SearchSteps="FuzzySelector, Image" />
+                                                            </uix:NClick.Target>
+                                                          </uix:NClick>
+                                                          <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="382,114.66666666666667" sap2010:WorkflowViewState.IdRef="Delay_20" />
+                                                        </Sequence>
+                                                      </ActivityAction>
+                                                    </ui:GetLastDownloadedFile.Body>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </ui:GetLastDownloadedFile>
+                                                  <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[folderName + &quot;\Data\DM\&quot;+ in_CusRef + &quot; DM.pdf&quot;]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="382,187.33333333333334" sap2010:WorkflowViewState.IdRef="MoveFile_8" Overwrite="True" Path="[DownloadedFile.ToString]" />
+                                                </Sequence>
+                                              </If.Else>
+                                            </If>
+                                          </Sequence>
+                                        </uix:NCheckState.IfExists>
+                                        <uix:NCheckState.IfNotExists>
+                                          <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="536,1170.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_226">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <Assign sap:VirtualizedContainerService.HintSize="502,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_114">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:String">[getInvoiceNum]</OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:String">Not Found</InArgument>
+                                              </Assign.Value>
+                                            </Assign>
+                                            <If Condition="[NOT in_CusRef.Contains(&quot;-&quot;)]" sap:VirtualizedContainerService.HintSize="502,993.3333333333334" sap2010:WorkflowViewState.IdRef="If_54">
+                                              <If.Then>
+                                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,737.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_229">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <Assign sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_115">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:String">[getInvoiceNum]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String">[in_CusRef.Replace("CB","")]</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,124" sap2010:WorkflowViewState.IdRef="WriteLine_41" Text="[&quot;Invoice Number is &quot; + getInvoiceNum]" />
+                                                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Export As'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="434,191.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_84" KeyModifiers="None" MouseButton="Left">
+                                                    <uix:NClick.Target>
+                                                      <uix:TargetAnchorable BrowserURL="https://apreports.partnersonline.com/credit_debit" DesignTimeRectangle="1552, 380, 87, 32" ElementType="Button" FullSelectorArgument="&lt;webctrl aaname='Export As' parentid='mainContent' tag='BUTTON' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Export As' parentid='mainContent' tag='BUTTON' type='button' check:text='Export As' /&gt;" Guid="f1a06f74-1d43-453f-9691-f471b45f78b9" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFsAAAAkCAYAAADmQkaNAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALGSURBVGhD7Zo/axRBGIf9OoJfIY2VlmJquzTa2Ag2ElNaCgYRBBGtoykEGyGdWmmTEAyiEQs9ixORpIhh9Fnvt7wZZzZ7e3OjyPvAkLvMn533mZn3FnZPBKcaLrsiWdmvtkdh+faLcPbSeji1+DCcPPfAS6bgB0/4wluOpGw6nV5aC3cfbYY3u+Nw8ONwUuOkwA+e8IU3/KX4Q/bSyrNwbfW5Cx4I3vCHx5gjslkRGjqzg8d4h7eyyTUcAd/RZcAjPm0Ob2WzCuQcpxz4tLu7lc2vKUneKQc+8Spa2dy+eAopCz7xKlrZ3C865bFeXfaccdkVKSp7+f7HsHB560jZeP1tUvtvs/l+L5y5uj3X+RaXfe/pl8m3vw9zYU59oJ3KvHDZvxh9PQgXb74LW7t74cKNt80unwdVZDP589d32iAIbnFlp2n7ff+wCfTJy3HzN5d++G7Tk5XIeEi69fhTW0ex7bvSA3UaLxWDUkyfsbooLtsGiFBEABNEJnLtjpNsgtFixItDX1uvPpKixdOYwl6nC9pIoJ0n6Fqq51qcgCFU2dmgSbP72IVahDgYYcdKjWulaGdrMUQf2fSx84nH0vxycU1DNdlAAPEvfk4241By9VbSLLJpY0+jiu2nOcT/n5aqsqmnaEdCTqYdKzUuYq/c+dD0Hyq7z0LGKIYhVJNtA7ftFLBdAIKP8/1xOXuI7JxUuwjUra5/ntT0Oy05isuOjyOTi2URQHw3Qi6nDX1sW8EY8bgiJ1vXoT39Y5hvThzjM6/R+Pdtoa7LZ22KaSkqewh2F/3vuOyKuOyKJGX7w4PyZB8e+GOx8mQfi/kD3/JkH/j6qwxlwWP2VQZgFfwlnTJ0vqQj/PWz2cAb/o59/UywIhwBcg5J3sV3gx884Qtv8Y4WSdlArqETv6bcvnC/6CVd8IMnfNkcHZOV7ZTHZVcjhJ/YoYRQW4yZ6gAAAABJRU5ErkJggg==" InformativeScreenshot="fc1c4752379896f92966f2fd5b393870.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ap-reports' /&gt;" SearchSteps="FuzzySelector, Image" />
+                                                    </uix:NClick.Target>
+                                                  </uix:NClick>
+                                                  <ui:GetLastDownloadedFile FileResource="{x:Null}" Timeout="{x:Null}" DisplayName="Wait for Download" DownloadFolder="[DownloadPath]" File="[DownloadedFile]" sap:VirtualizedContainerService.HintSize="434,57.333333333333336" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_11" IgnoreFiles="tmp,dr">
+                                                    <ui:GetLastDownloadedFile.Body>
+                                                      <ActivityAction>
+                                                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,366" sap2010:WorkflowViewState.IdRef="Sequence_231">
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                            </scg:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'PDF'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="382,191.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_85" KeyModifiers="None" MouseButton="Left">
+                                                            <uix:NClick.Target>
+                                                              <uix:TargetAnchorable BrowserURL="https://apreports.partnersonline.com/credit_debit" DesignTimeRectangle="1557, 456, 246, 35" ElementType="Button" FullSelectorArgument="&lt;webctrl aaname='PDF' parentid='mainContent' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='PDF' parentid='mainContent' tag='BUTTON' type='' check:text='PDF' /&gt;" Guid="601986e6-ceec-47e7-b2a4-5d02f7c80777" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALMAAAAnCAYAAABE43mmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFKSURBVHhe7djBDYIwGIZh9jEeHIuDkxjdhDADCxjdwgQvTPALpWghEeWAsV/fJ2kiFji9mh8yA36gaRq3qqpavIZrO9kcdwawMmKGDGKGDGKGDGKGDGKGDGKGDGKGDGKGDGKGDGKGDGKGDGKGDGKGjL+P+XLc2WYbrpNd/J7Z3Yp8ut+u49Xve7fS8uk5eWm134aGKGLOy7s/MqvLfRvjEHQf8+HsDrwh8CB6F3P4I4Ci6GLuY91bcRs+T2Puja4j5iREGPPVDtvPMdv59BoliDkJ0cXsxoznvDsTcxgwMSchipjfP7gtiXl8n/G/PRREEfP78Bgz8CIa8+R7Yk6CYMzdA2I7SoTvmok5CRIxh7Pw5vmmI0DMSfj7mIFvETNkEDNkEDNkEDNkEDNkEDNkEDNkEDNkEDNkEDNkEDNkEDNkEDNkrB9zlj0ALtZDGWKThCIAAAAASUVORK5CYII=" InformativeScreenshot="2078d5178cd1a1a6e4af344a7de5738b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ap-reports' /&gt;" SearchSteps="FuzzySelector, Image" />
+                                                            </uix:NClick.Target>
+                                                          </uix:NClick>
+                                                          <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="382,114.66666666666667" sap2010:WorkflowViewState.IdRef="Delay_36" />
+                                                        </Sequence>
+                                                      </ActivityAction>
+                                                    </ui:GetLastDownloadedFile.Body>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </ui:GetLastDownloadedFile>
+                                                  <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[folderName + &quot;\Data\DM\&quot;+ in_CusRef + &quot; DM.pdf&quot;]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,187.33333333333334" sap2010:WorkflowViewState.IdRef="MoveFile_16" Overwrite="True" Path="[DownloadedFile.ToString]" />
+                                                </Sequence>
+                                              </If.Then>
+                                              <If.Else>
+                                                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_230">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                </Sequence>
+                                              </If.Else>
+                                            </If>
+                                          </Sequence>
+                                        </uix:NCheckState.IfNotExists>
+                                        <uix:NCheckState.Target>
+                                          <uix:TargetAnchorable BrowserURL="apreports.partnersonline.com/credit_debit" DesignTimeRectangle="1510, 614, 179, 18" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='*' type='' tag='DIV' class='' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' /&gt;" Guid="384a3c3b-c940-42e4-8b3f-2539a04090f3" ImageBase64="" InformativeScreenshot="be16313b8aa4c2947ef0853045218918.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ap-reports' /&gt;" SearchSteps="FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+                                            <uix:TargetAnchorable.Anchors>
+                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                                <uix:Target DesignTimeRectangle="1510, 558, 179, 32" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='invoices #' class='C-TableHeader__innerContent' type='' tag='SPAN' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='invoices #' /&gt;" Guid="b9ac51a1-22bb-44de-8599-4fe7c69dad96" SearchSteps="FuzzySelector" />
+                                              </scg:List>
+                                            </uix:TargetAnchorable.Anchors>
+                                          </uix:TargetAnchorable>
+                                        </uix:NCheckState.Target>
+                                      </uix:NCheckState>
+                                      <Assign sap:VirtualizedContainerService.HintSize="1074,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_101">
                                         <Assign.To>
                                           <OutArgument x:TypeArguments="x:String">[out_TargetDR]</OutArgument>
                                         </Assign.To>
@@ -892,7 +1015,7 @@
                                           </InArgument>
                                         </Assign.Value>
                                       </Assign>
-                                      <Assign sap:VirtualizedContainerService.HintSize="706,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_102">
+                                      <Assign sap:VirtualizedContainerService.HintSize="1074,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_102">
                                         <Assign.To>
                                           <OutArgument x:TypeArguments="x:String">[out_TargetPO]</OutArgument>
                                         </Assign.To>
@@ -900,7 +1023,7 @@
                                           <InArgument x:TypeArguments="x:String">Not Found</InArgument>
                                         </Assign.Value>
                                       </Assign>
-                                      <Assign sap:VirtualizedContainerService.HintSize="706,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_103">
+                                      <Assign sap:VirtualizedContainerService.HintSize="1074,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_103">
                                         <Assign.To>
                                           <OutArgument x:TypeArguments="x:String">[out_TargetInv]</OutArgument>
                                         </Assign.To>
@@ -908,7 +1031,7 @@
                                           <InArgument x:TypeArguments="x:String">[getInvoiceNum]</InArgument>
                                         </Assign.Value>
                                       </Assign>
-                                      <Assign sap:VirtualizedContainerService.HintSize="706,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_79">
+                                      <Assign sap:VirtualizedContainerService.HintSize="1074,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_79">
                                         <Assign.To>
                                           <OutArgument x:TypeArguments="x:String">[CustomerPO]</OutArgument>
                                         </Assign.To>
@@ -918,7 +1041,7 @@
                                           </InArgument>
                                         </Assign.Value>
                                       </Assign>
-                                      <uga:GSuiteApplicationScope ApiKey="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemFullPath="{x:Null}" BrowserItemId="{x:Null}" BrowserParentItemId="{x:Null}" BrowserRuntimeItemFriendlyName="{x:Null}" BrowserRuntimeItemFullPath="{x:Null}" BrowserRuntimeItemId="{x:Null}" BrowserRuntimeParentItemId="{x:Null}" BucketId="{x:Null}" BucketName="{x:Null}" ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" Connector="{x:Null}" ContinueOnError="{x:Null}" CredentialID="{x:Null}" CredentialSecret="{x:Null}" Folder="{x:Null}" KeyPath="{x:Null}" ManualRuntimeItemFullPath="{x:Null}" SecureCredentialSecret="{x:Null}" ServiceAccountEmail="{x:Null}" TimeoutMS="{x:Null}" UserEmail="{x:Null}" Account="emea_ar_invoice_archive@logitech.com" AuthenticationType="OAuthClientID" BucketInputMode="Browse" ConfigLocation="PropertiesPanel" DataStoreLocation="DISK" DisplayName="Google Workspace Scope" HasDomainWideAccesss="False" sap:VirtualizedContainerService.HintSize="706,2330" sap2010:WorkflowViewState.IdRef="GSuiteApplicationScope_2" KeyType="JSON" OAuthClient="UIPATH" Password="notasecret" RuntimeItemInputMode="Browse" Services="Unselected" UseConnectionService="False" User="E0B5F006">
+                                      <uga:GSuiteApplicationScope ApiKey="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemFullPath="{x:Null}" BrowserItemId="{x:Null}" BrowserParentItemId="{x:Null}" BrowserRuntimeItemFriendlyName="{x:Null}" BrowserRuntimeItemFullPath="{x:Null}" BrowserRuntimeItemId="{x:Null}" BrowserRuntimeParentItemId="{x:Null}" BucketId="{x:Null}" BucketName="{x:Null}" ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" Connector="{x:Null}" ContinueOnError="{x:Null}" CredentialID="{x:Null}" CredentialSecret="{x:Null}" Folder="{x:Null}" KeyPath="{x:Null}" ManualRuntimeItemFullPath="{x:Null}" SecureCredentialSecret="{x:Null}" ServiceAccountEmail="{x:Null}" TimeoutMS="{x:Null}" UserEmail="{x:Null}" Account="emea_ar_invoice_archive@logitech.com" AuthenticationType="OAuthClientID" BucketInputMode="Browse" ConfigLocation="PropertiesPanel" DataStoreLocation="DISK" DisplayName="Google Workspace Scope" HasDomainWideAccesss="False" sap:VirtualizedContainerService.HintSize="1074,2330" sap2010:WorkflowViewState.IdRef="GSuiteApplicationScope_2" KeyType="JSON" OAuthClient="UIPATH" Password="notasecret" RuntimeItemInputMode="Browse" Services="Unselected" UseConnectionService="False" User="E0B5F006">
                                         <uga:GSuiteApplicationScope.AuthenticationScopes>
                                           <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
                                             <InArgument x:TypeArguments="x:String">https://mail.google.com/</InArgument>
@@ -1197,12 +1320,12 @@
                           </uix:NApplicationCard.TargetApp>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </uix:NApplicationCard>
-                        <If Condition="[CustomerPO &lt;&gt; &quot;&quot;]" sap:VirtualizedContainerService.HintSize="1124,4051.3333333333335" sap2010:WorkflowViewState.IdRef="If_42">
+                        <If Condition="[CustomerPO &lt;&gt; &quot;&quot;]" sap:VirtualizedContainerService.HintSize="1124,4014" sap2010:WorkflowViewState.IdRef="If_42">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1210,7 +1333,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <If.Then>
-                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="1090,3656" sap2010:WorkflowViewState.IdRef="Sequence_170">
+                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="1090,3618.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_170">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1222,13 +1345,13 @@
                                   <uix:TargetAnchorable BrowserURL="partnersonline.com/page/apps" DesignTimeRectangle="545, 579, 267, 21" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Synergy – Vendor Dispute (SVD)' parentid='application-root-container-block' tag='H6' /&gt;" Guid="587a0f3f-d601-4253-8c3d-dd3cb8df463f" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAQ8AAAAZCAYAAAAv16sMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAcySURBVHhe7V29Tlw9EN2KiDZPkFQIyiBRhiINXwFUNDxBhAQNJU3KLMoT0CJFlIAElIhIvAEN+gCJlSgQFSkQIMCRvdfX45kzvneTvbAJPtIk8c/a4/HM8dgkm5YhWF1dNePj42ZjY8O0Wi0nHrmcy7n8esuTk5OOHyhCqzFmYWHBfeDr16/iw7mcy7n8OstnZ2fuz8PDw+bi4iL0sb8cHR25wvX1tdnd3TX39/dlh4yMjNeNh4cHs7m56W4kFC2bilhWsY0ZGc3AnlGDKBm94vz83ExNTbkrTGt2djaTR0bD4EE7KJLRKyxPWL6wb6POgpeXly41ychoBjxoB0UyesXd3Z1ZXl42W1tbmgWvzPx//5sWkdHvP3mnjNog9mxf8UaHnba3dcfs8MaGcPb9tDvn5wtzxhv7ipb58qH7AIflvZn+wQL7x5x5o7X1TXqF3cdT863D6/8Ahx0lvn6ab5/jGIx9h7Qr+1fub6FzKGOZP+QjFH6rjN/ir6ymc2FGwcBS+YxekCaHanJpAoNDHl15M/8pBPagkUcZF/0kD08AfEx5eJdC9oqTQwxJLlXkgfzP+y0lN/tjWyuCPMIEwcnTSmbUQnHCWBEMX7Y9r31fhDw+zLEA/mSm3yYykEalBzRBHn7fuf2RPyD/IQe9yFxIm++f2u9wuDH/BDqWhE+6OZSDRBMEJnQDA8U8uILleJbRiAHggi1YH86EdPwdwqTIoL4+0qEH3fsLPbvANudpK3faeE/o5su+cX+vg75eefKJvaLBdEhsDjOnFHlYmTPvePahZB4H8+9FxvJuNR6PzhX3Z+SkEQKv5z4pbMbthbJLCXSqW6ADnPpD6C+zCw80hr7fFmSsaA9Z7Btj9vf3nQjy4IbiC/OIArKEXGDs1FJoAKtpFUzVqBQGSl25rBS61tW938BXl7A5YV7ujEGCvfQ+qTmgUGdCgeKF2kuxNSfkLqrIg7S/nTMHCnkg4kCkUHVFKsmGk4QHr0c28TZT7CDGFJBBWYKPCQm5C3wrwESQJg9MOKm4ENcWCxjwfMLSoGSictGhDqdD4BTmG+YQFBepF1gMDE668X6umrr3HSjrASkqJDeRPlJCwOuVNiO2pQ5ajqmcZGBM/HkN1eRREkOCPOQY5MpDxqXkEbKSkN2Uc0CfU3wR1SmBVdo7EfR4vIDkIRkBHD7Iz2qQB4wL4I/qm0cJzn5ioZI5+SRRHVNY9EXsTqXoh9nRAm+khZirpu4ckFS5JD6PTgRpH35d4eL3ADiNA1+bnNNDOJPq0GAMxUExUOD3Th4i81DGUuda/Vh89qP50hfyqMjohI8SKIEaA4/P7c19SIsRsd8cik78c6X9SR8d6PQWDOsXGm+EFpS8HjMtEdGPG50HTQCfy6KO7hx/Th5cf0QA2GGCSPKI18vrdVLlTqE5j4WwYZ/Jo861JerHhP6kRp2r3+QBD1gq0o4lEraGoHPx4I+yV0D0BcR+M2ixxT+nvHkgZ+6CD+BQLqhjdkRa3YVwOq2+pjGhHg56kIi5LGro3gho0LXRmvV1xOAkodfD9SNbogBxAA6p9kVIBLSTcP2oejDFZEAIARGR6M/Jg9kQXCXxeqWta0P1d2BrD/UzJG7bHaBnF2K/GWr7SQFxbQmnK1WQnIbRwDLF5kbUFBL1ZCPRKezH1RZiAXVXsqY6ujcDOa9qG7IOuW5pmy5kfThRUDDgMSP7Jt88pJNKpMkjZBOEKAR54PeNQAjgbaT2mwf1Obo/yF50vaQvsZfwbQQ4Xhdwv5S5PERWDPpIHwJtwp/kevQ3j2QqJhcav1VwRpQTp+qFAbyQxaYMgHU/NaOVTI51bwp0o6zwzcLr4H0lSej1FVchhSiEwMwN+ISAft2gUvmXxKJMg4nyYCqFZjKAyCNB5OGl8BfVXlV2Qfsk25DI/lIPlLVyv4PCYwRkwqUtWc8CSHktuLSspAtEEql6sUBGEknysIg2ubuB2lxVujeGSMcadi2kmiTq1fv16rasmrvf5BGuHEnyiOqJsGwmynIiwuFXIAu+1o7ZUdYW+ybZN0EsdWwS/BIFOia21Lh0HbifiK1aY/txQ7vy5vEbUAz9EgiZC9UlGFVs0gDp/m+DEUPDkroixfLCeM63tt+FjxGgY2toaMgZ+ubmhjVVgKdrYPBnB9dJY1bebxB0/6fBg7ZZ+WvIo8wuBvfw8tmKP3hvb2/de8fKyopp2X+XPzY2Zo6Pj/nn0nih94JKcGLgxCH6DJDu/yx40DYrfw95BF8UWfFAwGftIUYODg6cbd33eZycnJRdLatkZPQfPGgHRTJ6wePjo/t9b2/PrK+vBwsuLS05NrEPIRkZGRkeT09P7hvEFhcXo3pHHldXV2ZiYsKlI+122zVMT0+7sv3GoFzO5Vx+3eWRkRFXXltbc2WLKHezX2pqv5LQYmZmxnXe3t7O5VzO5Vdetv8dC/9/W34BXme7AR6XZSAAAAAASUVORK5CYII=" InformativeScreenshot="c9a228c17481933dab4823da4c8fa312.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Vendor - POL' /&gt;" SearchSteps="Selector, Image" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
                                 </uix:NClick.Target>
                               </uix:NClick>
-                              <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Chrome: synergy" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="1056,3225.3333333333335" sap2010:WorkflowViewState.IdRef="NApplicationCard_15" InteractionMode="DebuggerApi" IsDisplayNameAuto="True" OpenMode="Never" ScopeGuid="9cffd816-0b5b-4e04-b45a-07eec00af7ff" Version="V2">
+                              <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Chrome: synergy" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="1056,3188" sap2010:WorkflowViewState.IdRef="NApplicationCard_15" InteractionMode="DebuggerApi" IsDisplayNameAuto="True" OpenMode="Never" ScopeGuid="9cffd816-0b5b-4e04-b45a-07eec00af7ff" Version="V2">
                                 <uix:NApplicationCard.Body>
                                   <ActivityAction x:TypeArguments="x:Object">
                                     <ActivityAction.Argument>
                                       <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                                     </ActivityAction.Argument>
-                                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1022,2943.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_210">
+                                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1022,2946" sap2010:WorkflowViewState.IdRef="Sequence_210">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1460,14 +1583,14 @@
                 </sap:WorkflowViewStateService.ViewState>
               </uix:NApplicationCard>
             </Sequence>
-            <Sequence x:Key="Veyer, LLC" sap:VirtualizedContainerService.HintSize="838,992.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_33">
+            <Sequence x:Key="Veyer, LLC" sap:VirtualizedContainerService.HintSize="838,4189.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_33">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence DisplayName="Veyer" sap:VirtualizedContainerService.HintSize="468,916" sap2010:WorkflowViewState.IdRef="Sequence_115">
+              <Sequence DisplayName="Veyer" sap:VirtualizedContainerService.HintSize="804,4129" sap2010:WorkflowViewState.IdRef="Sequence_115">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Name="getInvoiceDate" />
                   <Variable x:TypeArguments="x:String" Name="StartDate" />
@@ -1484,7 +1607,7 @@
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_71">
+                <Assign sap:VirtualizedContainerService.HintSize="770,114" sap2010:WorkflowViewState.IdRef="Assign_71">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[ModifyCusRef]</OutArgument>
                   </Assign.To>
@@ -1492,7 +1615,7 @@
                     <InArgument x:TypeArguments="x:String">[in_CusRef.Replace("DMA","")]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <uga:GSuiteApplicationScope ApiKey="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemFullPath="{x:Null}" BrowserItemId="{x:Null}" BrowserParentItemId="{x:Null}" BrowserRuntimeItemFriendlyName="{x:Null}" BrowserRuntimeItemFullPath="{x:Null}" BrowserRuntimeItemId="{x:Null}" BrowserRuntimeParentItemId="{x:Null}" BucketId="{x:Null}" BucketName="{x:Null}" ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" Connector="{x:Null}" ContinueOnError="{x:Null}" CredentialID="{x:Null}" CredentialSecret="{x:Null}" Folder="{x:Null}" KeyPath="{x:Null}" ManualRuntimeItemFullPath="{x:Null}" SecureCredentialSecret="{x:Null}" ServiceAccountEmail="{x:Null}" TimeoutMS="{x:Null}" UserEmail="{x:Null}" Account="emea_ar_invoice_archive@logitech.com" AuthenticationType="OAuthClientID" BucketInputMode="Browse" ConfigLocation="PropertiesPanel" DataStoreLocation="DISK" DisplayName="Google Workspace Scope" HasDomainWideAccesss="False" sap:VirtualizedContainerService.HintSize="434,276" sap2010:WorkflowViewState.IdRef="GSuiteApplicationScope_1" KeyType="JSON" OAuthClient="UIPATH" Password="notasecret" RuntimeItemInputMode="Browse" Services="Unselected" UseConnectionService="False" User="E0B5F006">
+                <uga:GSuiteApplicationScope ApiKey="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemFullPath="{x:Null}" BrowserItemId="{x:Null}" BrowserParentItemId="{x:Null}" BrowserRuntimeItemFriendlyName="{x:Null}" BrowserRuntimeItemFullPath="{x:Null}" BrowserRuntimeItemId="{x:Null}" BrowserRuntimeParentItemId="{x:Null}" BucketId="{x:Null}" BucketName="{x:Null}" ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" Connector="{x:Null}" ContinueOnError="{x:Null}" CredentialID="{x:Null}" CredentialSecret="{x:Null}" Folder="{x:Null}" KeyPath="{x:Null}" ManualRuntimeItemFullPath="{x:Null}" SecureCredentialSecret="{x:Null}" ServiceAccountEmail="{x:Null}" TimeoutMS="{x:Null}" UserEmail="{x:Null}" Account="emea_ar_invoice_archive@logitech.com" AuthenticationType="OAuthClientID" BucketInputMode="Browse" ConfigLocation="PropertiesPanel" DataStoreLocation="DISK" DisplayName="Google Workspace Scope" HasDomainWideAccesss="False" sap:VirtualizedContainerService.HintSize="770,1224" sap2010:WorkflowViewState.IdRef="GSuiteApplicationScope_1" KeyType="JSON" OAuthClient="UIPATH" Password="notasecret" RuntimeItemInputMode="Browse" Services="Unselected" UseConnectionService="False" User="E0B5F006">
                   <uga:GSuiteApplicationScope.AuthenticationScopes>
                     <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
                       <InArgument x:TypeArguments="x:String">https://mail.google.com/</InArgument>
@@ -1607,7 +1730,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </uga:GSuiteApplicationScope>
-                <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[pdfFile]" sap:VirtualizedContainerService.HintSize="434,176" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[&quot;Data\Invoice\Invoice_&quot;+ModifyCusRef+&quot;.pdf&quot;]" PathType="File">
+                <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[pdfFile]" sap:VirtualizedContainerService.HintSize="770,172" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[&quot;Data\Invoice\Invoice_&quot;+ModifyCusRef+&quot;.pdf&quot;]" PathType="File">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1615,7 +1738,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:PathExists>
-                <If Condition="[pdfFile]" sap:VirtualizedContainerService.HintSize="434,57.333333333333336" sap2010:WorkflowViewState.IdRef="If_30">
+                <If Condition="[pdfFile]" sap:VirtualizedContainerService.HintSize="770,57" sap2010:WorkflowViewState.IdRef="If_30">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1650,7 +1773,7 @@
                     </Sequence>
                   </If.Else>
                 </If>
-                <If Condition="[pdfFile]" sap:VirtualizedContainerService.HintSize="434,206.66666666666666" sap2010:WorkflowViewState.IdRef="If_40">
+                <If Condition="[pdfFile]" sap:VirtualizedContainerService.HintSize="770,2479" sap2010:WorkflowViewState.IdRef="If_40">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
