@@ -167,7 +167,7 @@
       <AssemblyReference>NPOI.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SendEmail" sap:VirtualizedContainerService.HintSize="1270,6722" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SendEmail" sap:VirtualizedContainerService.HintSize="1199,6572" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="ReadUploaderOutput" />
       <Variable x:TypeArguments="scg:List(x:String)" Name="sheetList" />
@@ -177,26 +177,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message (Sending Mail Mesage)" sap:VirtualizedContainerService.HintSize="638,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Sending Mail Message...&quot;]" />
-    <Assign sap:VirtualizedContainerService.HintSize="638,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_39">
-      <Assign.To>
-        <OutArgument x:TypeArguments="x:String">[in_EmailSubject]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="x:String" xml:space="preserve">Successful | Dispute &amp; POD Bot | </InArgument>
-      </Assign.Value>
-    </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="638,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_40">
-      <Assign.To>
-        <OutArgument x:TypeArguments="x:String">[in_EmailBody]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="x:String">
-          <Literal x:TypeArguments="x:String" Value="" />
-        </InArgument>
-      </Assign.Value>
-    </Assign>
-    <If Condition="[in_EmailSubject.Contains(&quot;Success&quot;)]" sap:VirtualizedContainerService.HintSize="638,6120.666666666667" sap2010:WorkflowViewState.IdRef="If_1">
+    <ui:LogMessage DisplayName="Log Message (Sending Mail Mesage)" sap:VirtualizedContainerService.HintSize="638,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Sending Mail Message...&quot;]" />
+    <If Condition="[in_EmailSubject.Contains(&quot;Success&quot;)]" sap:VirtualizedContainerService.HintSize="638,6212" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -204,7 +186,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="604,4471.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="604,4592" sap2010:WorkflowViewState.IdRef="Sequence_6">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:Int32" Name="BusinessExceptionCount" />
             <Variable x:TypeArguments="x:Int32" Name="SystemExceptionCount" />
@@ -224,7 +206,7 @@
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="570,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Split Emails by Dispute Type&quot;]">
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="570,173" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Split Emails by Dispute Type&quot;]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
@@ -234,7 +216,7 @@
           </ui:LogMessage>
           <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dtReadOutput]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="570,120" sap2010:WorkflowViewState.IdRef="ReadRange_4" SheetName="Output" WorkbookPath="Data\Batch.xlsx" />
           <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dtFileName]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="570,120" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="Sheet1" WorkbookPath="Data\Batch.xlsx" />
-          <Assign sap:VirtualizedContainerService.HintSize="570,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_16">
+          <Assign sap:VirtualizedContainerService.HintSize="570,114" sap2010:WorkflowViewState.IdRef="Assign_16">
             <Assign.To>
               <OutArgument x:TypeArguments="scg:List(x:String)">[fileNames]</OutArgument>
             </Assign.To>
@@ -242,13 +224,13 @@
               <InArgument x:TypeArguments="scg:List(x:String)">[dtFileName.AsEnumerable().Select(Function(r) r("FileName").ToString().Trim()).Distinct().ToList()]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each currentText" sap:VirtualizedContainerService.HintSize="570,3877.3333333333335" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[fileNames]">
+          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each currentText" sap:VirtualizedContainerService.HintSize="570,4005" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[fileNames]">
             <ui:ForEach.Body>
               <ActivityAction x:TypeArguments="x:String">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:String" Name="currentText" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="536,3738.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="536,3868" sap2010:WorkflowViewState.IdRef="Sequence_15">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="sd:DataTable" Name="dtFileNameRows" />
                     <Variable x:TypeArguments="sd:DataTable" Name="dtFilterMapping" />
@@ -261,13 +243,15 @@
                     <Variable x:TypeArguments="x:Int32" Name="NoAccrualCount" />
                     <Variable x:TypeArguments="x:Int32" Name="InactiveOfferCount" />
                     <Variable x:TypeArguments="x:Int32" Name="SuccessBottyCount" />
+                    <Variable x:TypeArguments="x:String" Name="setMailBody" />
+                    <Variable x:TypeArguments="x:String" Name="var_SuccessPercentage" />
                   </Sequence.Variables>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Assign sap:VirtualizedContainerService.HintSize="502,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_19">
+                  <Assign sap:VirtualizedContainerService.HintSize="502,114" sap2010:WorkflowViewState.IdRef="Assign_19">
                     <Assign.To>
                       <OutArgument x:TypeArguments="sd:DataTable">[dtFileNameRows]</OutArgument>
                     </Assign.To>
@@ -275,7 +259,7 @@
                       <InArgument x:TypeArguments="sd:DataTable">[dtFileName.AsEnumerable().Where(Function(r) r("FileName").ToString = currentText).CopyToDataTable()]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <Assign sap:VirtualizedContainerService.HintSize="502,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_25">
+                  <Assign sap:VirtualizedContainerService.HintSize="502,114" sap2010:WorkflowViewState.IdRef="Assign_25">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:String">[DisputeType]</OutArgument>
                     </Assign.To>
@@ -283,7 +267,7 @@
                       <InArgument x:TypeArguments="x:String">[dtFileNameRows.Rows(0)("DisputeType").ToString]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <Sequence DisplayName="Write Batch Output" sap:VirtualizedContainerService.HintSize="502,932.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                  <Sequence DisplayName="Write Batch Output" sap:VirtualizedContainerService.HintSize="502,933" sap2010:WorkflowViewState.IdRef="Sequence_31">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -306,13 +290,13 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:WriteRange>
-                    <ui:ExcelApplicationScope Password="{x:Null}" SensitivityLabel="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="450,496.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_4" InstanceCachePeriod="3000" SensitivityOperation="None" Visible="False" WorkbookPath="[&quot;Data\Output Batches\Output Batch &quot; &amp; currentText]">
+                    <ui:ExcelApplicationScope Password="{x:Null}" SensitivityLabel="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="450,497" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_4" InstanceCachePeriod="3000" SensitivityOperation="None" Visible="False" WorkbookPath="[&quot;Data\Output Batches\Output Batch &quot; &amp; currentText]">
                       <ui:ExcelApplicationScope.Body>
                         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
                           </ActivityAction.Argument>
-                          <Sequence sap:VirtualizedContainerService.HintSize="416,354.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                          <Sequence sap:VirtualizedContainerService.HintSize="416,355" sap2010:WorkflowViewState.IdRef="Sequence_30">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -326,7 +310,7 @@
                               </ui:ExcelReadRange.Range>
                             </ui:ExcelReadRange>
                             <ui:InvokeVBA OutputValue="{x:Null}" CodeFilePath="Tracker Macro.txt" DisplayName="Invoke VBA" EntryMethodName="DeleteNonMatchingOutput" sap:VirtualizedContainerService.HintSize="382,120" sap2010:WorkflowViewState.IdRef="InvokeVBA_6" />
-                            <ui:ExcelReadRange AddHeaders="True" DataTable="[dtReadOutput]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="382,82.66666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadRange_5" SheetName="Output">
+                            <ui:ExcelReadRange AddHeaders="True" DataTable="[dtReadOutput]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="382,83" sap2010:WorkflowViewState.IdRef="ExcelReadRange_5" SheetName="Output">
                               <ui:ExcelReadRange.Range>
                                 <InArgument x:TypeArguments="x:String">
                                   <Literal x:TypeArguments="x:String" Value="" />
@@ -352,8 +336,8 @@
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:KillProcess>
                   </Sequence>
-                  <ui:LogMessage DisplayName="Log Message (Sending Mail Mesage)" sap:VirtualizedContainerService.HintSize="502,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Mail: &quot; + currentText]" />
-                  <Assign sap:VirtualizedContainerService.HintSize="502,118" sap2010:WorkflowViewState.IdRef="Assign_18">
+                  <ui:LogMessage DisplayName="Log Message (Sending Mail Mesage)" sap:VirtualizedContainerService.HintSize="502,173" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Mail: &quot; + currentText]" />
+                  <Assign sap:VirtualizedContainerService.HintSize="502,115" sap2010:WorkflowViewState.IdRef="Assign_18">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:String">[TotalClaims]</OutArgument>
                     </Assign.To>
@@ -363,15 +347,15 @@
     .Count().ToString]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <ui:LogMessage DisplayName="Log Message (Sending Mail Mesage)" sap:VirtualizedContainerService.HintSize="502,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Trace" Message="[&quot;Total Claims &quot; + TotalClaims]" />
-                  <Sequence DisplayName="Table Variable Count" sap:VirtualizedContainerService.HintSize="502,318.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                  <ui:LogMessage DisplayName="Log Message (Sending Mail Mesage)" sap:VirtualizedContainerService.HintSize="502,173" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Trace" Message="[&quot;Total Claims &quot; + TotalClaims]" />
+                  <Sequence DisplayName="Table Variable Count" sap:VirtualizedContainerService.HintSize="502,542" sap2010:WorkflowViewState.IdRef="Sequence_32">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Assign sap:VirtualizedContainerService.HintSize="434,118" sap2010:WorkflowViewState.IdRef="Assign_20">
+                    <Assign sap:VirtualizedContainerService.HintSize="434,115" sap2010:WorkflowViewState.IdRef="Assign_20">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:Int32">[BusinessExceptionCount]</OutArgument>
                       </Assign.To>
@@ -382,7 +366,18 @@
     .Count()]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <Assign sap:VirtualizedContainerService.HintSize="434,108.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_22">
+                    <Assign sap:VirtualizedContainerService.HintSize="434,115" sap2010:WorkflowViewState.IdRef="Assign_42">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Int32">[SystemExceptionCount]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Int32" xml:space="preserve">[dtReadOutput.AsEnumerable() _
+    .Where(Function(row) row("Transaction Process Status").ToString.Trim.Equals("SYSTEM EXCEPTION")) _
+    .GroupBy(Function(row) row("Claim Number").ToString.Trim) _
+    .Count()]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="434,115" sap2010:WorkflowViewState.IdRef="Assign_22">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:Int32">[SuccessCount]</OutArgument>
                       </Assign.To>
@@ -393,9 +388,17 @@
     .Count()]</InArgument>
                       </Assign.Value>
                     </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_43">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[var_SuccessPercentage]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[Math.Round((CINT(SuccessCount) / CINT(TotalClaims)) * 100, 2).ToString]</InArgument>
+                      </Assign.Value>
+                    </Assign>
                   </Sequence>
                   <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dt_Mapping]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="502,120" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="Sheet1" WorkbookPath="Data\Mapping Table.xlsx" />
-                  <ui:FilterDataTable DataTable="[dt_Mapping]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="502,196" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[dtFilterMapping]" SelectColumnsMode="Keep">
+                  <ui:FilterDataTable DataTable="[dt_Mapping]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="502,193" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[dtFilterMapping]" SelectColumnsMode="Keep">
                     <ui:FilterDataTable.Filters>
                       <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                         <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
@@ -414,7 +417,7 @@
                       </scg:List>
                     </ui:FilterDataTable.SelectColumns>
                   </ui:FilterDataTable>
-                  <If Condition="[dtFilterMapping.Rows.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="502,554.6666666666666" sap2010:WorkflowViewState.IdRef="If_3">
+                  <If Condition="[dtFilterMapping.Rows.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="502,546" sap2010:WorkflowViewState.IdRef="If_3">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -422,13 +425,13 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <If.Then>
-                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,292" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,287" sap2010:WorkflowViewState.IdRef="Sequence_16">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <Assign sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_24">
+                        <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_24">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:String">[emailTo]</OutArgument>
                           </Assign.To>
@@ -436,11 +439,11 @@
                             <InArgument x:TypeArguments="x:String">[dtFilterMapping(0)("Owner Email").ToString.Trim]</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,114.66666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_11" Text="[&quot;Claim Analyst Email is &quot; + emailTo]" />
+                        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="WriteLine_11" Text="[&quot;Claim Analyst Email is &quot; + emailTo]" />
                       </Sequence>
                     </If.Then>
                     <If.Else>
-                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_17">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -450,59 +453,23 @@
                       </Sequence>
                     </If.Else>
                   </If>
-                  <Assign sap:VirtualizedContainerService.HintSize="502,118" sap2010:WorkflowViewState.IdRef="Assign_29">
+                  <Assign sap:VirtualizedContainerService.HintSize="502,114" sap2010:WorkflowViewState.IdRef="Assign_41">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[setMailBody]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[in_EmailBody]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="502,114" sap2010:WorkflowViewState.IdRef="Assign_29">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:String">[getMailBody]</OutArgument>
                     </Assign.To>
                     <Assign.Value>
-                      <InArgument x:TypeArguments="x:String" xml:space="preserve">["&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;style&gt;
-  body { font-family: Arial, sans-serif; font-size: 14px; color: #333333; line-height: 1.5; }
-  .table-container { margin-top: 15px; margin-bottom: 20px; }
-  table { border-collapse: collapse; width: 400px; font-size: 13px; }
-  th { background-color: #f2f2f2; text-align: left; font-weight: bold; padding: 8px; border: 1px solid #999999; }
-  td { padding: 8px; border: 1px solid #999999; }
-  .count-col { width: 80px; text-align: center; }
-&lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;p&gt;Hi Team,&lt;/p&gt;
-&lt;p&gt;The &lt;strong&gt;Dispute Customer Portal&lt;/strong&gt; submission process has completed.&lt;br&gt;
-Please find the attachment of the consolidated log table for your reference.&lt;/p&gt;
-&lt;div class=""table-container""&gt;
-  &lt;table&gt;
-    &lt;thead&gt;
-      &lt;tr&gt;
-        &lt;th&gt;BOT Run Statistics&lt;/th&gt;
-        &lt;th class=""count-col""&gt;Count&lt;/th&gt;
-      &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-      &lt;tr&gt;
-        &lt;td&gt;Total No of records processed in the run&lt;/td&gt;
-        &lt;td&gt;" + TotalClaims.ToString + "&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-        &lt;td&gt;No of records processed Successfully&lt;/td&gt;
-        &lt;td&gt;" + SuccessCount.ToString + "&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-        &lt;td&gt;No of Exceptions&lt;/td&gt;
-        &lt;td&gt;" + BusinessExceptionCount.ToString + "&lt;/td&gt;
-      &lt;/tr&gt;
- 
-    &lt;/tbody&gt;
-  &lt;/table&gt;
-&lt;/div&gt;
-&lt;p&gt;Thanks,&lt;br&gt;
-&lt;strong&gt;RPA Team&lt;/strong&gt;&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;"]</InArgument>
+                      <InArgument x:TypeArguments="x:String">[String.Format(setMailBody, in_UploaderID, TotalClaims, SuccessCount, var_SuccessPercentage, BusinessExceptionCount, SystemExceptionCount)]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <ui:SendMail Bcc="{x:Null}" ContinueOnError="{x:Null}" Email="{x:Null}" Files="{x:Null}" MailMessage="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" ResourceAttachments="{x:Null}" Result="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" AttachmentInputMode="Builder" Body="[getMailBody]" Cc="[in_config(&quot;cc&quot;).ToString]" ConnectionMode="LegacyConfiguration" DisplayName="Send SMTP Email" EnableSSL="True" From="[in_Config(&quot;Sender&quot;).ToString]" sap:VirtualizedContainerService.HintSize="502,382.6666666666667" sap2010:WorkflowViewState.IdRef="SendMail_9" IgnoreCRL="False" IsBodyHtml="True" Name="[in_Config(&quot;SenderName&quot;).ToString]" Port="25" SecureConnection="Auto" Server="mail.logitech.com" Subject="[in_EmailSubject + &quot; &quot; + currentText + &quot; | &quot; + now.ToLongDateString]" To="[emailTo]" UseISConnection="False" UseRichTextEditor="True">
+                  <ui:SendMail Bcc="{x:Null}" ContinueOnError="{x:Null}" Email="{x:Null}" Files="{x:Null}" MailMessage="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" ResourceAttachments="{x:Null}" Result="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" AttachmentInputMode="Builder" Body="[getMailBody]" Cc="[in_config(&quot;cc&quot;).ToString]" ConnectionMode="LegacyConfiguration" DisplayName="Send SMTP Email" EnableSSL="True" From="[in_Config(&quot;Sender&quot;).ToString]" sap:VirtualizedContainerService.HintSize="502,375" sap2010:WorkflowViewState.IdRef="SendMail_9" IgnoreCRL="False" IsBodyHtml="True" Name="[in_Config(&quot;SenderName&quot;).ToString]" Port="25" SecureConnection="Auto" Server="mail.logitech.com" Subject="[in_EmailSubject + &quot; &quot; + currentText + &quot; | &quot; + now.ToLongDateString]" To="[emailTo]" UseISConnection="False" UseRichTextEditor="True">
                     <ui:SendMail.AttachmentsBackup>
                       <usau:BackupSlot x:TypeArguments="umame:AttachmentInputMode" StoredValue="Builder">
                         <usau:BackupSlot.BackupValues>
@@ -540,18 +507,7 @@ Please find the attachment of the consolidated log table for your reference.&lt;
                       </scg:List>
                     </ui:SendMail.ResourceAttachmentList>
                   </ui:SendMail>
-                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="502,350" sap2010:WorkflowViewState.IdRef="CommentOut_2">
-                    <ui:CommentOut.Body>
-                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,247.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_34">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[in_Config(&quot;ArchiveSavedBatch&quot;).ToString]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="382,187.33333333333334" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[&quot;Data\Botty Batches\Output Batch &quot; &amp; currentText]" />
-                      </Sequence>
-                    </ui:CommentOut.Body>
-                  </ui:CommentOut>
+                  <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[in_Config(&quot;ArchiveSavedBatch&quot;).ToString]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="502,182" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[&quot;Data\Botty Batches\Output Batch &quot; &amp; currentText]" />
                 </Sequence>
               </ActivityAction>
             </ui:ForEach.Body>
@@ -559,33 +515,33 @@ Please find the attachment of the consolidated log table for your reference.&lt;
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="604,1477.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_7">
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="604,1450" sap2010:WorkflowViewState.IdRef="Sequence_7">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="570,124" sap2010:WorkflowViewState.IdRef="WriteLine_9" Text="[in_SysException]" />
-          <If Condition="[in_SysException.Contains(&quot;Batch file is empty&quot;)]" sap:VirtualizedContainerService.HintSize="570,1293.3333333333333" sap2010:WorkflowViewState.IdRef="If_4">
+          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="570,122" sap2010:WorkflowViewState.IdRef="WriteLine_9" Text="[in_SysException]" />
+          <If Condition="[in_SysException.Contains(&quot;Batch file is empty&quot;)]" sap:VirtualizedContainerService.HintSize="570,1268" sap2010:WorkflowViewState.IdRef="If_4">
             <If.Then>
-              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,227.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_18">
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="Sequence_18">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage DisplayName="Log Message (Sending Mail Mesage)" sap:VirtualizedContainerService.HintSize="382,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Exception is no validate Batch file.... No email needed&quot;]" />
+                <ui:LogMessage DisplayName="Log Message (Sending Mail Mesage)" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Exception is no validate Batch file.... No email needed&quot;]" />
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="536,903.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_19">
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="536,883" sap2010:WorkflowViewState.IdRef="Sequence_19">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:ForEachFileX DisplayName="For Each File in Folder" Folder="[in_Config(&quot;LiveFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="502,843.3333333333334" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+                <ui:ForEachFileX DisplayName="For Each File in Folder" Folder="[in_Config(&quot;LiveFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="502,823" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
                   <ui:ForEachFileX.Body>
                     <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
                       <ActivityAction.Argument1>
@@ -594,7 +550,7 @@ Please find the attachment of the consolidated log table for your reference.&lt;
                       <ActivityAction.Argument2>
                         <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
                       </ActivityAction.Argument2>
-                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468,550.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468,540" sap2010:WorkflowViewState.IdRef="Sequence_20">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="x:String" Name="BatchFile" />
                         </Sequence.Variables>
@@ -603,7 +559,7 @@ Please find the attachment of the consolidated log table for your reference.&lt;
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <Assign sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_27">
+                        <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_27">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:String">[BatchFile]</OutArgument>
                           </Assign.To>
@@ -611,7 +567,7 @@ Please find the attachment of the consolidated log table for your reference.&lt;
                             <InArgument x:TypeArguments="x:String">[CurrentFile.Name]</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <ui:SendMail Bcc="{x:Null}" ContinueOnError="{x:Null}" Email="{x:Null}" MailMessage="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" ResourceAttachments="{x:Null}" Result="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" AttachmentInputMode="Builder" Body="[in_EmailBody]" Cc="[in_Config(&quot;cc&quot;).ToString]" ConnectionMode="LegacyConfiguration" DisplayName="Send SMTP Email" EnableSSL="True" From="[in_Config(&quot;Sender&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,373.3333333333333" sap2010:WorkflowViewState.IdRef="SendMail_2" IgnoreCRL="False" IsBodyHtml="True" Name="[in_Config(&quot;SenderName&quot;).ToString]" Port="25" SecureConnection="Auto" Server="mail.logitech.com" Subject="[in_EmailSubject + now.ToShortDateString]" To="[in_Config(&quot;Recipients&quot;).ToString]" UseISConnection="False" UseRichTextEditor="True">
+                        <ui:SendMail Bcc="{x:Null}" ContinueOnError="{x:Null}" Email="{x:Null}" MailMessage="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" ResourceAttachments="{x:Null}" Result="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" AttachmentInputMode="Builder" Body="[in_EmailBody]" Cc="[in_Config(&quot;cc&quot;).ToString]" ConnectionMode="LegacyConfiguration" DisplayName="Send SMTP Email" EnableSSL="True" From="[in_Config(&quot;Sender&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,366" sap2010:WorkflowViewState.IdRef="SendMail_2" IgnoreCRL="False" IsBodyHtml="True" Name="[in_Config(&quot;SenderName&quot;).ToString]" Port="25" SecureConnection="Auto" Server="mail.logitech.com" Subject="[in_EmailSubject + now.ToShortDateString]" To="[in_Config(&quot;Recipients&quot;).ToString]" UseISConnection="False" UseRichTextEditor="True">
                           <ui:SendMail.AttachmentsBackup>
                             <usau:BackupSlot x:TypeArguments="umame:AttachmentInputMode" StoredValue="Builder">
                               <usau:BackupSlot.BackupValues>
@@ -650,6 +606,6 @@ Please find the attachment of the consolidated log table for your reference.&lt;
         </Sequence>
       </If.Else>
     </If>
-    <ui:LogMessage DisplayName="Log Message (Sent Mail Mesage)" sap:VirtualizedContainerService.HintSize="638,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Sent Mail Message!&quot;]" />
+    <ui:LogMessage DisplayName="Log Message (Sent Mail Mesage)" sap:VirtualizedContainerService.HintSize="638,164" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Sent Mail Message!&quot;]" />
   </Sequence>
 </Activity>
